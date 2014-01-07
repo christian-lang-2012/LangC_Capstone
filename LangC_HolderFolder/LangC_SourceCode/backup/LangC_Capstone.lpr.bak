@@ -10,6 +10,6 @@ uses
   { you can add units after this };
 
 begin
-  writeln('Hello world')
+  writeln('Testing stuff')
 end.
 
