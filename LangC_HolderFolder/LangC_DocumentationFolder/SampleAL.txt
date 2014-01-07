@@ -1,12 +1,18 @@
-alproj;
+:alproject:
 
-this program "AL_Example"
+this program is "AL_Example"
 
-let x = 3;
-let y = "The first week of class";
-let z = 8;
-let number constantly = 42;
-let decimal = 5.2;
+let #x = 3;
+let #y = "The first week of class";
+let #z = 8;
+let #number constantly = 42;
+let #decimal = 5.2;
 
-start
-finish
+:start program:
+printLine(#x + #z);
+printLine(#y);
+printLine(#z);
+printLine(#x + #decimal);
+printLine("Hello World");
+
+:finish program:
