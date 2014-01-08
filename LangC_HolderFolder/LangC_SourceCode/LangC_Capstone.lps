@@ -12,15 +12,116 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="25" Y="13"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="62"/>
+        <CursorPos X="47" Y="110"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit0>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="0" HistoryIndex="-1"/>
+    <JumpHistory Count="25" HistoryIndex="24">
+      <Position1>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="80" Column="32" TopLine="37"/>
+      </Position1>
+      <Position2>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="29" Column="19" TopLine="5"/>
+      </Position2>
+      <Position3>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="30" Column="11" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="45" Column="18" TopLine="6"/>
+      </Position4>
+      <Position5>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="32" Column="12" TopLine="5"/>
+      </Position5>
+      <Position6>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="5" TopLine="57"/>
+      </Position6>
+      <Position7>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="24" Column="3" TopLine="5"/>
+      </Position7>
+      <Position8>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="93" Column="6" TopLine="57"/>
+      </Position8>
+      <Position9>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="99" Column="28" TopLine="56"/>
+      </Position9>
+      <Position10>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="103" Column="12" TopLine="56"/>
+      </Position10>
+      <Position11>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="105" Column="1" TopLine="56"/>
+      </Position11>
+      <Position12>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="29" Column="15" TopLine="4"/>
+      </Position12>
+      <Position13>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="102" Column="12" TopLine="54"/>
+      </Position13>
+      <Position14>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="10" TopLine="54"/>
+      </Position14>
+      <Position15>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="102" Column="12" TopLine="54"/>
+      </Position15>
+      <Position16>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="20" TopLine="54"/>
+      </Position16>
+      <Position17>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="102" Column="12" TopLine="55"/>
+      </Position17>
+      <Position18>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="12" TopLine="55"/>
+      </Position18>
+      <Position19>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="102" Column="12" TopLine="55"/>
+      </Position19>
+      <Position20>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="21" TopLine="55"/>
+      </Position20>
+      <Position21>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="109" Column="1" TopLine="55"/>
+      </Position21>
+      <Position22>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="83" Column="52" TopLine="55"/>
+      </Position22>
+      <Position23>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="106" Column="14" TopLine="55"/>
+      </Position23>
+      <Position24>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="40" Column="12" TopLine="20"/>
+      </Position24>
+      <Position25>
+        <Filename Value="LangC_Capstone.lpr"/>
+        <Caret Line="104" Column="14" TopLine="62"/>
+      </Position25>
+    </JumpHistory>
   </ProjectSession>
 </CONFIG>
