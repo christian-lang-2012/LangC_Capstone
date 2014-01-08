@@ -15,4 +15,6 @@ printLine(#z);
 printLine(#x + #decimal);
 printLine("Hello World");
 
+repeat #x * #z for 5 loops
+
 :finish program:
