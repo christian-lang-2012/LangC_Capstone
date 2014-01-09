@@ -1,0 +1,23 @@
+:alproject"
+
+this program "AL_Structure"
+
+/*
+* Comments look like this
+* This is where variables go
+*/
+
+:variables:
+
+/*
+* This is where methods go
+*/
+
+:methods:
+
+
+/*
+*This is where the program will begin and end
+*/
+:start program:
+:end program:
