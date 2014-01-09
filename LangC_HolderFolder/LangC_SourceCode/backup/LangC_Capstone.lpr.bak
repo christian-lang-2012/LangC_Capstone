@@ -2,17 +2,20 @@ program LangC_Capstone;
 
 {$mode objfpc}{$H+}
 
-uses
+uses Crt,
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
+
   {$ENDIF}{$ENDIF}
   Classes
   { you can add units after this };
+
 
 type
     FileIO = class
 const TAB = ^I;
 var Look: char;
+var filein: text;
 
 public
    constructor create;
@@ -29,10 +32,13 @@ public
    procedure Init;
 end;
 
+
 var io: FileIO;
+
 constructor FileIO.create;
 begin
-
+     reset(filein, 'C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_DocumentationFolder\SampleAL.txt');
+    (*Do nothing*)
 end;
 
 procedure FileIO.getChar;
@@ -49,7 +55,9 @@ end;
 procedure FileIO.Abort(s: string);
 begin
      Error(s);
+     Delay(5000);
      Halt;
+
 end;
 
 procedure FileIO.Expected(s: string);
@@ -101,18 +109,57 @@ end;
 type
     ExpressionParsing = class
 public
+   constructor create;
+   procedure Term;
+   procedure Add;
+   procedure Subtract;
    procedure ExpressionParse;
-
 end;
+
 var parse: ExpressionParsing;
 
-procedure parse.ExpressionParse;
+constructor ExpressionParsing.create;
 begin
-     io.Emit('Move #' + io.GetNum + ',DO')
+     (*Do nothing*)
+end;
+
+procedure ExpressionParsing.Term;
+begin
+     io.Emit('MOVE #,' + io.GetNum + ',D0');
+end;
+
+procedure ExpressionParsing.Add;
+begin
+     io.Match('+');
+     Term;
+     io.Emit('ADD D1,D0');
+end;
+
+procedure ExpressionParsing.Subtract;
+begin
+     io.Match('-');
+     Term;
+     io.Emit('SUB D1, D0');
+end;
+
+procedure ExpressionParsing.ExpressionParse;
+begin
+     Term;
+     io.Emit('MOVE D0, D1');
+     case io.Look of
+     '+': Add;
+     '-': Subtract;
+     else io.Expected('Math Operator');
+     end;
+
 end;
 
 begin
        io := FileIO.create;
+       parse := ExpressionParsing.create;
        io.Init;
+       parse.ExpressionParse;
+       Delay(5000);
+
 end.
 
