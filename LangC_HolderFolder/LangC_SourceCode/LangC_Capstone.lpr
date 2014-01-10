@@ -14,11 +14,15 @@ uses Crt,
 type
     FileIO = class
 const TAB = ^I;
+const headerTest = ':alproject:';
 var Look: char;
 var filein: text;
+var inputString: String;
+
 
 public
    constructor create;
+   procedure checkForCorrectHeader;
    procedure getChar;
    procedure Error(s: string);
    procedure Abort(s: string);
@@ -38,7 +42,27 @@ var io: FileIO;
 constructor FileIO.create;
 begin
      assign(filein, 'C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_DocumentationFolder\SampleAL.txt');
-    (*Do nothing*)
+end;
+
+procedure FileIO.checkForCorrectHeader;
+begin
+     try
+       Reset(filein);
+       repeat
+         Readln(filein, inputString);
+         Writeln(inputString);
+       until(EOF(filein));
+       CloseFile(filein);
+       except
+         (*
+         on E: EInOutError do
+         begin
+           Writeln('File handling error occurred. Details: ' + E.ClassName+'/'+E.Message);
+         end;
+       end;*)
+       WriteLn('Reading finished. Press Enter to Stop.');
+       Readln;
+     end;
 end;
 
 procedure FileIO.getChar;
@@ -155,11 +179,11 @@ begin
 end;
 
 begin
-       io := FileIO.create;
-       parse := ExpressionParsing.create;
-       io.Init;
-       parse.ExpressionParse;
-       Delay(5000);
-
+     io := FileIO.create;
+     parse := ExpressionParsing.create;
+     io.checkForCorrectHeader;
+     io.Init;
+     parse.ExpressionParse;
+     Delay(5000);
 end.
 
