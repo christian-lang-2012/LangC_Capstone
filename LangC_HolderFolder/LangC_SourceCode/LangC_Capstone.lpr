@@ -18,6 +18,7 @@ const headerTest = ':alproject:';
 var Look: char;
 var filein: text;
 var inputString: String;
+var isFirstLine: Boolean;
 
 
 public
@@ -42,6 +43,7 @@ var io: FileIO;
 constructor FileIO.create;
 begin
      assign(filein, 'C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_DocumentationFolder\SampleAL.txt');
+     isFirstLine := True;
 end;
 
 procedure FileIO.checkForCorrectHeader;
@@ -50,7 +52,17 @@ begin
        Reset(filein);
        repeat
          Readln(filein, inputString);
-         Writeln(inputString);
+
+         if(isFirstLine = True) and (inputString = ':alproject:') then begin
+             WriteLn(inputString);
+             isFirstLine := False;
+         end
+         else if(isFirstLine = True) and not(inputString = ':alProject:') then begin
+             WriteLn('Invalid File Header');
+             Break;
+         end else if(isFirstLine = False) then
+              WriteLn(inputString);
+
        until(EOF(filein));
        CloseFile(filein);
        except
