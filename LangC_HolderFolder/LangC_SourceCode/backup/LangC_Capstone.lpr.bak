@@ -62,7 +62,6 @@ begin
              Break;
          end else if(isFirstLine = False) then
               WriteLn(inputString);
-         end;
 
        until(EOF(filein));
        CloseFile(filein);
@@ -134,7 +133,7 @@ end;
 
 procedure FileIO.Emit(s: string);
 begin
-     Write(TAB, s);
+     WriteLn(TAB, s);
 end;
 
 procedure FileIO.Init;
@@ -150,6 +149,9 @@ public
    procedure Term;
    procedure Add;
    procedure Subtract;
+   procedure Multiply;
+   procedure Divide;
+   procedure MathFactor;
    procedure ExpressionParse;
 end;
 
@@ -162,6 +164,16 @@ end;
 
 procedure ExpressionParsing.Term;
 begin
+     MathFactor;
+     while io.Look in ['*', '/'] do begin
+       io.Emit('MOVE D0,-(SP)');
+       case io.Look of
+       '*': Multiply;
+       '/': Divide;
+       else io.Expected('Multiplication or Division Operator');
+       end;
+     end;
+
      io.Emit('MOVE #,' + io.GetNum + ',D0');
 end;
 
@@ -169,32 +181,53 @@ procedure ExpressionParsing.Add;
 begin
      io.Match('+');
      Term;
-     io.Emit('ADD D1,D0');
+     io.Emit('ADD (SP)+,D0');
 end;
 
 procedure ExpressionParsing.Subtract;
 begin
      io.Match('-');
      Term;
-     io.Emit('SUB D1, D0');
+     io.Emit('SUB (SP)+,D0');
+     io.Emit('NEG D0');
+end;
+
+procedure ExpressionParsing.Multiply;
+begin
+    io.Match('*');
+    MathFactor;
+    io.Emit('MULS (SP)+,D0');
+end;
+
+procedure ExpressionParsing.Divide;
+begin
+    io.Match('/');
+    MathFactor;
+    io.Emit('Move (SP)+,D1);
+    io.Emit('DIVS D1,D0');
+end;
+
+procedure ExpressionParsing.MathFactor;
+begin
+     io.Emit('Move #' + io.GetNum + ',D0');
 end;
 
 procedure ExpressionParsing.ExpressionParse;
 begin
      Term;
-     io.Emit('MOVE D0, D1');
-     case io.Look of
-     '+': Add;
-     '-': Subtract;
-     else io.Expected('Math Operator');
+     while io.Look in ['+', '-'] do
+     begin
+           io.Emit('MOVE D0,-(SP)');
+           case io.Look of
+           '+': Add;
+           '-': Subtract;
+           else io.Expected('Addition or Subtraction Operator');
+           end;
      end;
-
 end;
-
 begin
      io := FileIO.create;
      parse := ExpressionParsing.create;
-     io.checkForCorrectHeader;
      io.Init;
      parse.ExpressionParse;
      Delay(5000);
