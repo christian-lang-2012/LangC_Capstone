@@ -10,10 +10,9 @@ namespace LangC_Capstone
     {
         static void Main(string[] args)
         {
-            IO myIO = new IO();
-            ExpressionParsing parsing = new ExpressionParsing();
-            myIO.Initialize();
-            parsing.ParseEntireExpression();
+            string path = "C:\\Users\\Christian\\LangC_Capstone\\LangC_HolderFolder\\LangC_DocumentationFolder\\SampleAL.txt";
+            Tokenizer tokenizer = new Tokenizer(path);
+            tokenizer.readFile();
         }
     }
 }

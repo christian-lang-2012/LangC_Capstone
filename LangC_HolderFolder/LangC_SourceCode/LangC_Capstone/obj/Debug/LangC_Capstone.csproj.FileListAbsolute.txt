@@ -4,3 +4,9 @@ C:\School Work\Quarter7\Capstone\LangC_Capstone\LangC_Capstone\bin\Debug\LangC_C
 C:\School Work\Quarter7\Capstone\LangC_Capstone\LangC_Capstone\obj\Debug\LangC_Capstone.csprojResolveAssemblyReference.cache
 C:\School Work\Quarter7\Capstone\LangC_Capstone\LangC_Capstone\obj\Debug\LangC_Capstone.exe
 C:\School Work\Quarter7\Capstone\LangC_Capstone\LangC_Capstone\obj\Debug\LangC_Capstone.pdb
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\LangC_Capstone.exe.config
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\LangC_Capstone.exe
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\LangC_Capstone.pdb
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\LangC_Capstone.exe
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\LangC_Capstone.pdb
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\LangC_Capstone.csprojResolveAssemblyReference.cache
