@@ -1,7 +1,7 @@
 grammar AL_CombinedGrammar;
 program 
     : ProgramHeader ProgramDeclaration VariableHeader 
-      VariableDeclaration* MethodHeader MethodDeclaration* ;
+      VariableDeclaration* Variable* MethodHeader MethodDeclaration* ;
 
 ProgramHeader 
     : ':alproject:'
@@ -15,9 +15,20 @@ VariableHeader
     : ':variables:'
     ;
 
+Variable
+    : 'let #' ID '=' expr 
+    ;
 
 MethodHeader
     : ':methods:'
+    ;
+
+Method
+    : function
+    ;
+
+function
+    : 'function'
     ;
 
 stat
@@ -31,6 +42,7 @@ expr
     | expr op=(ADD|SUB)expr
     | INT
     | ID
+    | Variable
     | '(' expr ')'
     ;
 
