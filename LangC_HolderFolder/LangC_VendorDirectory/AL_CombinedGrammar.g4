@@ -1,18 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 grammar AL_CombinedGrammar;
 program 
-    : ProgramHeader ProgramDeclaration ;
+    : ProgramHeader ProgramDeclaration VariableHeader 
+      VariableDeclaration* MethodHeader MethodDeclaration* ;
 
 ProgramHeader 
-    : ':alproject:';
+    : ':alproject:'
+    ;
 
 ProgramDeclaration 
-    : 'this program' '"' expr '"';
+    : 'this program' '"' ID '"'
+    ;
+
+VariableHeader
+    : ':variables:'
+    ;
+
+
+MethodHeader
+    : ':methods:'
+    ;
 
 stat
     : expr NEWLINE
@@ -26,6 +32,23 @@ expr
     | INT
     | ID
     | '(' expr ')'
+    ;
+
+
+MUL
+    : 'MUL'
+    ;
+
+DIV
+    : 'DIV'
+    ;
+
+ADD
+    : 'ADD'
+    ;
+
+SUB
+    : 'SUB'
     ;
 
 ID
