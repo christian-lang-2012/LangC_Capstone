@@ -5,39 +5,34 @@
  */
 
 grammar AL_CombinedGrammar;
-rule : HEADER;
-HEADER          : ':alproject:' ;
-AND             : 'and';
-ARRAY           : 'array';
-AS              : 'as';
-BEGIN           : 'begin';
-BREAK           : 'break';
-CASE            : 'case';
-CATCH           : 'catch';
-CONSTANTLY      : 'constantly';
-CONTINUE        : 'continue';
-DO              : 'do';
-ELSE            : 'else';
-END             : 'end';
-EXIT            : 'exit';
-FALSE           : 'false';
-FILE            : 'file';
-FINALLY         : 'finally';
-FUNCTION        : 'function'; 
-IF              : 'if';
-IN              : 'in';
-IS              : 'is';
-LOOPS           : 'loops';
-NULL            : 'null';
-NOT             : 'not';
-OR              : 'or';
-PROGRAM         : 'program';
-SET             : 'set';
-SWITCH          : 'switch';
-TIMES           : 'times';
-TO              : 'to';
-TRUE            : 'true';
-TRY             : 'try';
-UNIMPLEMENTED   : 'unimplemented';
-WHILE           : 'while';
-WS : [ \t\r\n] + -> skip ;
+program 
+    : ProgramHeader ProgramDeclaration ;
+
+ProgramHeader 
+    : ':alproject:';
+
+ProgramDeclaration 
+    : 'this program' '"' expr '"';
+
+stat
+    : expr NEWLINE
+    | ID '=' expr NEWLINE
+    | NEWLINE
+    ;
+
+expr
+    : expr op=(MUL|DIV)expr
+    | expr op=(ADD|SUB)expr
+    | INT
+    | ID
+    | '(' expr ')'
+    ;
+
+ID
+    : [a-zA-z]+;
+INT
+    : [0-9]+;
+NEWLINE
+    : '\r'? '\n';
+WS
+    : [ \t]+ -> skip;
