@@ -1,73 +1,45 @@
 grammar AL_CombinedGrammar;
+
 program 
-    : ProgramHeader ProgramDeclaration VariableHeader 
-      VariableDeclaration* Variable* MethodHeader MethodDeclaration* ;
+    : ProgramHeader? ProgramDeclaration? VariableHeader? variable* MethodHeader?
+    ;
 
 ProgramHeader 
     : ':alproject:'
     ;
 
 ProgramDeclaration 
-    : 'this program' '"' ID '"'
+    : 'this program "' Words+ '"'
     ;
 
 VariableHeader
     : ':variables:'
     ;
 
-Variable
-    : 'let #' ID '=' expr 
-    ;
-
 MethodHeader
     : ':methods:'
     ;
 
-Method
-    : function
+method
+    :
     ;
 
-function
-    : 'function'
+variable
+    : 'let #' Words AssignmentOperator (Words|INT) ';'
     ;
 
-stat
-    : expr NEWLINE
-    | ID '=' expr NEWLINE
-    | NEWLINE
+AssignmentOperator
+    : '='
     ;
 
-expr
-    : expr op=(MUL|DIV)expr
-    | expr op=(ADD|SUB)expr
-    | INT
-    | ID
-    | Variable
-    | '(' expr ')'
-    ;
-
-
-MUL
-    : 'MUL'
-    ;
-
-DIV
-    : 'DIV'
-    ;
-
-ADD
-    : 'ADD'
-    ;
-
-SUB
-    : 'SUB'
-    ;
-
-ID
-    : [a-zA-z]+;
 INT
-    : [0-9]+;
-NEWLINE
-    : '\r'? '\n';
+    : [0-9]+
+    ;
+
+Words 
+    : [a-zA-z_]+
+    ;
+
 WS
-    : [ \t]+ -> skip;
+    : [ \t\n\r]+ -> skip
+    ;

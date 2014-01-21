@@ -11,19 +11,5 @@ let #decimal = 5.2;
 
 :methods:
 
-function addition(variable1, variable2)
-begin
-   printLine(variable1 + variable2);
-end;
-
 :start program:
-printLine(#x + #z);
-printLine(#y);
-printLine(#z);
-printLine(#x + #decimal);
-printLine("Hello World");
-
-
-repeat #x * #z for 5 loops
-
-:finish program:
+:end program:
