@@ -3,8 +3,8 @@
 this program "AL_Example"
 
 :variables:
-let #x = 3;
-let #y = "The first week of class";
+let int #x = 3;
+let string #y = "The first week of class";
 let #z = 8;
 let #number constantly = 42;
 let #decimal = 5.2;
@@ -12,4 +12,7 @@ let #decimal = 5.2;
 :methods:
 
 :start program:
+writeLine(#x);
+writeLine(#y);
+
 :end program:
