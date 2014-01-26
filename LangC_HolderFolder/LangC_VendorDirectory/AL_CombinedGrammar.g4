@@ -26,7 +26,7 @@ MethodHeader
     ;
 
 mainProgram
-    : StartProgram EndProgram
+    : StartProgram block EndProgram
     ;
 
 StartProgram
@@ -87,22 +87,6 @@ Identifier
     :   Letter LetterOrDigit*
     ;
 
-statement
-    :   block
-    |   'if' parExpression statement ('else' statement)?
-    |   'for' '(' forControl ')' statement
-    |   'while' parExpression statement
-    |   'do' statement 'while' parExpression ';'
-    |   'switch' parExpression Begin switchBlockStatementGroup* switchLabel* End
-    |   'synchronized' parExpression block
-    |   'return' expression? ';'
-    |   'throw' expression ';'
-    |   'break' Identifier? ';'
-    |   'continue' Identifier? ';'
-    |   ';'
-    |   statementExpression ';'
-    |   Identifier ':' statement
-    ;
 
 statementExpression
     :   expression
@@ -120,6 +104,21 @@ switchLabel
 constantExpression
     :   expression
     ;
+
+statement
+    :   block
+    |   'if' parExpression statement ('else' statement)?
+    |   'for' '(' forControl ')' statement
+    |   'while' parExpression statement
+    |   'do' statement 'while' parExpression ';'
+    |   'switch' parExpression Begin switchBlockStatementGroup* switchLabel* End
+    |   'return' expression? ';'
+    |   'break' Identifier? ';'
+    |   ';'
+    |   statementExpression ';'
+    |   Identifier ':' statement
+    ;
+
 
 
 forControl
@@ -185,7 +184,6 @@ parExpression
 expression
     :   primary
     |   expression '.' Identifier
-    |   expression '.' 'this'
     |   expression '[' expression ']'
     |   '(' type ')' expression
     |   expression ('++' | '--')
@@ -195,7 +193,6 @@ expression
     |   expression ('+'|'-') expression
     |   expression ('<' '<' | '>' '>' '>' | '>' '>') expression
     |   expression ('<=' | '>=' | '>' | '<') expression
-    |   expression 'instanceof' type
     |   expression ('==' | '!=') expression
     |   expression '&' expression
     |   expression '^' expression
