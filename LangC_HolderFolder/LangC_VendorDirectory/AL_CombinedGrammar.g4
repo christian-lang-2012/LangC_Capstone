@@ -25,6 +25,9 @@ MethodHeader
     : ':methods:'
     ;
 
+
+
+//Main method status
 mainProgram
     : StartProgram block EndProgram
     ;
@@ -38,9 +41,20 @@ EndProgram
     ;
 
 method
-    : Function Words FirstParenthases SecondParenthases Begin block End
+    :   methodDeclaration
     ;
 
+
+//Method
+methodDeclaration
+    :   (type|'void') Identifier FirstParenthases SecondParenthases 
+        Begin
+            block
+        End
+    ;
+
+
+//Method Blocks
 block
     :   blockStatement*
     ;
@@ -70,41 +84,6 @@ variableDeclarator
     :   variableDeclaratorId ('=' variableInitializer)?
     ;
 
-variableInitializer
-    :   arrayInitializer
-    |   expression
-    ;
-
-arrayInitializer
-    :   '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
-    ;
-
-variableDeclaratorId
-    :   Identifier ('[' ']')*
-    ;
-
-Identifier
-    :   Letter LetterOrDigit*
-    ;
-
-
-statementExpression
-    :   expression
-    ;
-
-switchBlockStatementGroup
-    :   switchLabel+ blockStatement+
-    ;
-
-switchLabel
-    :   'case' constantExpression ':'
-    |   'default' ':'
-    ;
-
-constantExpression
-    :   expression
-    ;
-
 statement
     :   block
     |   'if' parExpression statement ('else' statement)?
@@ -119,8 +98,16 @@ statement
     |   Identifier ':' statement
     ;
 
+switchBlockStatementGroup
+    :   switchLabel+ blockStatement+
+    ;
 
+switchLabel
+    :   'case' constantExpression ':'
+    |   'default' ':'
+    ;
 
+//For Control
 forControl
     :   enhancedForControl
     |   forInit? ';' expression? ';' forUpdate?
@@ -135,56 +122,35 @@ enhancedForControl
     :   variableModifier* type Identifier ':' expression
     ;
 
-variableModifier
-    :   annotation
-    ;
-
-annotation
-    :   '@' annotationName ( '(' ( elementValuePairs | elementValue )? ')' )?
-    ;
-
-annotationName : qualifiedName ;
-
-elementValuePairs
-    :   elementValuePair (',' elementValuePair)*
-    ;
-
-elementValuePair
-    :   Identifier '=' elementValue
-    ;
-
-elementValue
-    :   expression
-    |   annotation
-    |   elementValueArrayInitializer
-    ;
-
-elementValueArrayInitializer
-    :   '{' (elementValue (',' elementValue)*)? (',')? '}'
-    ;
-
-qualifiedName
-    :   Identifier ('.' Identifier)*
-    ;
-
-
 forUpdate
     :   expressionList
+    ;
+
+
+//Expressions
+
+parExpression
+    :   '(' expression ')'
     ;
 
 expressionList
     :   expression (',' expression)*
     ;
 
+statementExpression
+    :   expression
+    ;
 
-parExpression
-    :   '(' expression ')'
+constantExpression
+    :   expression
     ;
 
 expression
     :   primary
     |   expression '.' Identifier
+    |   expression '.' 'this'
     |   expression '[' expression ']'
+    |   expression '(' expressionList? ')'
     |   '(' type ')' expression
     |   expression ('++' | '--')
     |   ('+'|'-'|'++'|'--') expression
@@ -234,6 +200,64 @@ literal
     |   StringLiteral
     |   BooleanLiteral
     |   'null'
+    ;
+
+
+
+//Variables
+
+variable
+    : 'let #' Words AssignmentOperator (Words|INT) ';'
+    ;
+
+
+variableInitializer
+    :   arrayInitializer
+    |   expression
+    ;
+
+arrayInitializer
+    :   '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
+    ;
+
+variableDeclaratorId
+    :   Identifier ('[' ']')*
+    ;
+
+Identifier
+    :   Letter LetterOrDigit*
+    ;
+
+variableModifier
+    :   annotation
+    ;
+
+annotation
+    :   '@' annotationName ( '(' ( elementValuePairs | elementValue )? ')' )?
+    ;
+
+annotationName : qualifiedName ;
+
+elementValuePairs
+    :   elementValuePair (',' elementValuePair)*
+    ;
+
+elementValuePair
+    :   Identifier '=' elementValue
+    ;
+
+elementValue
+    :   expression
+    |   annotation
+    |   elementValueArrayInitializer
+    ;
+
+elementValueArrayInitializer
+    :   '{' (elementValue (',' elementValue)*)? (',')? '}'
+    ;
+
+qualifiedName
+    :   Identifier ('.' Identifier)*
     ;
 
 IntegerLiteral
@@ -381,10 +405,6 @@ End
 
 Function
     : 'function'
-    ;
-
-variable
-    : 'let #' Words AssignmentOperator (Words|INT) ';'
     ;
 
 primitiveType
