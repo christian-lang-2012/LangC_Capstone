@@ -4,15 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Antlr4;
+using Antlr4.Runtime.Atn;
+using Antlr4.Runtime.Dfa;
 
 namespace LangC_Capstone
 {
     public class Lexer
     {
-        protected static const DFA[] _decisionToDFA;
-	    protected static final PredictionContextCache _sharedContextCache =
-		new PredictionContextCache();
-	public static const int	T__30=1, 
+        protected static const DFA[] _decisionToDFA = new DFA[_ATN.GetNumberOfDecisions()];
+        
+        public static const ATN _ATN = ATNSimulator.Deserialize(_serializedATN.ToCharArray());
+        
+        public Lexer (CharStream input)
+	    {
+            for (int i = 0; i < _ATN.GetNumberOfDecisions(); i++) 
+            {
+			    _decisionToDFA[i] = new DFA(_ATN.GetDecisionState(i), i);
+		    }    
+            super(input);
+		    _interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);       
+	    }
+
+        public Lexer() {
+		
+	}
+
+	    protected static const PredictionContextCache _sharedContextCache = new PredictionContextCache();
+	    public static const int	T__30=1, 
         T__29=2, 
         T__28=3, 
         T__27=4, 
@@ -29,103 +47,245 @@ namespace LangC_Capstone
         T__16=15, 
         T__15=16, 
 		T__14=17, 
-        T__13=18, T__12=19, T__11=20, T__10=21, T__9=22, T__8=23, T__7=24, 
-		T__6=25, T__5=26, T__4=27, T__3=28, T__2=29, T__1=30, T__0=31, ProgramHeader=32, 
-		ProgramDeclaration=33, VariableHeader=34, MethodHeader=35, StartProgram=36, 
-		EndProgram=37, Identifier=38, IntegerLiteral=39, FirstParenthases=40, 
-		SecondParenthases=41, Begin=42, End=43, Function=44, ASSIGN=45, GT=46, 
-		LT=47, BANG=48, TILDE=49, QUESTION=50, COLON=51, EQUAL=52, LE=53, GE=54, 
-		NOTEQUAL=55, AND=56, OR=57, INC=58, DEC=59, ADD=60, SUB=61, MUL=62, DIV=63, 
-		BITAND=64, BITOR=65, CARET=66, MOD=67, ADD_ASSIGN=68, SUB_ASSIGN=69, MUL_ASSIGN=70, 
-		DIV_ASSIGN=71, AND_ASSIGN=72, OR_ASSIGN=73, XOR_ASSIGN=74, MOD_ASSIGN=75, 
-		LSHIFT_ASSIGN=76, RSHIFT_ASSIGN=77, URSHIFT_ASSIGN=78, INT=79, Words=80, 
-		WS=81, COMMENT=82, LINE_COMMENT=83;
-	public static String[] modeNames = {
-		"DEFAULT_MODE"
+        T__13=18, 
+        T__12=19, 
+        T__11=20, 
+        T__10=21, 
+        T__9=22, 
+        T__8=23, 
+        T__7=24, 
+		T__6=25, 
+        T__5=26, 
+        T__4=27, 
+        T__3=28, 
+        T__2=29, 
+        T__1=30, T__0=31, 
+        ProgramHeader=32, 
+		ProgramDeclaration=33, 
+        VariableHeader=34, 
+        MethodHeader=35, 
+        StartProgram=36, 
+		EndProgram=37, 
+        Identifier=38, 
+        IntegerLiteral=39, 
+        FirstParenthases=40, 
+		SecondParenthases=41, 
+        Begin=42, 
+        End=43, 
+        Function=44, 
+        ASSIGN=45, 
+        GT=46, 
+		LT=47, 
+        BANG=48, 
+        TILDE=49, 
+        QUESTION=50, 
+        COLON=51, 
+        EQUAL=52, 
+        LE=53, 
+        GE=54, 
+		NOTEQUAL=55, 
+        AND=56, OR=57, 
+        INC=58, 
+        DEC=59, 
+        ADD=60, 
+        SUB=61, 
+        MUL=62, 
+        DIV=63, 
+		BITAND=64, 
+        BITOR=65, 
+        CARET=66, 
+        MOD=67, 
+        ADD_ASSIGN=68, 
+        SUB_ASSIGN=69, 
+        MUL_ASSIGN=70, 
+		DIV_ASSIGN=71, 
+        AND_ASSIGN=72, 
+        OR_ASSIGN=73, 
+        XOR_ASSIGN=74, 
+        MOD_ASSIGN=75, 
+		LSHIFT_ASSIGN=76, 
+        RSHIFT_ASSIGN=77, 
+        URSHIFT_ASSIGN=78, 
+        INT=79, 
+        Words=80, 
+		WS=81, 
+        COMMENT=82, 
+        LINE_COMMENT=83;
+	
+        public static String[] modeNames = { "DEFAULT_MODE" };
+
+	    public static const String[] tokenNames = {
+		    "<INVALID>",
+		    "'['", 
+            "'double'", 
+            "'}'", 
+            "'boolean'", 
+            "'float'", 
+            "'case'", 
+            "'char'", 
+		    "'do'", 
+            "'super'",
+            "'@'", 
+            "'null'",
+            "'class'", 
+            "'long'",
+            "']'", 
+            "'short'", 
+		    "'default'",
+            "','", 
+            "'while'", 
+            "'if'", 
+            "'int'", 
+            "'void'", 
+            "'{'", 
+            "'break'", 
+		    "'else'", 
+            "'byte'", 
+            "'.'", 
+            "'for'", 
+            "'return'", 
+            "';'", 
+            "'this'",
+            "'switch'", 
+		    "':alproject:'",
+            "ProgramDeclaration",
+            "':variables:'", 
+            "':methods:'", 
+		    "':start program:'", 
+            "':end program:'",
+            "Identifier",
+            "IntegerLiteral", 
+		    "'('", 
+            "')'",
+            "'begin'", 
+            "'end;'", 
+            "'function'", 
+            "'='", 
+            "'>'", 
+            "'<'", 
+		    "'!'",
+            "'~'", 
+            "'?'", 
+            "':'", 
+            "'=='", 
+            "'<='", 
+            "'>='", 
+            "'!='", 
+            "'&&'", 
+            "'||'", 
+		    "'++'",
+            "'--'", 
+            "'+'", 
+            "'-'", 
+            "'*'", 
+            "'/'", 
+            "'&'", 
+            "'|'",
+            "'^'",
+            "'%'", 
+		    "'+='", 
+            "'-='", 
+            "'*='", 
+            "'/='", 
+            "'&='", 
+            "'|='", 
+            "'^='", 
+            "'%='", 
+            "'<<='", 
+		    "'>>='", 
+            "'>>>='", 
+            "INT", 
+            "Words", 
+            "WS", 
+            "COMMENT", 
+            "LINE_COMMENT"
+	    };
+	
+    public static const String[] ruleNames = 
+    {
+	"T__30", "T__29", "T__28", "T__27", "T__26", "T__25", "T__24", "T__23", 
+	"T__22", "T__21", "T__20", "T__19", "T__18", "T__17", "T__16", "T__15", 
+	"T__14", "T__13", "T__12", "T__11", "T__10", "T__9", "T__8", "T__7", "T__6", 
+	"T__5", "T__4", "T__3", "T__2", "T__1", "T__0", "ProgramHeader", "ProgramDeclaration", 
+	"VariableHeader", "MethodHeader", "StartProgram", "EndProgram", "Identifier", 
+	"IntegerLiteral", "DecimalIntegerLiteral", "HexIntegerLiteral", "OctalIntegerLiteral", 
+	"BinaryIntegerLiteral", "IntegerTypeSuffix", "DecimalNumeral", "Digits", 
+	"Digit", "NonZeroDigit", "DigitOrUnderscore", "Underscores", "HexNumeral", 
+	"HexDigits", "HexDigit", "HexDigitOrUnderscore", "OctalNumeral", "OctalDigits", 
+	"OctalDigit", "OctalDigitOrUnderscore", "BinaryNumeral", "BinaryDigits", 
+	"BinaryDigit", "BinaryDigitOrUnderscore", "FirstParenthases", "SecondParenthases", 
+	"Begin", "End", "Function", "ASSIGN", "GT", "LT", "BANG", "TILDE", "QUESTION", 
+	"COLON", "EQUAL", "LE", "GE", "NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", 
+	"SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET", "MOD", "ADD_ASSIGN", 
+	"SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", 
+	"MOD_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Letter", 
+	"LetterOrDigit", "INT", "Words", "WS", "COMMENT", "LINE_COMMENT"
 	};
+	
+	public override String getGrammarFileName() { return "AL_CombinedGrammar.g4"; }
 
-	public static final String[] tokenNames = {
-		"<INVALID>",
-		"'['", "'double'", "'}'", "'boolean'", "'float'", "'case'", "'char'", 
-		"'do'", "'super'", "'@'", "'null'", "'class'", "'long'", "']'", "'short'", 
-		"'default'", "','", "'while'", "'if'", "'int'", "'void'", "'{'", "'break'", 
-		"'else'", "'byte'", "'.'", "'for'", "'return'", "';'", "'this'", "'switch'", 
-		"':alproject:'", "ProgramDeclaration", "':variables:'", "':methods:'", 
-		"':start program:'", "':end program:'", "Identifier", "IntegerLiteral", 
-		"'('", "')'", "'begin'", "'end;'", "'function'", "'='", "'>'", "'<'", 
-		"'!'", "'~'", "'?'", "':'", "'=='", "'<='", "'>='", "'!='", "'&&'", "'||'", 
-		"'++'", "'--'", "'+'", "'-'", "'*'", "'/'", "'&'", "'|'", "'^'", "'%'", 
-		"'+='", "'-='", "'*='", "'/='", "'&='", "'|='", "'^='", "'%='", "'<<='", 
-		"'>>='", "'>>>='", "INT", "Words", "WS", "COMMENT", "LINE_COMMENT"
-	};
-	public static final String[] ruleNames = {
-		"T__30", "T__29", "T__28", "T__27", "T__26", "T__25", "T__24", "T__23", 
-		"T__22", "T__21", "T__20", "T__19", "T__18", "T__17", "T__16", "T__15", 
-		"T__14", "T__13", "T__12", "T__11", "T__10", "T__9", "T__8", "T__7", "T__6", 
-		"T__5", "T__4", "T__3", "T__2", "T__1", "T__0", "ProgramHeader", "ProgramDeclaration", 
-		"VariableHeader", "MethodHeader", "StartProgram", "EndProgram", "Identifier", 
-		"IntegerLiteral", "DecimalIntegerLiteral", "HexIntegerLiteral", "OctalIntegerLiteral", 
-		"BinaryIntegerLiteral", "IntegerTypeSuffix", "DecimalNumeral", "Digits", 
-		"Digit", "NonZeroDigit", "DigitOrUnderscore", "Underscores", "HexNumeral", 
-		"HexDigits", "HexDigit", "HexDigitOrUnderscore", "OctalNumeral", "OctalDigits", 
-		"OctalDigit", "OctalDigitOrUnderscore", "BinaryNumeral", "BinaryDigits", 
-		"BinaryDigit", "BinaryDigitOrUnderscore", "FirstParenthases", "SecondParenthases", 
-		"Begin", "End", "Function", "ASSIGN", "GT", "LT", "BANG", "TILDE", "QUESTION", 
-		"COLON", "EQUAL", "LE", "GE", "NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", 
-		"SUB", "MUL", "DIV", "BITAND", "BITOR", "CARET", "MOD", "ADD_ASSIGN", 
-		"SUB_ASSIGN", "MUL_ASSIGN", "DIV_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", 
-		"MOD_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN", "URSHIFT_ASSIGN", "Letter", 
-		"LetterOrDigit", "INT", "Words", "WS", "COMMENT", "LINE_COMMENT"
-	};
+	public override String[] getTokenNames() { return tokenNames; }
 
+	public override String[] getRuleNames() { return ruleNames; }
 
-	public AL_CombinedGrammarLexer(CharStream input) {
-		super(input);
-		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
-	}
+	public override String[] getModeNames() { return modeNames; }
 
-	@Override
-	public String getGrammarFileName() { return "AL_CombinedGrammar.g4"; }
+	
+	public override ATN getATN() 
+    { 
+        return _ATN; 
+    }
 
-	@Override
-	public String[] getTokenNames() { return tokenNames; }
+	
+	public override void action(RuleContext _localctx, int ruleIndex, int actionIndex) 
+    {
+		switch (ruleIndex) 
+        {
+		    case 105: 
+                WS_action((RuleContext)_localctx, actionIndex); 
+                break;
 
-	@Override
-	public String[] getRuleNames() { return ruleNames; }
+		    case 106: 
+                COMMENT_action((RuleContext)_localctx, actionIndex); 
+                break;
 
-	@Override
-	public String[] getModeNames() { return modeNames; }
-
-	@Override
-	public ATN getATN() { return _ATN; }
-
-	@Override
-	public void action(RuleContext _localctx, int ruleIndex, int actionIndex) {
-		switch (ruleIndex) {
-		case 105: WS_action((RuleContext)_localctx, actionIndex); break;
-
-		case 106: COMMENT_action((RuleContext)_localctx, actionIndex); break;
-
-		case 107: LINE_COMMENT_action((RuleContext)_localctx, actionIndex); break;
+		    case 107: 
+                LINE_COMMENT_action((RuleContext)_localctx, actionIndex); 
+                break;
 		}
 	}
-	private void WS_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 0: skip();  break;
+	
+    private void WS_action(RuleContext _localctx, int actionIndex) 
+    {
+		switch (actionIndex) 
+        {
+		    case 0: 
+                skip();  
+                break;
 		}
 	}
-	private void LINE_COMMENT_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 2: skip();  break;
+	
+   private void LINE_COMMENT_action(RuleContext _localctx, int actionIndex) 
+   {
+		switch (actionIndex) 
+        {
+		    case 2: 
+                skip();  
+                break;
 		}
 	}
-	private void COMMENT_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 1: skip();  break;
+	
+   private void COMMENT_action(RuleContext _localctx, int actionIndex) 
+   {
+		switch (actionIndex) 
+        {
+		    case 1: 
+                skip();  
+                break;
 		}
 	}
 
-	public static final String _serializedATN =
+	public static const String _serializedATN =
 		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\2U\u02eb\b\1\4\2\t"+
 		"\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
@@ -381,13 +541,5 @@ namespace LangC_Capstone
 		"\u00da\3\2\2\2#\2\u0188\u01c4\u01cb\u01cf\u01d3\u01d7\u01db\u01e2\u01e7"+
 		"\u01e9\u01ef\u01f3\u01f7\u01fd\u0202\u020c\u0210\u0216\u021a\u0222\u0226"+
 		"\u022c\u0236\u023a\u0240\u02b9\u02bf\u02c4\u02c9\u02ce\u02d8\u02e6";
-	public static final ATN _ATN =
-		ATNSimulator.deserialize(_serializedATN.toCharArray());
-	static {
-		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
-		for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
-			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
-		}
-	}
     }
 }
