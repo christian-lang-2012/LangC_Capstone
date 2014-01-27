@@ -4,7 +4,7 @@ program
     : ProgramHeader? 
       ProgramDeclaration? 
       VariableHeader? 
-      variable* 
+      variableInitializer* 
       MethodHeader? method* 
       mainProgram?
     ;
@@ -205,11 +205,6 @@ literal
 
 
 //Variables
-
-variable
-    : 'let #' Words AssignmentOperator (Words|INT) ';'
-    ;
-
 
 variableInitializer
     :   arrayInitializer

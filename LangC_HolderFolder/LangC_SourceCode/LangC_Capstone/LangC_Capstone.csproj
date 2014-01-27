@@ -32,6 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr4.Runtime.v2.0">
+      <HintPath>..\..\LangC_VendorDirectory\2013-02-27-antlr4-csharp-4.0.1-SNAPSHOT\Antlr4.Runtime.v2.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4.Runtime.v3.5">
+      <HintPath>..\..\LangC_VendorDirectory\2013-02-27-antlr4-csharp-4.0.1-SNAPSHOT\Antlr4.Runtime.v3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4.Runtime.v4.0">
+      <HintPath>..\..\LangC_VendorDirectory\2013-02-27-antlr4-csharp-4.0.1-SNAPSHOT\Antlr4.Runtime.v4.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4.Runtime.v4.5">
+      <HintPath>..\..\LangC_VendorDirectory\2013-02-27-antlr4-csharp-4.0.1-SNAPSHOT\Antlr4.Runtime.v4.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4BuildTasks">
+      <HintPath>..\..\LangC_VendorDirectory\2013-02-27-antlr4-csharp-4.0.1-SNAPSHOT\Antlr4BuildTasks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lexer.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Tokenizer.cs" />
     <Compile Include="Program.cs" />
