@@ -2,16 +2,7 @@ grammar AL_CombinedGrammar;
 
 program 
     : 
-        ProgramHeader?
-        ProgramDeclaration? 
-      
-        VariableHeader?
-        variableDeclaration*
-        MethodHeader? 
-        methodDeclaration*
-      
-        mainProgram?
-        EOF
+        ProgramHeader
     ;
 
 ProgramHeader 
@@ -19,7 +10,7 @@ ProgramHeader
     ;
 
 ProgramDeclaration 
-    :   'this program "' LetterOrDigit+ '"' 
+    :   'this program "' AL_LetterOrDigit+ '"' 
     ;
 
 VariableHeader
@@ -551,16 +542,16 @@ URSHIFT_ASSIGN  : '>>>=';
 
 //Defining identifiers and letters and digits
 Identifier
-    : '#' Letter LetterOrDigit*
+    : '#' AL_Letter AL_LetterOrDigit*
     ;
 
-Letter
+AL_Letter
     : [a-zA-z$_]
     | ~[\u0000-\u00FF\uD800-\uDBFF]
     |  [\uD800-\uDBFF] [\uDC00-\uDFFF]
     ;
 
-LetterOrDigit
+AL_LetterOrDigit
     : [a-ZA-Z0-9$_]
     | ~[\u0000-\u00FF\uD800-\uDBFF]
     | [\uD800-\uDBFF] [\uDC00-\uDFFF]
