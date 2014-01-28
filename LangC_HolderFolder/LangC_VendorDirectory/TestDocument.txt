@@ -1,17 +1,19 @@
-:alproject"
+:alproject:
 
-this program "AL_Structure"
+this program "ALStructure"
 
 :variables:
 
-let #x = 3;
-let #number = 90;
+let int #x = 3;
+let int #number = 90;
 
 
 :methods:
-function addition()
+function int addition(int number1, int number2)
 begin
+	return number1 + number2;
 end;
 
 :start program:
+writeLn(addition(#x, #number));
 :end program:

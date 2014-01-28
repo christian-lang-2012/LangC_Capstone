@@ -1,87 +1,64 @@
 grammar AL_CombinedGrammar;
 
 program 
-    : ProgramHeader? 
-      ProgramDeclaration? 
-      VariableHeader? 
-      variableInitializer* 
-      MethodHeader? method* 
-      mainProgram?
+    : 
+        ProgramHeader?
+        ProgramDeclaration? 
+      
+        VariableHeader?
+        variableDeclaration*
+        MethodHeader? 
+        methodDeclaration*
+      
+        mainProgram?
+        EOF
     ;
 
 ProgramHeader 
-    : ':alproject:'
+    :   ':alproject:'
     ;
 
 ProgramDeclaration 
-    : 'this program "' Words+ '"'
+    :   'this program "' LetterOrDigit+ '"' 
     ;
 
 VariableHeader
-    : ':variables:'
+    :   ':variables:'
     ;
 
 MethodHeader
-    : ':methods:'
+    :   ':methods:'
     ;
 
+//Built in method
+WriteLn
+    : 'writeLn' formalParameters
+    ;
 
-
-//Main method status
 mainProgram
-    : StartProgram block EndProgram
+    :
+        ':start program:'
+        block
+        ':end program:'
     ;
 
-StartProgram
-    :':start program:'
-    ;
-
-EndProgram
-    :':end program:'
-    ;
-
-method
-    :   methodDeclaration
-    ;
-
-
-//Method
 methodDeclaration
-    :   (type|'void') Identifier FirstParenthases SecondParenthases 
-        Begin
-            block
-        End
+    :
+        FUNCTION (type|'void') Identifier formalParameters
+        (methodBody | ';')
     ;
 
+methodBody
+    : block
+    ;
 
-//Method Blocks
 block
-    :   blockStatement*
+    :   BEGIN blockStatement* END
     ;
 
 blockStatement
-    :   localVariableDeclarationStatement
+    :   variableDeclaration ';'
     |   statement
-    ;
-
-localVariableDeclarationStatement
-    :    localVariableDeclaration ';'
-    ;
-
-localVariableDeclaration
-    :   type variableDeclarators
-    ;
-
-type
-    :   primitiveType ('[' ']')*
-    ;
-
-variableDeclarators
-    :   variableDeclarator (',' variableDeclarator)*
-    ;
-
-variableDeclarator
-    :   variableDeclaratorId ('=' variableInitializer)?
     ;
 
 statement
@@ -90,14 +67,16 @@ statement
     |   'for' '(' forControl ')' statement
     |   'while' parExpression statement
     |   'do' statement 'while' parExpression ';'
-    |   'switch' parExpression Begin switchBlockStatementGroup* switchLabel* End
+    |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
     |   'return' expression? ';'
     |   'break' Identifier? ';'
+    |   'continue' Identifier? ';'
     |   ';'
     |   statementExpression ';'
     |   Identifier ':' statement
     ;
 
+//For Controls && Switch Statement Controls
 switchBlockStatementGroup
     :   switchLabel+ blockStatement+
     ;
@@ -107,27 +86,25 @@ switchLabel
     |   'default' ':'
     ;
 
-//For Control
 forControl
     :   enhancedForControl
     |   forInit? ';' expression? ';' forUpdate?
     ;
 
 forInit
-    :   localVariableDeclaration
+    :   variableDeclaration
     |   expressionList
     ;
 
 enhancedForControl
-    :   variableModifier* type Identifier ':' expression
+    :   type '#'Identifier ':' expression
     ;
 
 forUpdate
     :   expressionList
     ;
 
-
-//Expressions
+// EXPRESSIONS
 
 parExpression
     :   '(' expression ')'
@@ -145,10 +122,37 @@ constantExpression
     :   expression
     ;
 
+//Formal parameter stuff
+
+formalParameters
+    :   '(' formalParameterList? ')'
+    ;
+
+formalParameterList
+    :   formalParameter (',' formalParameter)* (',' lastFormalParameter)?
+    |   lastFormalParameter
+    ;
+
+formalParameter
+    :   type '#'Identifier
+    ;
+
+lastFormalParameter
+    :  type '...' '#'Identifier
+    ;
+
+//Variable
+variableDeclaration
+    : LET '#' Identifier ('=' variableInitialization)?
+    ;
+variableInitialization
+    :
+        expression
+    ;
+
 expression
     :   primary
     |   expression '.' Identifier
-    |   expression '.' 'this'
     |   expression '[' expression ']'
     |   expression '(' expressionList? ')'
     |   '(' type ')' expression
@@ -182,15 +186,11 @@ expression
         )
         expression
     ;
-
+ 
 primary
     :   '(' expression ')'
-    |   'this'
-    |   'super'
     |   literal
     |   Identifier
-    |   type '.' 'class'
-    |   'void' '.' 'class'
     ;
 
 literal
@@ -199,62 +199,56 @@ literal
     |   CharacterLiteral
     |   StringLiteral
     |   BooleanLiteral
-    |   'null'
+    |   NullLiteral
     ;
 
-
-
-//Variables
-
-variableInitializer
-    :   arrayInitializer
-    |   expression
+type
+    :   primitiveType ('[' ']')*
     ;
 
-arrayInitializer
-    :   '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
+primitiveType
+    :   'boolean'
+    |   'char'
+    |   'byte'
+    |   'short'
+    |   'int'
+    |   'long'
+    |   'float'
+    |   'double'
     ;
 
-variableDeclaratorId
-    :   Identifier ('[' ']')*
-    ;
+//KeyWords
+AND             :'and';
+ARRAY           : 'array';
+AS              : 'as';
+BEGIN           : 'begin';
+BREAK           : 'break';
+CASE            : 'case';
+CATCH           : 'catch';
+CONSTANTLY      : 'constantly';
+CONTINUE        : 'continue';
+DO              : 'do';
+ELSE            : 'else';
+END             : 'end';
+EXIT            : 'exit';
+FILE            : 'file';
+FINALLY         : 'finally';
+FUNCTION        : 'function';
+IF              : 'if';
+IN              : 'in';
+IS              : 'is';
+LET             : 'let';
+OR              : '||';
+PROGRAM         : 'program';
+SET             : 'set';
+SWITCH          : 'switch';
+THIS            : 'this';
+TRY             : 'try';
+UNIMPLEMENTED   : 'unimplemented';
+WHILE           : 'while';
 
-Identifier
-    :   Letter LetterOrDigit*
-    ;
 
-variableModifier
-    :   annotation
-    ;
-
-annotation
-    :   '@' annotationName ( '(' ( elementValuePairs | elementValue )? ')' )?
-    ;
-
-annotationName : qualifiedName ;
-
-elementValuePairs
-    :   elementValuePair (',' elementValuePair)*
-    ;
-
-elementValuePair
-    :   Identifier '=' elementValue
-    ;
-
-elementValue
-    :   expression
-    |   annotation
-    |   elementValueArrayInitializer
-    ;
-
-elementValueArrayInitializer
-    :   '{' (elementValue (',' elementValue)*)? (',')? '}'
-    ;
-
-qualifiedName
-    :   Identifier ('.' Identifier)*
-    ;
-
+//Literals
 IntegerLiteral
     :   DecimalIntegerLiteral
     |   HexIntegerLiteral
@@ -383,38 +377,143 @@ BinaryDigitOrUnderscore
     |   '_'
     ;
 
-FirstParenthases
-    :'('
+// §3.10.2 Floating-Point Literals
+
+FloatingPointLiteral
+    :   DecimalFloatingPointLiteral
+    |   HexadecimalFloatingPointLiteral
     ;
 
-SecondParenthases
-    :')'
+fragment
+DecimalFloatingPointLiteral
+    :   Digits '.' Digits? ExponentPart? FloatTypeSuffix?
+    |   '.' Digits ExponentPart? FloatTypeSuffix?
+    |   Digits ExponentPart FloatTypeSuffix?
+    |   Digits FloatTypeSuffix
     ;
 
-Begin
-    :'begin'
-    ;
-End
-    :'end;'
+fragment
+ExponentPart
+    :   ExponentIndicator SignedInteger
     ;
 
-Function
-    : 'function'
+fragment
+ExponentIndicator
+    :   [eE]
     ;
 
-primitiveType
-    :   'boolean'
-    |   'char'
-    |   'byte'
-    |   'short'
-    |   'int'
-    |   'long'
-    |   'float'
-    |   'double'
+fragment
+SignedInteger
+    :   Sign? Digits
     ;
 
-// Operators
+fragment
+Sign
+    :   [+-]
+    ;
 
+fragment
+FloatTypeSuffix
+    :   [fFdD]
+    ;
+
+fragment
+HexadecimalFloatingPointLiteral
+    :   HexSignificand BinaryExponent FloatTypeSuffix?
+    ;
+
+fragment
+HexSignificand
+    :   HexNumeral '.'?
+    |   '0' [xX] HexDigits? '.' HexDigits
+    ;
+
+fragment
+BinaryExponent
+    :   BinaryExponentIndicator SignedInteger
+    ;
+
+fragment
+BinaryExponentIndicator
+    :   [pP]
+    ;
+
+// §3.10.3 Boolean Literals
+
+BooleanLiteral
+    :   'true'
+    |   'false'
+    ;
+
+// §3.10.4 Character Literals
+
+CharacterLiteral
+    :   '\'' SingleCharacter '\''
+    |   '\'' EscapeSequence '\''
+    ;
+
+fragment
+SingleCharacter
+    :   ~['\\]
+    ;
+
+// §3.10.5 String Literals
+
+StringLiteral
+    :   '"' StringCharacters? '"'
+    ;
+
+fragment
+StringCharacters
+    :   StringCharacter+
+    ;
+
+fragment
+StringCharacter
+    :   ~["\\]
+    |   EscapeSequence
+    ;
+
+// §3.10.6 Escape Sequences for Character and String Literals
+
+fragment
+EscapeSequence
+    :   '\\' [btnfr"'\\]
+    |   OctalEscape
+    |   UnicodeEscape
+    ;
+
+fragment
+OctalEscape
+    :   '\\' OctalDigit
+    |   '\\' OctalDigit OctalDigit
+    |   '\\' ZeroToThree OctalDigit OctalDigit
+    ;
+
+fragment
+UnicodeEscape
+    :   '\\' 'u' HexDigit HexDigit HexDigit HexDigit
+    ;
+
+fragment
+ZeroToThree
+    :   [0-3]
+    ;
+
+NullLiteral
+    :   'null'
+    ;
+
+//Separators
+LPAREN          : '(';
+RPAREN          : ')';
+LBRACK          : '[';
+RBRACK          : ']';
+SEMI            : ';';
+COMMA           : ',';
+DOT             : '.';
+
+//Operators
 ASSIGN          : '=';
 GT              : '>';
 LT              : '<';
@@ -426,8 +525,6 @@ EQUAL           : '==';
 LE              : '<=';
 GE              : '>=';
 NOTEQUAL        : '!=';
-AND             : '&&';
-OR              : '||';
 INC             : '++';
 DEC             : '--';
 ADD             : '+';
@@ -452,38 +549,32 @@ RSHIFT_ASSIGN   : '>>=';
 URSHIFT_ASSIGN  : '>>>=';
 
 
-fragment
+//Defining identifiers and letters and digits
+Identifier
+    : '#' Letter LetterOrDigit*
+    ;
+
 Letter
-    :   [a-zA-Z$_] // these are the "java letters" below 0xFF
-    |   // covers all characters above 0xFF which are not a surrogate
-        ~[\u0000-\u00FF\uD800-\uDBFF]
-    |   // covers UTF-16 surrogate pairs encodings for U+10000 to U+10FFFF
-        [\uD800-\uDBFF] [\uDC00-\uDFFF]
+    : [a-zA-z$_]
+    | ~[\u0000-\u00FF\uD800-\uDBFF]
+    |  [\uD800-\uDBFF] [\uDC00-\uDFFF]
     ;
-fragment
+
 LetterOrDigit
-    :   [a-zA-Z0-9$_] // these are the "letters or digits" below 0xFF
-    |   // covers all characters above 0xFF which are not a surrogate
-        ~[\u0000-\u00FF\uD800-\uDBFF]
-    |   // covers UTF-16 surrogate pairs encodings for U+10000 to U+10FFFF
-        [\uD800-\uDBFF] [\uDC00-\uDFFF]
+    : [a-ZA-Z0-9$_]
+    | ~[\u0000-\u00FF\uD800-\uDBFF]
+    | [\uD800-\uDBFF] [\uDC00-\uDFFF]
     ;
 
-INT
-    : [0-9]+
-    ;
-
-Words 
-    : [a-zA-z_]+
-    ;
- 
-WS  :  [ \t\r\n\u000C]+ -> skip
+//Whitespace and comments
+WS
+    : [ \t\r\n\u000C]+ -> skip
     ;
 
 COMMENT
-    :   '/*' .*? '*/' -> skip
+    : '/*' .*? '*/' -> skip
     ;
 
 LINE_COMMENT
-    :   '//' ~[\r\n]* -> skip
+    : '//' ~[\r\n]* -> skip
     ;
