@@ -2,7 +2,18 @@ grammar AL_CombinedGrammar;
 
 program 
     : 
-        ProgramHeader
+        ProgramHeader?
+        ProgramDeclaration 
+        
+        VariableHeader?
+        variableDeclaration*
+        
+        MethodHeader? 
+        methodDeclaration*
+      
+        mainProgram?
+        EOF
+        
     ;
 
 ProgramHeader 
@@ -22,9 +33,9 @@ MethodHeader
     ;
 
 //Built in method
-WriteLn
-    : 'writeLn' formalParameters
-    ;
+//WriteLn
+ //   : 'writeLn' formalParameters ';'
+  //  ;
 
 mainProgram
     :
@@ -120,17 +131,13 @@ formalParameters
     ;
 
 formalParameterList
-    :   formalParameter (',' formalParameter)* (',' lastFormalParameter)?
-    |   lastFormalParameter
+    :   formalParameter (',' formalParameter)*
     ;
 
 formalParameter
     :   type '#'Identifier
     ;
 
-lastFormalParameter
-    :  type '...' '#'Identifier
-    ;
 
 //Variable
 variableDeclaration

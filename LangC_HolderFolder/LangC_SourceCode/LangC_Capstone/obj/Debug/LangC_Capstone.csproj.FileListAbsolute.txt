@@ -10,3 +10,5 @@ C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Caps
 C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\LangC_Capstone.exe
 C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\LangC_Capstone.pdb
 C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\LangC_Capstone.csprojResolveAssemblyReference.cache
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\Antlr4.Runtime.v4.5.dll
+C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\bin\Debug\Antlr4BuildTasks.dll

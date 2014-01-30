@@ -13,7 +13,13 @@ namespace LangC_Capstone
     {
         protected static DFA[] _decisionToDFA = new DFA[_ATN.GetNumberOfDecisions()];
         
-        public static ATN _ATN = ATNSimulator.Deserialize(_serializedATN.ToCharArray());
+        public static ATN _ATN
+        {
+            get
+            {
+                return ATNSimulator.Deserialize(_serializedATN.ToCharArray());
+            }
+        }
 
 
         public AL_Lexer(ICharStream input) : base(input)
@@ -109,10 +115,21 @@ namespace LangC_Capstone
 		WS=81, 
         COMMENT=82, 
         LINE_COMMENT=83;
-	
-        public static String[] ModeNames = { "DEFAULT_MODE" };
 
-	    public static String[] TokenNames = {
+        public override string[] ModeNames
+        {
+            get
+            {
+                return new string[] { "DEFAULT_MODE" };
+            }
+        }
+
+        public override string[] TokenNames
+        {
+            get
+            {
+                return new string[]
+                {
 		    "<INVALID>",
 		    "'['", 
             "'double'", 
@@ -198,9 +215,15 @@ namespace LangC_Capstone
             "COMMENT", 
             "LINE_COMMENT"
 	    };
-	
-    public static String[] ruleNames = 
-    {
+            }
+        }
+
+        public override string[] RuleNames
+        {
+            get
+            {
+                return new string[]
+                {
 	"T__30", 
     "T__29", 
     "T__28", 
@@ -310,21 +333,16 @@ namespace LangC_Capstone
     "COMMENT", 
     "LINE_COMMENT"
 	};
-	
-	public override String GetGrammarFileName() { return "AL_CombinedGrammar.g4"; }
+            }
+        }
 
-	public override String[] GetTokenNames() { return tokenNames; }
-
-	public override String[] GetRuleNames() { return ruleNames; }
-
-	public override String[] GetModeNames() { return modeNames; }
-
-	
-	public override ATN getATN() 
-    { 
-        return _ATN; 
-    }
-
+        public override string GrammarFileName
+        {
+            get 
+            { 
+                return "AL_CombinedGrammar.g4"; 
+            }
+        }
 	
 	public override void Action(RuleContext _localctx, int ruleIndex, int actionIndex) 
     {
