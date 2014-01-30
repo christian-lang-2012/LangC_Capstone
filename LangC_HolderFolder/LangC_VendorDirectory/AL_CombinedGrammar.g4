@@ -1,9 +1,10 @@
 grammar AL_CombinedGrammar;
 
+
 program 
     : 
         ProgramHeader?
-        ProgramDeclaration 
+        programDeclaration
         
         VariableHeader?
         variableDeclaration*
@@ -11,18 +12,17 @@ program
         MethodHeader? 
         methodDeclaration*
       
-        mainProgram?
-        EOF
-        
+        mainProgram?        
     ;
 
 ProgramHeader 
     :   ':alproject:'
     ;
 
-ProgramDeclaration 
-    :   'this program "' AL_LetterOrDigit+ '"' 
+programDeclaration 
+    :   THIS PROGRAM  QUOTE AL_LetterOrDigit+ QUOTE
     ;
+
 
 VariableHeader
     :   ':variables:'
@@ -34,8 +34,8 @@ MethodHeader
 
 //Built in method
 //WriteLn
- //   : 'writeLn' formalParameters ';'
-  //  ;
+//   : 'writeLn' formalParameters ';' 
+//   ;
 
 mainProgram
     :
@@ -55,7 +55,10 @@ methodBody
     ;
 
 block
-    :   BEGIN blockStatement* END
+    :   
+        BEGIN 
+            blockStatement* 
+        END ';'
     ;
 
 blockStatement
@@ -66,7 +69,7 @@ blockStatement
 statement
     :   block
     |   'if' parExpression statement ('else' statement)?
-    |   'for' '(' forControl ')' statement
+    |   FOR '(' forControl ')' statement
     |   'while' parExpression statement
     |   'do' statement 'while' parExpression ';'
     |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
@@ -76,6 +79,7 @@ statement
     |   ';'
     |   statementExpression ';'
     |   Identifier ':' statement
+    |   WriteLn
     ;
 
 //For Controls && Switch Statement Controls
@@ -231,6 +235,7 @@ END             : 'end';
 EXIT            : 'exit';
 FILE            : 'file';
 FINALLY         : 'finally';
+FOR             : 'for';
 FUNCTION        : 'function';
 IF              : 'if';
 IN              : 'in';
@@ -533,6 +538,7 @@ BITAND          : '&';
 BITOR           : '|';
 CARET           : '^';
 MOD             : '%';
+QUOTE          : '"';
 
 ADD_ASSIGN      : '+=';
 SUB_ASSIGN      : '-=';
@@ -549,7 +555,7 @@ URSHIFT_ASSIGN  : '>>>=';
 
 //Defining identifiers and letters and digits
 Identifier
-    : '#' AL_Letter AL_LetterOrDigit*
+    : AL_Letter AL_LetterOrDigit*
     ;
 
 AL_Letter

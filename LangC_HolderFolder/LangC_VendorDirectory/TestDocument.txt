@@ -6,7 +6,6 @@ this program "ALStructure"
 let int #x = 3;
 let int #number = 90;
 
-
 :methods:
 function int addition(int number1, int number2)
 begin
@@ -14,4 +13,7 @@ begin
 end;
 
 :start program:
+
+let int #z = addition(#x, #number);
+
 :end program:
