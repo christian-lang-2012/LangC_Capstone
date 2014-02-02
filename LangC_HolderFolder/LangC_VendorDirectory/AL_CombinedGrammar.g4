@@ -20,7 +20,7 @@ ProgramHeader
     ;
 
 programDeclaration 
-    :   THIS PROGRAM  QUOTE AL_LetterOrDigit+ QUOTE
+    :   THIS PROGRAM  QUOTE Identifier QUOTE
     ;
 
 
@@ -32,15 +32,10 @@ MethodHeader
     :   ':methods:'
     ;
 
-//Built in method
-//WriteLn
-//   : 'writeLn' formalParameters ';' 
-//   ;
-
 mainProgram
     :
         ':start program:'
-        block
+        blockStatement*
         ':end program:'
     ;
 
@@ -51,14 +46,15 @@ methodDeclaration
     ;
 
 methodBody
-    : block
+    : 
+        block ';'
     ;
 
 block
     :   
         BEGIN 
             blockStatement* 
-        END ';'
+        END
     ;
 
 blockStatement
@@ -69,17 +65,16 @@ blockStatement
 statement
     :   block
     |   'if' parExpression statement ('else' statement)?
-    |   FOR '(' forControl ')' statement
+    |   'for' '(' forControl ')' statement
     |   'while' parExpression statement
     |   'do' statement 'while' parExpression ';'
     |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
     |   'return' expression? ';'
-    |   'break' Identifier? ';'
-    |   'continue' Identifier? ';'
+    |   'break' VariableIdentifier? ';'
+    |   'continue' VariableIdentifier? ';'
     |   ';'
     |   statementExpression ';'
-    |   Identifier ':' statement
-    |   WriteLn
+    |   VariableIdentifier ':' statement
     ;
 
 //For Controls && Switch Statement Controls
@@ -103,7 +98,7 @@ forInit
     ;
 
 enhancedForControl
-    :   type '#'Identifier ':' expression
+    :   type VariableIdentifier ':' expression
     ;
 
 forUpdate
@@ -139,22 +134,31 @@ formalParameterList
     ;
 
 formalParameter
-    :   type '#'Identifier
+    :   type VariableIdentifier
     ;
 
 
 //Variable
-variableDeclaration
-    : LET '#' Identifier ('=' variableInitialization)?
-    ;
-variableInitialization
+variableDeclarators
     :
-        expression
+        variableDeclaration (',' variableDeclaration)*
+    ;
+
+variableDeclaration
+    : LET type variableDeclarationID  ('=' variableInitialization)? ';'
+    ;
+
+variableDeclarationID
+    : VariableIdentifier
+    ;
+
+variableInitialization
+    : expression
     ;
 
 expression
     :   primary
-    |   expression '.' Identifier
+    |   expression '.' (VariableIdentifier | Identifier)
     |   expression '[' expression ']'
     |   expression '(' expressionList? ')'
     |   '(' type ')' expression
@@ -380,7 +384,7 @@ BinaryDigitOrUnderscore
     |   '_'
     ;
 
-// §3.10.2 Floating-Point Literals
+// Floating-Point Literals
 
 FloatingPointLiteral
     :   DecimalFloatingPointLiteral
@@ -441,14 +445,14 @@ BinaryExponentIndicator
     :   [pP]
     ;
 
-// §3.10.3 Boolean Literals
+// Boolean Literals
 
 BooleanLiteral
     :   'true'
     |   'false'
     ;
 
-// §3.10.4 Character Literals
+// Character Literals
 
 CharacterLiteral
     :   '\'' SingleCharacter '\''
@@ -460,7 +464,7 @@ SingleCharacter
     :   ~['\\]
     ;
 
-// §3.10.5 String Literals
+// String Literals
 
 StringLiteral
     :   '"' StringCharacters? '"'
@@ -477,7 +481,7 @@ StringCharacter
     |   EscapeSequence
     ;
 
-// §3.10.6 Escape Sequences for Character and String Literals
+// Escape Sequences for Character and String Literals
 
 fragment
 EscapeSequence
@@ -556,6 +560,11 @@ URSHIFT_ASSIGN  : '>>>=';
 //Defining identifiers and letters and digits
 Identifier
     : AL_Letter AL_LetterOrDigit*
+    ;
+
+VariableIdentifier
+    :
+        '#' Identifier
     ;
 
 AL_Letter
