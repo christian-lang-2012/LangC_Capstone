@@ -8,66 +8,66 @@ using LangC_Capstone.Contexts;
 
 namespace LangC_Capstone.Visitor
 {
-    public class BaseVIsitor : GrammarVisitor, AbstractParseTreeVisitor<T> {
+    public class BaseVIsitor<T> : AbstractParseTreeVisitor<T>, GrammarVisitor<T>
+    {
+        public override T visitExpression(ExpressionContext ctx) { return VisitChildren(ctx); }
 
-	public override T visitExpression(ExpressionContext ctx) { return visitChildren(ctx); }
+        public override T visitVariableInitialization(VariableInitializationContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitVariableInitialization(@NotNull AL_CombinedGrammarParser.VariableInitializationContext ctx) { return visitChildren(ctx); }
+        public override T visitFormalParameter(FormalParameterContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitFormalParameter(@NotNull AL_CombinedGrammarParser.FormalParameterContext ctx) { return visitChildren(ctx); }
+        public override T visitExpressionList(ExpressionListContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitExpressionList(@NotNull AL_CombinedGrammarParser.ExpressionListContext ctx) { return visitChildren(ctx); }
+        public override T visitStatementExpression(StatementExpressionContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitStatementExpression(@NotNull AL_CombinedGrammarParser.StatementExpressionContext ctx) { return visitChildren(ctx); }
+        public override T visitBlock(BlockContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitBlock(@NotNull AL_CombinedGrammarParser.BlockContext ctx) { return visitChildren(ctx); }
+        public override T visitBlockStatement(BlockStatementContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitBlockStatement(@NotNull AL_CombinedGrammarParser.BlockStatementContext ctx) { return visitChildren(ctx); }
+        public override T visitType(TypeContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitType(@NotNull AL_CombinedGrammarParser.TypeContext ctx) { return visitChildren(ctx); }
+        public override T visitVariableDeclarationID(VariableDeclarationIDContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitVariableDeclarationID(@NotNull AL_CombinedGrammarParser.VariableDeclarationIDContext ctx) { return visitChildren(ctx); }
+        public override T visitMainProgram(MainProgramContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitMainProgram(@NotNull AL_CombinedGrammarParser.MainProgramContext ctx) { return visitChildren(ctx); }
+        public override T visitForUpdate(ForUpdateContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitForUpdate(@NotNull AL_CombinedGrammarParser.ForUpdateContext ctx) { return visitChildren(ctx); }
+        public override T visitVariableDeclaration(VariableDeclarationContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitVariableDeclaration(@NotNull AL_CombinedGrammarParser.VariableDeclarationContext ctx) { return visitChildren(ctx); }
+        public override T visitEnhancedForControl(EnhancedForControlContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitEnhancedForControl(@NotNull AL_CombinedGrammarParser.EnhancedForControlContext ctx) { return visitChildren(ctx); }
+        public override T visitPrimary(PrimaryContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitPrimary(@NotNull AL_CombinedGrammarParser.PrimaryContext ctx) { return visitChildren(ctx); }
+        public override T visitFormalParameterList(FormalParameterListContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitFormalParameterList(@NotNull AL_CombinedGrammarParser.FormalParameterListContext ctx) { return visitChildren(ctx); }
+        public override T visitMethodDeclaration(MethodDeclarationContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitMethodDeclaration(@NotNull AL_CombinedGrammarParser.MethodDeclarationContext ctx) { return visitChildren(ctx); }
+        public override T visitProgramDeclaration(ProgramDeclarationContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitProgramDeclaration(@NotNull AL_CombinedGrammarParser.ProgramDeclarationContext ctx) { return visitChildren(ctx); }
+        public override T visitParExpression(ParExpressionContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitParExpression(@NotNull AL_CombinedGrammarParser.ParExpressionContext ctx) { return visitChildren(ctx); }
+        public override T visitSwitchLabel(SwitchLabelContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitSwitchLabel(@NotNull AL_CombinedGrammarParser.SwitchLabelContext ctx) { return visitChildren(ctx); }
+        public override T visitVariableDeclarators(VariableDeclaratorsContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitVariableDeclarators(@NotNull AL_CombinedGrammarParser.VariableDeclaratorsContext ctx) { return visitChildren(ctx); }
+        public override T visitStatement(StatementContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitStatement(@NotNull AL_CombinedGrammarParser.StatementContext ctx) { return visitChildren(ctx); }
+        public override T visitMethodBody(MethodBodyContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitMethodBody(@NotNull AL_CombinedGrammarParser.MethodBodyContext ctx) { return visitChildren(ctx); }
+        public override T visitFormalParameters(FormalParametersContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitFormalParameters(@NotNull AL_CombinedGrammarParser.FormalParametersContext ctx) { return visitChildren(ctx); }
+        public override T visitPrimitiveType(PrimitiveTypeContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitPrimitiveType(@NotNull AL_CombinedGrammarParser.PrimitiveTypeContext ctx) { return visitChildren(ctx); }
+        public override T visitProgram(ProgramContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitProgram(@NotNull AL_CombinedGrammarParser.ProgramContext ctx) { return visitChildren(ctx); }
+        public override T visitConstantExpression(ConstantExpressionContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitConstantExpression(@NotNull AL_CombinedGrammarParser.ConstantExpressionContext ctx) { return visitChildren(ctx); }
+        public override T visitForControl(ForControlContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitForControl(@NotNull AL_CombinedGrammarParser.ForControlContext ctx) { return visitChildren(ctx); }
+        public override T visitForInit(ForInitContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitForInit(@NotNull AL_CombinedGrammarParser.ForInitContext ctx) { return visitChildren(ctx); }
+        public override T visitLiteral(LiteralContext ctx) { return VisitChildren(ctx); }
 
-	@Override public T visitLiteral(@NotNull AL_CombinedGrammarParser.LiteralContext ctx) { return visitChildren(ctx); }
-
-	@Override public T visitSwitchBlockStatementGroup(@NotNull AL_CombinedGrammarParser.SwitchBlockStatementGroupContext ctx) { return visitChildren(ctx); }
-
+        public override T visitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx) { return VisitChildren(ctx); }
+    }
 }

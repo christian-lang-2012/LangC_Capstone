@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LangC_Capstone
 {
-    public static class EnhancedForControlContext : ParserRuleContext {
+    public class EnhancedForControlContext : ParserRuleContext {
 		public TerminalNode VariableIdentifier() { return getToken(AL_CombinedGrammarParser.VariableIdentifier, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);

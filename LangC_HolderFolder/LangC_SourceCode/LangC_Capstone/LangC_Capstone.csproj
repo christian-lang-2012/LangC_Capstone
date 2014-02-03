@@ -60,6 +60,7 @@
     <Compile Include="Contexts\FormalParameterListContext.cs" />
     <Compile Include="Contexts\FormalParametersContext.cs" />
     <Compile Include="Contexts\ForUpdateContext.cs" />
+    <Compile Include="Contexts\GrarmmarListener.cs" />
     <Compile Include="Contexts\LiteralContext.cs" />
     <Compile Include="Contexts\PrimaryContext.cs" />
     <Compile Include="Contexts\PrimitiveTypeContext.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Contexts\VariableDeclarationIDContext.cs" />
     <Compile Include="Contexts\VariableDeclaratorsContext.cs" />
     <Compile Include="Contexts\VariableInitializationContext.cs" />
-    <Compile Include="GrammarListener.cs" />
     <Compile Include="AL_Parser.cs" />
     <Compile Include="Contexts\MainProgramContext.cs" />
     <Compile Include="Contexts\MethodBodyContext.cs" />

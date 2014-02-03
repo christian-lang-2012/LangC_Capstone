@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LangC_Capstone
+namespace LangC_Capstone.Contexts
 {
     public class SwitchBlockStatementGroupContext : ParserRuleContext {
 		public List<BlockStatementContext> blockStatement() {

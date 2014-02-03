@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LangC_Capstone.Contexts
 {
-    public static class ConstantExpressionContext : ParserRuleContext {
+    public class ConstantExpressionContext : ParserRuleContext {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}

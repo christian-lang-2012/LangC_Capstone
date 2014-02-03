@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 
-namespace LangC_Capstone
+namespace LangC_Capstone.Contexts
 {
     public class BlockStatementContext : ParserRuleContext {
-		public StatementContext statement() {
-			return getRuleContext(StatementContext.class,0);
+		
+        public StatementContext statement() {
+			return GetRuleContext<StatementContext>(0);
 		}
-		public VariableDeclarationContext variableDeclaration() {
+		
+        public VariableDeclarationContext variableDeclaration() {
 			return getRuleContext(VariableDeclarationContext.class,0);
 		}
 		public BlockStatementContext(ParserRuleContext parent, int invokingState) {

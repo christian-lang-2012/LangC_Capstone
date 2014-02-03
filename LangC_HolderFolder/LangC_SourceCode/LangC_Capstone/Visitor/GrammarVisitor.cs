@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Antlr4.Runtime.Tree;
 
 namespace LangC_Capstone.Visitor
 {
-    public class GrammarVisitor : ParseTreeVisitor<T> {
+    public interface GrammarVisitor<T> : IParseTreeVisitor<T> {
 	
 	T visitExpression(ExpressionContext ctx);
 

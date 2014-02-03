@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Antlr4.Runtime;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LangC_Capstone.Contexts
 {
-    public static class StatementExpressionContext extends ParserRuleContext {
+    public class StatementExpressionContext : ParserRuleContext {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LangC_Capstone
+namespace LangC_Capstone.Contexts
 {
-    public static class ProgramDeclarationContext : ParserRuleContext {
+    public class ProgramDeclarationContext : ParserRuleContext {
 		
         public TerminalNode QUOTE(int i) {
 			return getToken(AL_CombinedGrammarParser.QUOTE, i);

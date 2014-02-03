@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LangC_Capstone
+namespace LangC_Capstone.Contexts
 {
-    public static class SwitchLabelContext : ParserRuleContext {
+    public class SwitchLabelContext : ParserRuleContext {
 		public ConstantExpressionContext constantExpression() {
 			return getRuleContext(ConstantExpressionContext.class,0);
 		}

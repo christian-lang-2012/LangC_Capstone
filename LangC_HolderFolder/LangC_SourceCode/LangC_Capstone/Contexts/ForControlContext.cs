@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LangC_Capstone
 {
-    public static class ForControlContext : ParserRuleContext {
+    public class ForControlContext : ParserRuleContext {
 		public ForInitContext forInit() {
 			return getRuleContext(ForInitContext.class,0);
 		}
