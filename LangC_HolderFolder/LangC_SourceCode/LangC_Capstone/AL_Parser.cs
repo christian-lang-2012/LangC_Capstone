@@ -245,13 +245,45 @@ namespace LangC_Capstone
         COMMA=60, 
         DOT=61, 
 		ASSIGN=62, 
-        GT=63, LT=64, BANG=65, TILDE=66, QUESTION=67, COLON=68, EQUAL=69, 
-		LE=70, GE=71, NOTEQUAL=72, INC=73, DEC=74, ADD=75, SUB=76, MUL=77, DIV=78, 
-		BITAND=79, BITOR=80, CARET=81, MOD=82, QUOTE=83, ADD_ASSIGN=84, SUB_ASSIGN=85, 
-		MUL_ASSIGN=86, DIV_ASSIGN=87, AND_ASSIGN=88, OR_ASSIGN=89, XOR_ASSIGN=90, 
-		MOD_ASSIGN=91, LSHIFT_ASSIGN=92, RSHIFT_ASSIGN=93, URSHIFT_ASSIGN=94, 
-		Identifier=95, VariableIdentifier=96, AL_Letter=97, AL_LetterOrDigit=98, 
-		WS=99, COMMENT=100, LINE_COMMENT=101;
+        GT=63, 
+        LT=64, 
+        BANG=65, 
+        TILDE=66, 
+        QUESTION=67, 
+        COLON=68, 
+        EQUAL=69, 
+		LE=70, 
+        GE=71, 
+        NOTEQUAL=72, 
+        INC=73, 
+        DEC=74, 
+        ADD=75, 
+        SUB=76, 
+        MUL=77, 
+        DIV=78, 
+		BITAND=79, 
+        BITOR=80, 
+        CARET=81, 
+        MOD=82, 
+        QUOTE=83, 
+        ADD_ASSIGN=84, 
+        SUB_ASSIGN=85, 
+		MUL_ASSIGN=86, 
+        DIV_ASSIGN=87, 
+        AND_ASSIGN=88, 
+        OR_ASSIGN=89, 
+        XOR_ASSIGN=90, 
+		MOD_ASSIGN=91, 
+        LSHIFT_ASSIGN=92, 
+        RSHIFT_ASSIGN=93, 
+        URSHIFT_ASSIGN=94, 
+		Identifier=95, 
+        VariableIdentifier=96, 
+        AL_Letter=97, 
+        AL_LetterOrDigit=98, 
+		WS=99, 
+        COMMENT=100, 
+        LINE_COMMENT=101;
 	
         
         public override string[] TokenNames
@@ -490,7 +522,7 @@ namespace LangC_Capstone
 				break;
 			case SEMI:
 				{
-				setState(108); match(SEMI);
+				setState(108); Match(SEMI);
 				}
 				break;
 			default:
@@ -571,10 +603,10 @@ namespace LangC_Capstone
 			setState(127);
 			switch (_input.La(1)) {
 			case LET:
-				enterOuterAlt(_localctx, 1);
+				EnterOuterAlt(_localctx, 1);
 				{
 				setState(123); variableDeclaration();
-				setState(124); match(SEMI);
+				setState(124); Match(SEMI);
 				}
 				break;
 			case 14:
@@ -673,23 +705,23 @@ namespace LangC_Capstone
 				}
 				break;
 			case DO:
-				enterOuterAlt(_localctx, 5);
+				EnterOuterAlt(_localctx, 5);
 				{
-				setState(147); match(DO);
+				setState(147); Match(DO);
 				setState(148); statement();
-				setState(149); match(WHILE);
+				setState(149); Match(WHILE);
 				setState(150); parExpression();
-				setState(151); match(SEMI);
+				setState(151); Match(SEMI);
 				}
 				break;
 			case SWITCH:
-				enterOuterAlt(_localctx, 6);
+				EnterOuterAlt(_localctx, 6);
 				{
-				setState(153); match(SWITCH);
+				setState(153); Match(SWITCH);
 				setState(154); parExpression();
-				setState(155); match(11);
+				setState(155); Match(11);
 				setState(159);
-				_errHandler.sync(this);
+				_errHandler.Sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 				while ( _alt!=2 && _alt!=-1 ) {
 					if ( _alt==1 ) {
@@ -704,8 +736,8 @@ namespace LangC_Capstone
 					_alt = getInterpreter().adaptivePredict(_input,12,_ctx);
 				}
 				setState(165);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
+				_errHandler.Sync(this);
+				_la = _input.La(1);
 				while (_la==8 || _la==CASE) {
 					{
 					{
@@ -713,46 +745,46 @@ namespace LangC_Capstone
 					}
 					}
 					setState(167);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
+					_errHandler.Sync(this);
+					_la = _input.La(1);
 				}
-				setState(168); match(2);
+				setState(168); Match(2);
 				}
 				break;
 			case 14:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(170); match(14);
+				setState(170); Match(14);
 				setState(172);
-				_la = _input.LA(1);
+				_la = _input.La(1);
 				if (((((_la - 49)) & ~0x3f) == 0 && ((1L << (_la - 49)) & ((1L << (IntegerLiteral - 49)) | (1L << (FloatingPointLiteral - 49)) | (1L << (BooleanLiteral - 49)) | (1L << (CharacterLiteral - 49)) | (1L << (StringLiteral - 49)) | (1L << (NullLiteral - 49)) | (1L << (LPAREN - 49)) | (1L << (BANG - 49)) | (1L << (TILDE - 49)) | (1L << (INC - 49)) | (1L << (DEC - 49)) | (1L << (ADD - 49)) | (1L << (SUB - 49)) | (1L << (Identifier - 49)))) != 0)) {
 					{
 					setState(171); expression(0);
 					}
 				}
 
-				setState(174); match(SEMI);
+				setState(174); Match(SEMI);
 				}
 				break;
 			case BREAK:
-				enterOuterAlt(_localctx, 8);
+				EnterOuterAlt(_localctx, 8);
 				{
-				setState(175); match(BREAK);
+				setState(175); Match(BREAK);
 				setState(177);
-				_la = _input.LA(1);
+				_la = _input.La(1);
 				if (_la==VariableIdentifier) {
 					{
-					setState(176); match(VariableIdentifier);
+					setState(176); Match(VariableIdentifier);
 					}
 				}
 
-				setState(179); match(SEMI);
+				setState(179); Match(SEMI);
 				}
 				break;
 			case CONTINUE:
-				enterOuterAlt(_localctx, 9);
+				EnterOuterAlt(_localctx, 9);
 				{
-				setState(180); match(CONTINUE);
+				setState(180); Match(CONTINUE);
 				setState(182);
 				_la = _input.LA(1);
 				if (_la==VariableIdentifier) {

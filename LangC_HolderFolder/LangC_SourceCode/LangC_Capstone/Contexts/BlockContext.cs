@@ -12,6 +12,7 @@ namespace LangC_Capstone.Contexts
 {
     public class BlockContext : ParserRuleContext {
 		
+        
         public BlockContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState) 
         {
 
@@ -41,7 +42,7 @@ namespace LangC_Capstone.Contexts
         {
  	            if ( visitor is GrammarVisitor<T> ) 
                 {
-                    return ((GrammarVisitor<? extends T>)visitor).visitBlock(this);
+                    return ((GrammarVisitor<T>)visitor).visitBlock(this);
                 }
 			    else
                 {
@@ -52,26 +53,28 @@ namespace LangC_Capstone.Contexts
 
         public override int getRuleIndex() 
         { 
-            return RULE_block; 
+            return AL_Parser.RULE_block; 
         }
         
 		
 		public override void enterRule(IParseTreeListener listener) 
         {
-			if ( listener is GrammarListener ) ((GrammarListener)listener).enterBlock(this);
+			if ( listener is GrammarListener ) 
+                ((GrammarListener)listener).EnterBlock(this);
 		}
 		
 		public override void exitRule(IParseTreeListener listener) 
         {
-			if ( listener is GrammarListener ) ((GrammarListener)listener).exitBlock(this);
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitBlock(this);
 		}
 		
-		public override <T> T accept(ParseTreeVisitor<? extends T> visitor) 
-    {
-			if ( visitor is GrammarVisitor ) 
-                return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitBlock(this);
+		public override T accept<T>(IParseTreeVisitor<T> visitor) 
+        {
+			if ( visitor is GrammarVisitor<T> ) 
+                return ((GrammarVisitor<T>)visitor).visitBlock(this);
 			else 
                 return visitor.VisitChildren(this);
 		}
+    }
 }
 

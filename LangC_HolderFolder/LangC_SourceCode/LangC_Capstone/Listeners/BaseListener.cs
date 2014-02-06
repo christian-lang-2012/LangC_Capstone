@@ -5,138 +5,139 @@ using System.Text;
 using System.Threading.Tasks;
 using LangC_Capstone.Contexts;
 using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
 
 namespace LangC_Capstone.Listeners
 {
     public class BaseListener : GrammarListener
     {
 
-        public override void enterExpression(ExpressionContext ctx) { }
+        public override void EnterExpression(ExpressionContext ctx) { }
 
-        public override void exitExpression(ExpressionContext ctx) { }
+        public override void ExitExpression(ExpressionContext ctx) { }
 
-        public override void enterVariableInitialization(VariableInitializationContext ctx) { }
+        public override void EnterVariableInitialization(VariableInitializationContext ctx) { }
 
-        public override void exitVariableInitialization(VariableInitializationContext ctx) { }
+        public override void ExitVariableInitialization(VariableInitializationContext ctx) { }
 
-        public void enterFormalParameter(FormalParameterContext ctx) { }
+        public override void EnterFormalParameter(FormalParameterContext ctx) { }
 
-        public void exitFormalParameter(FormalParameterContext ctx) { }
+        public override void ExitFormalParameter(FormalParameterContext ctx) { }
 
-        public void enterExpressionList(ExpressionListContext ctx) { }
+        public override void EnterExpressionList(ExpressionListContext ctx) { }
 
-        public void exitExpressionList(ExpressionListContext ctx) { }
+        public override void ExitExpressionList(ExpressionListContext ctx) { }
 
-        public void enterStatementExpression(StatementExpressionContext ctx) { }
+        public override void EnterStatementExpression(StatementExpressionContext ctx) { }
 
-        public void exitStatementExpression(StatementExpressionContext ctx) { }
+        public override void ExitStatementExpression(StatementExpressionContext ctx) { }
 
-        public void enterBlock(BlockContext ctx) { }
+        public override void EnterBlock(BlockContext ctx) { }
 
-        public void exitBlock(BlockContext ctx) { }
+        public override void ExitBlock(BlockContext ctx) { }
 
-        public void enterBlockStatement(BlockStatementContext ctx) { }
+        public override void EnterBlockStatement(BlockStatementContext ctx) { }
 
-        public void exitBlockStatement(BlockStatementContext ctx) { }
+        public override void ExitBlockStatement(BlockStatementContext ctx) { }
 
-        public void enterType(TypeContext ctx) { }
+        public override void EnterType(TypeContext ctx) { }
 
-        public void exitType(TypeContext ctx) { }
+        public override void ExitType(TypeContext ctx) { }
 
-        public void enterVariableDeclarationID(VariableDeclarationIDContext ctx) { }
+        public override void EnterVariableDeclarationID(VariableDeclarationIDContext ctx) { }
 
-        public void exitVariableDeclarationID(VariableDeclarationIDContext ctx) { }
+        public override void ExitVariableDeclarationID(VariableDeclarationIDContext ctx) { }
 
-        public void enterMainProgram(MainProgramContext ctx) { }
+        public override void EnterMainProgram(MainProgramContext ctx) { }
 
-        public void exitMainProgram(MainProgramContext ctx) { }
+        public override void ExitMainProgram(MainProgramContext ctx) { }
 
-        public void enterForUpdate(ForUpdateContext ctx) { }
+        public override void EnterForUpdate(ForUpdateContext ctx) { }
 
-        public void exitForUpdate(ForUpdateContext ctx) { }
+        public override void ExitForUpdate(ForUpdateContext ctx) { }
 
-        public void enterVariableDeclaration(VariableDeclarationContext ctx) { }
+        public override void EnterVariableDeclaration(VariableDeclarationContext ctx) { }
 
-        public void exitVariableDeclaration(VariableDeclarationContext ctx) { }
+        public override void ExitVariableDeclaration(VariableDeclarationContext ctx) { }
 
-        public void enterEnhancedForControl(EnhancedForControlContext ctx) { }
+        public override void EnterEnhancedForControl(EnhancedForControlContext ctx) { }
 
-        public void exitEnhancedForControl(EnhancedForControlContext ctx) { }
+        public override void ExitEnhancedForControl(EnhancedForControlContext ctx) { }
 
-        public void enterPrimary(PrimaryContext ctx) { }
+        public override void EnterPrimary(PrimaryContext ctx) { }
 
-        public void exitPrimary(PrimaryContext ctx) { }
+        public override void ExitPrimary(PrimaryContext ctx) { }
 
-        public void enterFormalParameterList(FormalParameterListContext ctx) { }
+        public override void EnterFormalParameterList(FormalParameterListContext ctx) { }
 
-        public void exitFormalParameterList(FormalParameterListContext ctx) { }
+        public override void ExitFormalParameterList(FormalParameterListContext ctx) { }
 
-        public void enterMethodDeclaration(MethodDeclarationContext ctx) { }
+        public override void EnterMethodDeclaration(MethodDeclarationContext ctx) { }
 
-        public void exitMethodDeclaration(MethodDeclarationContext ctx) { }
+        public override void ExitMethodDeclaration(MethodDeclarationContext ctx) { }
 
-        public void enterProgramDeclaration(ProgramDeclarationContext ctx) { }
+        public override void EnterProgramDeclaration(ProgramDeclarationContext ctx) { }
 
-        public void exitProgramDeclaration(ProgramDeclarationContext ctx) { }
+        public override void ExitProgramDeclaration(ProgramDeclarationContext ctx) { }
 
-        public void enterParExpression(ParExpressionContext ctx) { }
+        public override void EnterParExpression(ParExpressionContext ctx) { }
 
-        public void exitParExpression(ParExpressionContext ctx) { }
+        public override void ExitParExpression(ParExpressionContext ctx) { }
 
-        public void enterSwitchLabel(SwitchLabelContext ctx) { }
+        public override void EnterSwitchLabel(SwitchLabelContext ctx) { }
 
-        public void exitSwitchLabel(SwitchLabelContext ctx) { }
+        public override void ExitSwitchLabel(SwitchLabelContext ctx) { }
 
-        public void enterVariableDeclarators(VariableDeclaratorsContext ctx) { }
+        public override void EnterVariableDeclarators(VariableDeclaratorsContext ctx) { }
 
-        public void exitVariableDeclarators(VariableDeclaratorsContext ctx) { }
+        public override void ExitVariableDeclarators(VariableDeclaratorsContext ctx) { }
 
-        public void enterStatement(StatementContext ctx) { }
+        public override void EnterStatement(StatementContext ctx) { }
 
-        public void exitStatement(StatementContext ctx) { }
+        public override void ExitStatement(StatementContext ctx) { }
 
-        public void enterMethodBody(MethodBodyContext ctx) { }
+        public override void EnterMethodBody(MethodBodyContext ctx) { }
 
-        public void exitMethodBody(MethodBodyContext ctx) { }
+        public override void ExitMethodBody(MethodBodyContext ctx) { }
 
-        public void enterFormalParameters(FormalParametersContext ctx) { }
+        public override void EnterFormalParameters(FormalParametersContext ctx) { }
 
-        public void exitFormalParameters(FormalParametersContext ctx) { }
+        public override void ExitFormalParameters(FormalParametersContext ctx) { }
 
-        public void enterPrimitiveType(PrimitiveTypeContext ctx) { }
+        public override void EnterPrimitiveType(PrimitiveTypeContext ctx) { }
 
-        public void exitPrimitiveType(PrimitiveTypeContext ctx) { }
+        public override void ExitPrimitiveType(PrimitiveTypeContext ctx) { }
 
-        public void enterProgram(ProgramContext ctx) { }
+        public override void EnterProgram(ProgramContext ctx) { }
 
-        public void exitProgram(ProgramContext ctx) { }
+        public override void ExitProgram(ProgramContext ctx) { }
 
-        public void enterConstantExpression(ConstantExpressionContext ctx) { }
+        public override void EnterConstantExpression(ConstantExpressionContext ctx) { }
 
-        public void exitConstantExpression(ConstantExpressionContext ctx) { }
+        public override void ExitConstantExpression(ConstantExpressionContext ctx) { }
 
-        public void enterForControl(ForControlContext ctx) { }
+        public override void EnterForControl(ForControlContext ctx) { }
 
-        public void exitForControl(ForControlContext ctx) { }
+        public override void ExitForControl(ForControlContext ctx) { }
 
-        public void enterForInit(ForInitContext ctx) { }
+        public override void EnterForInit(ForInitContext ctx) { }
 
-        public void exitForInit(ForInitContext ctx) { }
+        public override void ExitForInit(ForInitContext ctx) { }
 
-        public void enterLiteral(LiteralContext ctx) { }
+        public override void EnterLiteral(LiteralContext ctx) { }
 
-        public void exitLiteral(LiteralContext ctx) { }
+        public override void ExitLiteral(LiteralContext ctx) { }
 
-        public void enterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx) { }
+        public override void EnterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx) { }
 
-        public void exitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx) { }
+        public override void ExitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx) { }
 
-        public void enterEveryRule(ParserRuleContext ctx) { }
+        public override void EnterEveryRule(ParserRuleContext ctx) { }
 
-        public void exitEveryRule(ParserRuleContext ctx) { }
+        public override void ExitEveryRule(ParserRuleContext ctx) { }
 
-        public void visitTerminal(TerminalNode node) { }
+        public override void VisitTerminal(ITerminalNode node) { }
 
-        public void visitErrorNode(ErrorNode node) { }
+        public override void VisitErrorNode(IErrorNode node) { }
     }
 }

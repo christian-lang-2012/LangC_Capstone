@@ -12,124 +12,124 @@ namespace LangC_Capstone.Listeners
     public class GrammarListener : IParseTreeListener
     {
 
-        void enterExpression(ExpressionContext ctx);
+        public void EnterExpression(ExpressionContext ctx);
 
-        void exitExpression(ExpressionContext ctx);
+        public void ExitExpression(ExpressionContext ctx);
 
-        void enterVariableInitialization(VariableInitializationContext ctx);
+        public void EnterVariableInitialization(VariableInitializationContext ctx);
 
-        void exitVariableInitialization(VariableInitializationContext ctx);
+        public void ExitVariableInitialization(VariableInitializationContext ctx);
 
-        void enterFormalParameter(FormalParameterContext ctx);
+        public void EnterFormalParameter(FormalParameterContext ctx);
 
-        void exitFormalParameter(FormalParameterContext ctx);
+        public void ExitFormalParameter(FormalParameterContext ctx);
 
-        void enterExpressionList(ExpressionListContext ctx);
+        public void EnterExpressionList(ExpressionListContext ctx);
 
-        void exitExpressionList(ExpressionListContext ctx);
+        public void ExitExpressionList(ExpressionListContext ctx);
 
-        void enterStatementExpression(StatementExpressionContext ctx);
+        public void EnterStatementExpression(StatementExpressionContext ctx);
 
-        void exitStatementExpression(StatementExpressionContext ctx);
+        public void ExitStatementExpression(StatementExpressionContext ctx);
 
-        void enterBlock(BlockContext ctx);
+        public void EnterBlock(BlockContext ctx);
 
-        void exitBlock(BlockContext ctx);
+        public void ExitBlock(BlockContext ctx);
 
-        void enterBlockStatement(BlockStatementContext ctx);
+        public void EnterBlockStatement(BlockStatementContext ctx);
 
-        void exitBlockStatement(BlockStatementContext ctx);
+        public void ExitBlockStatement(BlockStatementContext ctx);
 
-        void enterType(TypeContext ctx);
+        public void EnterType(TypeContext ctx);
 
-        void exitType(TypeContext ctx);
+        public void ExitType(TypeContext ctx);
 
-        void enterVariableDeclarationID(VariableDeclarationIDContext ctx);
+        public void EnterVariableDeclarationID(VariableDeclarationIDContext ctx);
 
-        void exitVariableDeclarationID(VariableDeclarationIDContext ctx);
+        public void ExitVariableDeclarationID(VariableDeclarationIDContext ctx);
 
-        void enterMainProgram(MainProgramContext ctx);
+        public void EnterMainProgram(MainProgramContext ctx);
 
-        void exitMainProgram(MainProgramContext ctx);
+        public void exitMainProgram(MainProgramContext ctx);
 
-        void enterForUpdate(ForUpdateContext ctx);
+        public void EnterForUpdate(ForUpdateContext ctx);
 
-        void exitForUpdate(ForUpdateContext ctx);
+        public void ExitForUpdate(ForUpdateContext ctx);
 
-        void enterVariableDeclaration(VariableDeclarationContext ctx);
+        public void EnterVariableDeclaration(VariableDeclarationContext ctx);
 
-        void exitVariableDeclaration(VariableDeclarationContext ctx);
+        public void ExitVariableDeclaration(VariableDeclarationContext ctx);
 
-        void enterEnhancedForControl(EnhancedForControlContext ctx);
+        public void EnterEnhancedForControl(EnhancedForControlContext ctx);
 
-        void exitEnhancedForControl(EnhancedForControlContext ctx);
+        public void ExitEnhancedForControl(EnhancedForControlContext ctx);
 
-        void enterPrimary(PrimaryContext ctx);
+        public void EnterPrimary(PrimaryContext ctx);
 
-        void exitPrimary(PrimaryContext ctx);
+        public void ExitPrimary(PrimaryContext ctx);
 
-        void enterFormalParameterList(FormalParameterListContext ctx);
+        public void EnterFormalParameterList(FormalParameterListContext ctx);
 
-        void exitFormalParameterList(FormalParameterListContext ctx);
+        public void ExitFormalParameterList(FormalParameterListContext ctx);
 
-        void enterMethodDeclaration(MethodDeclarationContext ctx);
+        public void EnterMethodDeclaration(MethodDeclarationContext ctx);
 
-        void exitMethodDeclaration(MethodDeclarationContext ctx);
+        public void ExitMethodDeclaration(MethodDeclarationContext ctx);
 
-        void enterProgramDeclaration(ProgramDeclarationContext ctx);
+        public void EnterProgramDeclaration(ProgramDeclarationContext ctx);
 
-        void exitProgramDeclaration(ProgramDeclarationContext ctx);
+        public void ExitProgramDeclaration(ProgramDeclarationContext ctx);
 
-        void enterParExpression(ParExpressionContext ctx);
+        public void EnterParExpression(ParExpressionContext ctx);
 
-        void exitParExpression(ParExpressionContext ctx);
+        public void ExitParExpression(ParExpressionContext ctx);
 
-        void enterSwitchLabel(SwitchLabelContext ctx);
+        public void EnterSwitchLabel(SwitchLabelContext ctx);
 
-        void exitSwitchLabel(SwitchLabelContext ctx);
+        public void ExitSwitchLabel(SwitchLabelContext ctx);
 
-        void enterVariableDeclarators(VariableDeclaratorsContext ctx);
+        public void EnterVariableDeclarators(VariableDeclaratorsContext ctx);
 
-        void exitVariableDeclarators(VariableDeclaratorsContext ctx);
+        public void ExitVariableDeclarators(VariableDeclaratorsContext ctx);
 
-        void enterStatement(StatementContext ctx);
+        public void EnterStatement(StatementContext ctx);
 
-        void exitStatement(StatementContext ctx);
+        public void ExitStatement(StatementContext ctx);
 
-        void enterMethodBody(MethodBodyContext ctx);
+        public void EnterMethodBody(MethodBodyContext ctx);
 
-        void exitMethodBody(MethodBodyContext ctx);
+        public void ExitMethodBody(MethodBodyContext ctx);
 
-        void enterFormalParameters(FormalParametersContext ctx);
+        public void EnterFormalParameters(FormalParametersContext ctx);
 
-        void exitFormalParameters(FormalParametersContext ctx);
+        public void ExitFormalParameters(FormalParametersContext ctx);
 
-        void enterPrimitiveType(PrimitiveTypeContext ctx);
+        public void EnterPrimitiveType(PrimitiveTypeContext ctx);
 
-        void exitPrimitiveType(PrimitiveTypeContext ctx);
+        public void ExitPrimitiveType(PrimitiveTypeContext ctx);
 
-        void enterProgram(ProgramContext ctx);
+        public void EnterProgram(ProgramContext ctx);
 
-        void exitProgram(ProgramContext ctx);
+        public void ExitProgram(ProgramContext ctx);
 
-        void enterConstantExpression(ConstantExpressionContext ctx);
+        public void EnterConstantExpression(ConstantExpressionContext ctx);
 
-        void exitConstantExpression(ConstantExpressionContext ctx);
+        public void ExitConstantExpression(ConstantExpressionContext ctx);
 
-        void enterForControl(ForControlContext ctx);
+        public void EnterForControl(ForControlContext ctx);
 
-        void exitForControl(ForControlContext ctx);
+        public void ExitForControl(ForControlContext ctx);
 
-        void enterForInit(ForInitContext ctx);
+        public void EnterForInit(ForInitContext ctx);
 
-        void exitForInit(ForInitContext ctx);
+        public void ExitForInit(ForInitContext ctx);
 
-        void enterLiteral(LiteralContext ctx);
+        public void EnterLiteral(LiteralContext ctx);
 
-        void exitLiteral(LiteralContext ctx);
+        public void ExitLiteral(LiteralContext ctx);
 
-        void enterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
+        public void EnterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
 
-        void exitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
+        public void ExitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
     }
 }
