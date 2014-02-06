@@ -39,7 +39,7 @@ namespace LangC_Capstone.Contexts
 
         public override T Accept<T>(Antlr4.Runtime.Tree.IParseTreeVisitor<T> visitor)
         {
- 	            if ( visitor is GrammarVisitor ) 
+ 	            if ( visitor is GrammarVisitor<T> ) 
                 {
                     return ((GrammarVisitor<? extends T>)visitor).visitBlock(this);
                 }
@@ -58,19 +58,20 @@ namespace LangC_Capstone.Contexts
 		
 		public override void enterRule(IParseTreeListener listener) 
         {
-			if ( listener is GrammarListener ) ((AL_CombinedGrammarListener)listener).enterBlock(this);
+			if ( listener is GrammarListener ) ((GrammarListener)listener).enterBlock(this);
 		}
 		
-		public override void exitRule(ParseTreeListener listener) 
+		public override void exitRule(IParseTreeListener listener) 
         {
-			if ( listener is GrammarListener ) ((AL_CombinedGrammarListener)listener).exitBlock(this);
+			if ( listener is GrammarListener ) ((GrammarListener)listener).exitBlock(this);
 		}
 		
 		public override <T> T accept(ParseTreeVisitor<? extends T> visitor) 
     {
 			if ( visitor is GrammarVisitor ) 
                 return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitBlock(this);
-			else return visitor.VisitChildren(this);
+			else 
+                return visitor.VisitChildren(this);
 		}
 }
 

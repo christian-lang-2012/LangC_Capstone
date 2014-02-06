@@ -16,11 +16,13 @@ namespace LangC_Capstone.Contexts
 		}
 		
         public VariableDeclarationContext variableDeclaration() {
-			return getRuleContext(VariableDeclarationContext.class,0);
+			return GetRuleContext<VariableDeclarationContext>(0);
 		}
-		public BlockStatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public BlockStatementContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState)
+        {
+
 		}
+
 		@Override public int getRuleIndex() { return RULE_blockStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {

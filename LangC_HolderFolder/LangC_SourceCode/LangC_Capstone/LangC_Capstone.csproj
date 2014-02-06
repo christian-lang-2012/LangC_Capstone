@@ -60,7 +60,6 @@
     <Compile Include="Contexts\FormalParameterListContext.cs" />
     <Compile Include="Contexts\FormalParametersContext.cs" />
     <Compile Include="Contexts\ForUpdateContext.cs" />
-    <Compile Include="Contexts\GrarmmarListener.cs" />
     <Compile Include="Contexts\LiteralContext.cs" />
     <Compile Include="Contexts\PrimaryContext.cs" />
     <Compile Include="Contexts\PrimitiveTypeContext.cs" />
