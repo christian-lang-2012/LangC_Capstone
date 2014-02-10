@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,28 +11,32 @@ using System.Threading.Tasks;
 namespace LangC_Capstone.Contexts
 {
     public class FormalParameterListContext : ParserRuleContext {
-		public List<FormalParameterContext> formalParameter() {
-			return getRuleContexts(FormalParameterContext.class);
+		public IReadOnlyList<FormalParameterContext> formalParameter() {
+			return GetRuleContexts<FormalParameterContext>();
 		}
 		public FormalParameterContext formalParameter(int i) {
-			return getRuleContext(FormalParameterContext.class,i);
+			return GetRuleContext<FormalParameterContext>(i);
 		}
-		public FormalParameterListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public FormalParameterListContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 		}
-		@Override public int getRuleIndex() { return RULE_formalParameterList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterFormalParameterList(this);
+		
+        public override int getRuleIndex() { return AL_Parser.RULE_formalParameterList; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) 
+                ((GrammarListener)listener).EnterFormalParameterList(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitFormalParameterList(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) 
+                ((GrammarListener)listener).ExitFormalParameterList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitFormalParameterList(this);
-			else return visitor.visitChildren(this);
+		
+		public T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) 
+                return ((GrammarVisitor<T>)visitor).visitFormalParameterList(this);
+			else 
+                return visitor.VisitChildren(this);
 		}
 	}
 }

@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,29 +10,41 @@ using System.Threading.Tasks;
 
 namespace LangC_Capstone.Contexts
 {
-    public class ExpressionListContext : ParserRuleContext {
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
-		}
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
-		}
-		public ExpressionListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expressionList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterExpressionList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitExpressionList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitExpressionList(this);
-			else return visitor.visitChildren(this);
-		}
-	}
+    public class ExpressionListContext : ParserRuleContext
+    {
+        public ExpressionContext expression(int i)
+        {
+            return GetRuleContext<ExpressionContext>(i);
+        }
+        public IReadOnlyList<ExpressionContext> expression()
+        {
+            return GetRuleContexts<ExpressionContext>();
+        }
+        public ExpressionListContext(ParserRuleContext parent, int invokingState)
+            : base(parent, invokingState)
+        {
+        }
+
+        public override int getRuleIndex() { return AL_Parser.RULE_expressionList; }
+
+        public override void enterRule(IParseTreeListener listener)
+        {
+            if (listener is GrammarListener) 
+                ((GrammarListener)listener).EnterExpressionList(this);
+        }
+
+        public override void exitRule(IParseTreeListener listener)
+        {
+            if (listener is GrammarListener) 
+                ((GrammarListener)listener).ExitExpressionList(this);
+        }
+
+        public override T accept<T>(IParseTreeVisitor<T> visitor)
+        {
+            if (visitor is GrammarVisitor<T>) 
+                return ((GrammarVisitor<T>)visitor).visitExpressionList(this);
+            else 
+                return visitor.VisitChildren(this);
+        }
+    }
 }

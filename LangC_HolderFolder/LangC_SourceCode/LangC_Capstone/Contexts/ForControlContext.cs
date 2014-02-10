@@ -1,41 +1,49 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LangC_Capstone
+namespace LangC_Capstone.Contexts
 {
     public class ForControlContext : ParserRuleContext {
-		public ForInitContext forInit() {
-			return getRuleContext(ForInitContext.class,0);
+		
+        public ForInitContext forInit() {
+			return GetRuleContext<ForInitContext>(0);
 		}
 		public EnhancedForControlContext enhancedForControl() {
-			return getRuleContext(EnhancedForControlContext.class,0);
+			return GetRuleContext<EnhancedForControlContext>(0);
 		}
 		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+			return GetRuleContext<ExpressionContext>(0);
 		}
 		public ForUpdateContext forUpdate() {
-			return getRuleContext(ForUpdateContext.class,0);
+			return GetRuleContext<ForUpdateContext>(0);
 		}
-		public ForControlContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ForControlContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 		}
-		@Override public int getRuleIndex() { return RULE_forControl; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterForControl(this);
+		
+        public override int getRuleIndex() { return AL_Parser.RULE_forControl; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) 
+                ((GrammarListener)listener).EnterForControl(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitForControl(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) 
+                ((GrammarListener)listener).ExitForControl(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitForControl(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) 
+                return ((GrammarVisitor<T>)visitor).visitForControl(this);
+			else 
+                return visitor.VisitChildren(this);
 		}
 	}
 }
