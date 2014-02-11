@@ -88,8 +88,8 @@
     <Compile Include="Visitor\GrammarVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AL_CombinedGrammar.tokens" />
-    <None Include="AL_CombinedGrammarLexer.tokens" />
+    <None Include="Tokens\AL_CombinedGrammar.tokens" />
+    <None Include="Tokens\AL_CombinedGrammarLexer.tokens" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
