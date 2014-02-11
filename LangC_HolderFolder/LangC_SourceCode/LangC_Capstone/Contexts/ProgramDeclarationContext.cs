@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,34 +12,34 @@ namespace LangC_Capstone.Contexts
 {
     public class ProgramDeclarationContext : ParserRuleContext {
 		
-        public TerminalNode QUOTE(int i) {
-			return getToken(AL_CombinedGrammarParser.QUOTE, i);
+        public ITerminalNode QUOTE(int i) {
+			return GetToken(AL_Parser.QUOTE, i);
 		}
 		
-        public List<TerminalNode> QUOTE() { return getTokens(AL_CombinedGrammarParser.QUOTE); }
+        public IReadOnlyList<ITerminalNode> QUOTE() { return GetTokens(AL_Parser.QUOTE); }
 		
-        public TerminalNode Identifier() { return getToken(AL_CombinedGrammarParser.Identifier, 0); }
+        public ITerminalNode Identifier() { return GetToken(AL_Parser.Identifier, 0); }
 		
-        public TerminalNode PROGRAM() { return getToken(AL_CombinedGrammarParser.PROGRAM, 0); }
+        public ITerminalNode PROGRAM() { return GetToken(AL_Parser.PROGRAM, 0); }
 		
-        public TerminalNode THIS() { return getToken(AL_CombinedGrammarParser.THIS, 0); }
+        public ITerminalNode THIS() { return GetToken(AL_Parser.THIS, 0); }
 		
-        public ProgramDeclarationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		public override int getRuleIndex() { return RULE_programDeclaration; }
+        public ProgramDeclarationContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 
-		public override void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterProgramDeclaration(this);
+		}
+		public override int getRuleIndex() { return AL_Parser.RULE_programDeclaration; }
+
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterProgramDeclaration(this);
 		}
 
-		public override void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitProgramDeclaration(this);
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitProgramDeclaration(this);
 		}
 		
-		public override <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitProgramDeclaration(this);
-			else return visitor.visitChildren(this);
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitProgramDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

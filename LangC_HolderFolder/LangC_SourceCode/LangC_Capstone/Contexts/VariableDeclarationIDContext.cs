@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +11,24 @@ using System.Threading.Tasks;
 namespace LangC_Capstone.Contexts
 {
     public class VariableDeclarationIDContext : ParserRuleContext {
-		public TerminalNode VariableIdentifier() { return getToken(AL_CombinedGrammarParser.VariableIdentifier, 0); }
-		public VariableDeclarationIDContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ITerminalNode VariableIdentifier() { return GetToken(AL_Parser.VariableIdentifier, 0); }
+		public VariableDeclarationIDContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_variableDeclarationID; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterVariableDeclarationID(this);
+		public override int getRuleIndex() { return AL_Parser.RULE_variableDeclarationID; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterVariableDeclarationID(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitVariableDeclarationID(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitVariableDeclarationID(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitVariableDeclarationID(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitVariableDeclarationID(this);
+			else return visitor.VisitChildren(this);
+
 		}
 	}
 }

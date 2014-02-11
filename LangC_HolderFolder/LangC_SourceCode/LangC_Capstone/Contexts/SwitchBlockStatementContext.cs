@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +11,35 @@ using System.Threading.Tasks;
 namespace LangC_Capstone.Contexts
 {
     public class SwitchBlockStatementGroupContext : ParserRuleContext {
-		public List<BlockStatementContext> blockStatement() {
-			return getRuleContexts(BlockStatementContext.class);
+		public IReadOnlyList<BlockStatementContext> blockStatement() {
+			return GetRuleContexts<BlockStatementContext>();
 		}
 		public SwitchLabelContext switchLabel(int i) {
-			return getRuleContext(SwitchLabelContext.class,i);
+			return GetRuleContext<SwitchLabelContext>(i);
 		}
-		public List<SwitchLabelContext> switchLabel() {
-			return getRuleContexts(SwitchLabelContext.class);
+		public IReadOnlyList<SwitchLabelContext> switchLabel() {
+			return GetRuleContexts<SwitchLabelContext>();
 		}
 		public BlockStatementContext blockStatement(int i) {
-			return getRuleContext(BlockStatementContext.class,i);
+			return GetRuleContext<BlockStatementContext>(i);
 		}
-		public SwitchBlockStatementGroupContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public SwitchBlockStatementGroupContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_switchBlockStatementGroup; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterSwitchBlockStatementGroup(this);
+
+		public override int getRuleIndex() { return AL_Parser.RULE_switchBlockStatementGroup; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterSwitchBlockStatementGroup(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitSwitchBlockStatementGroup(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitSwitchBlockStatementGroup(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitSwitchBlockStatementGroup(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitSwitchBlockStatementGroup(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +12,27 @@ namespace LangC_Capstone.Contexts
 {
     public class VariableDeclaratorsContext : ParserRuleContext {
 		public VariableDeclarationContext variableDeclaration(int i) {
-			return getRuleContext(VariableDeclarationContext.class,i);
+			return GetRuleContext<VariableDeclarationContext>(i);
 		}
-		public List<VariableDeclarationContext> variableDeclaration() {
-			return getRuleContexts(VariableDeclarationContext.class);
+		public IReadOnlyList<VariableDeclarationContext> variableDeclaration() {
+			return GetRuleContexts<VariableDeclarationContext>();
 		}
-		public VariableDeclaratorsContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public VariableDeclaratorsContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_variableDeclarators; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterVariableDeclarators(this);
+		public override int getRuleIndex() { return AL_Parser.RULE_variableDeclarators; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterVariableDeclarators(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitVariableDeclarators(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitVariableDeclarators(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitVariableDeclarators(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitVariableDeclarators(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

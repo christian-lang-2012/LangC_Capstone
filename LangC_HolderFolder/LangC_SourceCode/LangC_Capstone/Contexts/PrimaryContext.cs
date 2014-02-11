@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +11,30 @@ using System.Threading.Tasks;
 namespace LangC_Capstone.Contexts
 {
     public class PrimaryContext : ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(AL_CombinedGrammarParser.Identifier, 0); }
+		public ITerminalNode Identifier() { return GetToken(AL_Parser.Identifier, 0); }
 		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+			return GetRuleContext<ExpressionContext>(0);
 		}
 		public LiteralContext literal() {
-			return getRuleContext(LiteralContext.class,0);
+			return GetRuleContext<LiteralContext>(0);
 		}
-		public PrimaryContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public PrimaryContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_primary; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterPrimary(this);
+
+		public override int getRuleIndex() { return AL_Parser.RULE_primary; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterPrimary(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitPrimary(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitPrimary(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitPrimary(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitPrimary(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

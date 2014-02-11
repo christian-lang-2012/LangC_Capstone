@@ -1,5 +1,7 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,33 +11,30 @@ using System.Threading.Tasks;
 namespace LangC_Capstone.Contexts
 {
     public class LiteralContext : ParserRuleContext {
-		public ITerminalNode NullLiteral() { return getToken(AL_CombinedGrammarParser.NullLiteral, 0); }
-		public ITerminalNode CharacterLiteral() { return getToken(AL_CombinedGrammarParser.CharacterLiteral, 0); }
-		public ITerminalNode IntegerLiteral() { return getToken(AL_CombinedGrammarParser.IntegerLiteral, 0); }
-		public ITerminalNode StringLiteral() { return getToken(AL_CombinedGrammarParser.StringLiteral, 0); }
-		public ITerminalNode FloatingPointLiteral() { return getToken(AL_CombinedGrammarParser.FloatingPointLiteral, 0); }
-		public ITerminalNode BooleanLiteral() { return getToken(AL_CombinedGrammarParser.BooleanLiteral, 0); }
+		public ITerminalNode NullLiteral() { return GetToken(AL_Parser.NullLiteral, 0); }
+		public ITerminalNode CharacterLiteral() { return GetToken(AL_Parser.CharacterLiteral, 0); }
+		public ITerminalNode IntegerLiteral() { return GetToken(AL_Parser.IntegerLiteral, 0); }
+		public ITerminalNode StringLiteral() { return GetToken(AL_Parser.StringLiteral, 0); }
+		public ITerminalNode FloatingPointLiteral() { return GetToken(AL_Parser.FloatingPointLiteral, 0); }
+		public ITerminalNode BooleanLiteral() { return GetToken(AL_Parser.BooleanLiteral, 0); }
 		
-        public LiteralContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+        public LiteralContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
 		
-        @Override public int getRuleIndex() { return RULE_literal; }
+        public override int getRuleIndex() { return AL_Parser.RULE_literal; }
 		
-        @Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterLiteral(this);
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterLiteral(this);
 		}
 		
-        @Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitLiteral(this);
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitLiteral(this);
 		}
 		
-        @Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitLiteral(this);
-			else return visitor.visitChildren(this);
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitLiteral(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

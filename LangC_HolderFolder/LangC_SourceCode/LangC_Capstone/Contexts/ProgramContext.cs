@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,46 +14,49 @@ namespace LangC_Capstone.Contexts
     {
 		public ProgramDeclarationContext programDeclaration() 
         {
-			return getRuleContext(ProgramDeclarationContext.class,0);
+			return GetRuleContext<ProgramDeclarationContext>(0);
 		}
 		
-        public TerminalNode ProgramHeader() { return getToken(AL_CombinedGrammarParser.ProgramHeader, 0); }
+        public ITerminalNode ProgramHeader() { return GetToken(AL_Parser.ProgramHeader, 0); }
 	    	
         public MethodDeclarationContext methodDeclaration(int i) 
         {
-			return getRuleContext(MethodDeclarationContext.class,i);
+			return GetRuleContext<MethodDeclarationContext>(i);
 		}
 		
         public VariableDeclarationContext variableDeclaration(int i) {
-			return getRuleContext(VariableDeclarationContext.class,i);
+			return GetRuleContext<VariableDeclarationContext>(i);
 		}
-		public TerminalNode MethodHeader() { return getToken(AL_CombinedGrammarParser.MethodHeader, 0); }
-		public TerminalNode VariableHeader() { return getToken(AL_CombinedGrammarParser.VariableHeader, 0); }
-		public List<MethodDeclarationContext> methodDeclaration() {
-			return getRuleContexts(MethodDeclarationContext.class);
+		
+        public ITerminalNode MethodHeader() { return GetToken(AL_Parser.MethodHeader, 0); }
+		
+        public ITerminalNode VariableHeader() { return GetToken(AL_Parser.VariableHeader, 0); }
+		
+        public IReadOnlyList<MethodDeclarationContext> methodDeclaration() {
+			return GetRuleContexts<MethodDeclarationContext>();
 		}
 		public MainProgramContext mainProgram() {
-			return getRuleContext(MainProgramContext.class,0);
+			return GetRuleContext<MainProgramContext>(0);
 		}
-		public List<VariableDeclarationContext> variableDeclaration() {
-			return getRuleContexts(VariableDeclarationContext.class);
+		public IReadOnlyList<VariableDeclarationContext> variableDeclaration() {
+			return GetRuleContexts<VariableDeclarationContext>();
 		}
-		public ProgramContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ProgramContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_program; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterProgram(this);
+		public override int getRuleIndex() { return AL_Parser.RULE_program; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterProgram(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitProgram(this);
+		
+		public override void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitProgram(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitProgram(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitProgram(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }

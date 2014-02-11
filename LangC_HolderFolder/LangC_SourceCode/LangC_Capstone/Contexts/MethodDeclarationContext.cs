@@ -1,4 +1,7 @@
 ﻿using Antlr4.Runtime;
+using Antlr4.Runtime.Tree;
+using LangC_Capstone.Listeners;
+using LangC_Capstone.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,32 +12,32 @@ namespace LangC_Capstone.Contexts
 {
     public class MethodDeclarationContext : ParserRuleContext {
 		public MethodBodyContext methodBody() {
-			return getRuleContext(MethodBodyContext.class,0);
+			return GetRuleContext<MethodBodyContext>(0);
 		}
-		public TerminalNode FUNCTION() { return getToken(AL_CombinedGrammarParser.FUNCTION, 0); }
+		public ITerminalNode FUNCTION() { return GetToken(AL_Parser.FUNCTION, 0); }
 		public FormalParametersContext formalParameters() {
-			return getRuleContext(FormalParametersContext.class,0);
+			return GetRuleContext<FormalParametersContext>(0);
 		}
-		public TerminalNode Identifier() { return getToken(AL_CombinedGrammarParser.Identifier, 0); }
+		public ITerminalNode Identifier() { return GetToken(AL_Parser.Identifier, 0); }
 		public TypeContext type() {
-			return getRuleContext(TypeContext.class,0);
+			return GetRuleContext<TypeContext>(0);
 		}
-		public MethodDeclarationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public MethodDeclarationContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
+
 		}
-		@Override public int getRuleIndex() { return RULE_methodDeclaration; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).enterMethodDeclaration(this);
+		public override int getRuleIndex() { return AL_Parser.RULE_methodDeclaration; }
+		
+		public override void enterRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterMethodDeclaration(this);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AL_CombinedGrammarListener ) ((AL_CombinedGrammarListener)listener).exitMethodDeclaration(this);
+		
+		public void exitRule(IParseTreeListener listener) {
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitMethodDeclaration(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AL_CombinedGrammarVisitor ) return ((AL_CombinedGrammarVisitor<? extends T>)visitor).visitMethodDeclaration(this);
-			else return visitor.visitChildren(this);
+		
+		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitMethodDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 }
