@@ -9,127 +9,135 @@ using LangC_Capstone.Contexts;
 
 namespace LangC_Capstone.Listeners
 {
-    public class GrammarListener : IParseTreeListener
+    public abstract class GrammarListener : IParseTreeListener
     {
 
-        public virtual void EnterExpression(ExpressionContext ctx);
+        public abstract void EnterExpression(ExpressionContext ctx);
 
-        public void ExitExpression(ExpressionContext ctx);
+        public abstract void ExitExpression(ExpressionContext ctx);
 
-        public void EnterVariableInitialization(VariableInitializationContext ctx);
+        public abstract void EnterVariableInitialization(VariableInitializationContext ctx);
 
-        public void ExitVariableInitialization(VariableInitializationContext ctx);
+        public abstract void ExitVariableInitialization(VariableInitializationContext ctx);
 
-        public void EnterFormalParameter(FormalParameterContext ctx);
+        public abstract void EnterFormalParameter(FormalParameterContext ctx);
 
-        public void ExitFormalParameter(FormalParameterContext ctx);
+        public abstract void ExitFormalParameter(FormalParameterContext ctx);
 
-        public void EnterExpressionList(ExpressionListContext ctx);
+        public abstract void EnterExpressionList(ExpressionListContext ctx);
 
-        public void ExitExpressionList(ExpressionListContext ctx);
+        public abstract void ExitExpressionList(ExpressionListContext ctx);
 
-        public void EnterStatementExpression(StatementExpressionContext ctx);
+        public abstract void EnterStatementExpression(StatementExpressionContext ctx);
 
-        public void ExitStatementExpression(StatementExpressionContext ctx);
+        public abstract void ExitStatementExpression(StatementExpressionContext ctx);
 
-        public void EnterBlock(BlockContext ctx);
+        public abstract void EnterBlock(BlockContext ctx);
 
-        public void ExitBlock(BlockContext ctx);
+        public abstract void ExitBlock(BlockContext ctx);
 
-        public void EnterBlockStatement(BlockStatementContext ctx);
+        public abstract void EnterBlockStatement(BlockStatementContext ctx);
 
-        public void ExitBlockStatement(BlockStatementContext ctx);
+        public abstract void ExitBlockStatement(BlockStatementContext ctx);
 
-        public void EnterType(TypeContext ctx);
+        public abstract void EnterType(TypeContext ctx);
 
-        public void ExitType(TypeContext ctx);
+        public abstract void ExitType(TypeContext ctx);
 
-        public void EnterVariableDeclarationID(VariableDeclarationIDContext ctx);
+        public abstract void EnterVariableDeclarationID(VariableDeclarationIDContext ctx);
 
-        public void ExitVariableDeclarationID(VariableDeclarationIDContext ctx);
+        public abstract void ExitVariableDeclarationID(VariableDeclarationIDContext ctx);
 
-        public void EnterMainProgram(MainProgramContext ctx);
+        public abstract void EnterMainProgram(MainProgramContext ctx);
 
-        public void exitMainProgram(MainProgramContext ctx);
+        public abstract void ExitMainProgram(MainProgramContext ctx);
 
-        public void EnterForUpdate(ForUpdateContext ctx);
+        public abstract void EnterForUpdate(ForUpdateContext ctx);
 
-        public void ExitForUpdate(ForUpdateContext ctx);
+        public abstract void ExitForUpdate(ForUpdateContext ctx);
 
-        public void EnterVariableDeclaration(VariableDeclarationContext ctx);
+        public abstract void EnterVariableDeclaration(VariableDeclarationContext ctx);
 
-        public void ExitVariableDeclaration(VariableDeclarationContext ctx);
+        public abstract void ExitVariableDeclaration(VariableDeclarationContext ctx);
 
-        public void EnterEnhancedForControl(EnhancedForControlContext ctx);
+        public abstract void EnterEnhancedForControl(EnhancedForControlContext ctx);
 
-        public void ExitEnhancedForControl(EnhancedForControlContext ctx);
+        public abstract void ExitEnhancedForControl(EnhancedForControlContext ctx);
 
-        public void EnterPrimary(PrimaryContext ctx);
+        public abstract void EnterPrimary(PrimaryContext ctx);
 
-        public void ExitPrimary(PrimaryContext ctx);
+        public abstract void ExitPrimary(PrimaryContext ctx);
 
-        public void EnterFormalParameterList(FormalParameterListContext ctx);
+        public abstract void EnterFormalParameterList(FormalParameterListContext ctx);
 
-        public void ExitFormalParameterList(FormalParameterListContext ctx);
+        public abstract void ExitFormalParameterList(FormalParameterListContext ctx);
 
-        public void EnterMethodDeclaration(MethodDeclarationContext ctx);
+        public abstract void EnterMethodDeclaration(MethodDeclarationContext ctx);
 
-        public void ExitMethodDeclaration(MethodDeclarationContext ctx);
+        public abstract void ExitMethodDeclaration(MethodDeclarationContext ctx);
 
-        public void EnterProgramDeclaration(ProgramDeclarationContext ctx);
+        public abstract void EnterProgramDeclaration(ProgramDeclarationContext ctx);
 
-        public void ExitProgramDeclaration(ProgramDeclarationContext ctx);
+        public abstract void ExitProgramDeclaration(ProgramDeclarationContext ctx);
 
-        public void EnterParExpression(ParExpressionContext ctx);
+        public abstract void EnterParExpression(ParExpressionContext ctx);
 
-        public void ExitParExpression(ParExpressionContext ctx);
+        public abstract void ExitParExpression(ParExpressionContext ctx);
 
-        public void EnterSwitchLabel(SwitchLabelContext ctx);
+        public abstract void EnterSwitchLabel(SwitchLabelContext ctx);
 
-        public void ExitSwitchLabel(SwitchLabelContext ctx);
+        public abstract void ExitSwitchLabel(SwitchLabelContext ctx);
 
-        public void EnterVariableDeclarators(VariableDeclaratorsContext ctx);
+        public abstract void EnterVariableDeclarators(VariableDeclaratorsContext ctx);
 
-        public void ExitVariableDeclarators(VariableDeclaratorsContext ctx);
+        public abstract void ExitVariableDeclarators(VariableDeclaratorsContext ctx);
 
-        public void EnterStatement(StatementContext ctx);
+        public abstract void EnterStatement(StatementContext ctx);
 
-        public void ExitStatement(StatementContext ctx);
+        public abstract void ExitStatement(StatementContext ctx);
 
-        public void EnterMethodBody(MethodBodyContext ctx);
+        public abstract void EnterMethodBody(MethodBodyContext ctx);
 
-        public void ExitMethodBody(MethodBodyContext ctx);
+        public abstract void ExitMethodBody(MethodBodyContext ctx);
 
-        public void EnterFormalParameters(FormalParametersContext ctx);
+        public abstract void EnterFormalParameters(FormalParametersContext ctx);
 
-        public void ExitFormalParameters(FormalParametersContext ctx);
+        public abstract void ExitFormalParameters(FormalParametersContext ctx);
 
-        public void EnterPrimitiveType(PrimitiveTypeContext ctx);
+        public abstract void EnterPrimitiveType(PrimitiveTypeContext ctx);
 
-        public void ExitPrimitiveType(PrimitiveTypeContext ctx);
+        public abstract void ExitPrimitiveType(PrimitiveTypeContext ctx);
 
-        public void EnterProgram(ProgramContext ctx);
+        public abstract void EnterProgram(ProgramContext ctx);
 
-        public void ExitProgram(ProgramContext ctx);
+        public abstract void ExitProgram(ProgramContext ctx);
 
-        public void EnterConstantExpression(ConstantExpressionContext ctx);
+        public abstract void EnterConstantExpression(ConstantExpressionContext ctx);
 
-        public void ExitConstantExpression(ConstantExpressionContext ctx);
+        public abstract void ExitConstantExpression(ConstantExpressionContext ctx);
 
-        public void EnterForControl(ForControlContext ctx);
+        public abstract void EnterForControl(ForControlContext ctx);
 
-        public void ExitForControl(ForControlContext ctx);
+        public abstract void ExitForControl(ForControlContext ctx);
 
-        public void EnterForInit(ForInitContext ctx);
+        public abstract void EnterForInit(ForInitContext ctx);
 
-        public void ExitForInit(ForInitContext ctx);
+        public abstract void ExitForInit(ForInitContext ctx);
 
-        public void EnterLiteral(LiteralContext ctx);
+        public abstract void EnterLiteral(LiteralContext ctx);
 
-        public void ExitLiteral(LiteralContext ctx);
+        public abstract void ExitLiteral(LiteralContext ctx);
 
-        public void EnterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
+        public abstract void EnterSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
 
-        public void ExitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
+        public abstract void ExitSwitchBlockStatementGroup(SwitchBlockStatementGroupContext ctx);
+
+        public abstract void EnterEveryRule(Antlr4.Runtime.ParserRuleContext ctx);
+
+        public abstract void ExitEveryRule(Antlr4.Runtime.ParserRuleContext ctx);
+
+        public abstract void VisitErrorNode(IErrorNode node);
+
+        public abstract void VisitTerminal(ITerminalNode node);
     }
 }

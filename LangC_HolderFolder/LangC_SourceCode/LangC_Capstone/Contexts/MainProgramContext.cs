@@ -26,7 +26,7 @@ namespace LangC_Capstone.Contexts
 		}
 		
 		public override void exitRule(IParseTreeListener listener) {
-			if ( listener is GrammarListener ) ((GrammarListener)listener).exitMainProgram(this);
+			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitMainProgram(this);
 		}
 		
 		public override T accept<T>(IParseTreeVisitor<T> visitor) {
