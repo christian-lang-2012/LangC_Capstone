@@ -12,7 +12,7 @@ namespace LangC_Capstone.Listeners
     public class GrammarListener : IParseTreeListener
     {
 
-        public void EnterExpression(ExpressionContext ctx);
+        public virtual void EnterExpression(ExpressionContext ctx);
 
         public void ExitExpression(ExpressionContext ctx);
 

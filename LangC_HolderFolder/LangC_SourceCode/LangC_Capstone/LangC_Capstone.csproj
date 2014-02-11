@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AL_CharStream.cs" />
     <Compile Include="AL_Lexer.cs" />
     <Compile Include="Contexts\BlockContext.cs" />
     <Compile Include="Contexts\BlockStatementContext.cs" />
