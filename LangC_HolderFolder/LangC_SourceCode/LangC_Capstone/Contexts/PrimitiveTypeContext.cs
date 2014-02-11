@@ -14,6 +14,7 @@ namespace LangC_Capstone.Contexts
 		public PrimitiveTypeContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 
 		}
+
 		public override int getRuleIndex() { return AL_Parser.RULE_primitiveType; }
 		
 		public override void enterRule(IParseTreeListener listener) {
