@@ -19,19 +19,19 @@ namespace LangC_Capstone.Contexts
 		}
 		public ForInitContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 		}
-		public override int getRuleIndex() { return AL_Parser.RULE_forInit; }
+		public override int GetRuleIndex() { return AL_Parser.RULE_forInit; }
 		
-		public override void enterRule(IParseTreeListener listener) {
+		public override void EnterRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) 
                 ((GrammarListener)listener).EnterForInit(this);
 		}
 		
-		public override void exitRule(IParseTreeListener listener) {
+		public override void ExitRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) 
                 ((GrammarListener)listener).ExitForInit(this);
 		}
 		
-		public T accept<T>(IParseTreeVisitor<T> visitor) {
+		public T Accept<T>(IParseTreeVisitor<T> visitor) {
 			if ( visitor is GrammarVisitor<T> ) 
                 return ((GrammarVisitor<T>)visitor).visitForInit(this);
 			else 

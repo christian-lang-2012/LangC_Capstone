@@ -1542,7 +1542,7 @@ namespace LangC_Capstone
             ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState, _p);
             ExpressionContext _prevctx = _localctx;
             int _startState = 50;
-            EnterRecursionRule(_localctx, RULE_expression);
+            EnterRecursionRule(_localctx, RULE_expression, 0);
             int _la;
             try
             {

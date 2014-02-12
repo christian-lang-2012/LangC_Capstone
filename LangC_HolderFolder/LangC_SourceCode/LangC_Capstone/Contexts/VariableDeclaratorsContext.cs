@@ -20,17 +20,17 @@ namespace LangC_Capstone.Contexts
 		public VariableDeclaratorsContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 
 		}
-		public override int getRuleIndex() { return AL_Parser.RULE_variableDeclarators; }
+		public override int GetRuleIndex() { return AL_Parser.RULE_variableDeclarators; }
 		
-		public override void enterRule(IParseTreeListener listener) {
+		public override void EnterRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterVariableDeclarators(this);
 		}
 		
-		public override void exitRule(IParseTreeListener listener) {
+		public override void ExitRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitVariableDeclarators(this);
 		}
 		
-		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+		public override T Accept<T>(IParseTreeVisitor<T> visitor) {
 			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitVariableDeclarators(this);
 			else return visitor.VisitChildren(this);
 		}

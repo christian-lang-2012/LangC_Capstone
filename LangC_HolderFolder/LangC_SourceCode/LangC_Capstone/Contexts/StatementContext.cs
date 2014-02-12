@@ -51,17 +51,17 @@ namespace LangC_Capstone.Contexts
 
 		}
 		
-        public override int getRuleIndex() { return AL_Parser.RULE_statement; }
+        public override int GetRuleIndex() { return AL_Parser.RULE_statement; }
 		
-		public override void enterRule(IParseTreeListener listener) {
+		public override void EnterRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterStatement(this);
 		}
 		
-		public override void exitRule(IParseTreeListener listener) {
+		public override void ExitRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitStatement(this);
 		}
 		
-		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+		public override T Accept<T>(IParseTreeVisitor<T> visitor) {
 			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitStatement(this);
 			else return visitor.VisitChildren(this);
 		}

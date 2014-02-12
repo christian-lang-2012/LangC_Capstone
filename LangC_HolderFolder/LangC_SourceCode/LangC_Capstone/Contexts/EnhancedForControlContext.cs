@@ -28,19 +28,19 @@ namespace LangC_Capstone.Contexts
         {
 
         }
-        public override int getRuleIndex() { return AL_Parser.RULE_enhancedForControl; }
+        public override int GetRuleIndex() { return AL_Parser.RULE_enhancedForControl; }
 
-        public override void enterRule(IParseTreeListener listener)
+        public override void EnterRule(IParseTreeListener listener)
         {
             if (listener is GrammarListener) ((GrammarListener)listener).EnterEnhancedForControl(this);
         }
 
-        public override void exitRule(IParseTreeListener listener)
+        public override void ExitRule(IParseTreeListener listener)
         {
             if (listener is GrammarListener) ((GrammarListener)listener).ExitEnhancedForControl(this);
         }
 
-        public override T accept<T>(IParseTreeVisitor<T> visitor)
+        public override T Accept<T>(IParseTreeVisitor<T> visitor)
         {
             if (visitor is GrammarVisitor<T>) return ((GrammarVisitor<T>)visitor).visitEnhancedForControl(this);
             else return visitor.VisitChildren(this);

@@ -16,17 +16,17 @@ namespace LangC_Capstone.Contexts
 		}
 		public ForUpdateContext(ParserRuleContext parent, int invokingState) : base(parent, invokingState){
 		}
-		public override int getRuleIndex() { return AL_Parser.RULE_forUpdate; }
+		public override int GetRuleIndex() { return AL_Parser.RULE_forUpdate; }
 		
-		public override void enterRule(IParseTreeListener listener) {
+		public override void EnterRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).EnterForUpdate(this);
 		}
 		
-		public override void exitRule(IParseTreeListener listener) {
+		public override void ExitRule(IParseTreeListener listener) {
 			if ( listener is GrammarListener ) ((GrammarListener)listener).ExitForUpdate(this);
 		}
 		
-		public override T accept<T>(IParseTreeVisitor<T> visitor) {
+		public override T Accept<T>(IParseTreeVisitor<T> visitor) {
 			if ( visitor is GrammarVisitor<T> ) return ((GrammarVisitor<T>)visitor).visitForUpdate(this);
 			else return visitor.VisitChildren(this);
 		}
