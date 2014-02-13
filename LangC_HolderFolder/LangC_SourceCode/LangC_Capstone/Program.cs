@@ -20,7 +20,7 @@ namespace LangC_Capstone
             AL_Lexer lexer = new AL_Lexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             AL_Parser parser = new AL_Parser(tokens);            
-
+            
         }
     }
 }
