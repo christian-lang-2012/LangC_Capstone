@@ -11,16 +11,9 @@ namespace LangC_Capstone
 {
     public class AL_Lexer: Lexer
     {
-        protected static DFA[] _decisionToDFA = new DFA[_ATN.GetNumberOfDecisions()];
-        
-        public static ATN _ATN
-        {
-            get
-            {
-                return ATNSimulator.Deserialize(_serializedATN.ToCharArray());
-            }
-        }
+        public static ATN _ATN = ATNSimulator.Deserialize(_serializedATN.ToCharArray());
 
+        protected static DFA[] _decisionToDFA = new DFA[_ATN.GetNumberOfDecisions()];
 
         public AL_Lexer(ICharStream input) : base(input)
         {

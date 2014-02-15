@@ -14,13 +14,13 @@ namespace LangC_Capstone
         {
             string path = "C:\\Users\\Christian\\LangC_Capstone\\LangC_HolderFolder\\LangC_DocumentationFolder\\SampleAL.txt";
 
-            StreamReader sr = new StreamReader(path);
-
-            AntlrInputStream input = new AntlrInputStream(sr);
-            AL_Lexer lexer = new AL_Lexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            AL_Parser parser = new AL_Parser(tokens);            
-            
+            using (StreamReader sr = new StreamReader(path))
+            {
+                AntlrFileStream input = new AntlrFileStream("SampleAL.txt");
+                AL_Lexer lexer = new AL_Lexer(input);
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                AL_Parser parser = new AL_Parser(tokens);
+            }
         }
     }
 }

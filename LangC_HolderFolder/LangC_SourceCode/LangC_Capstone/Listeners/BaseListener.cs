@@ -18,6 +18,8 @@ namespace LangC_Capstone.Listeners
             string tokenId = ctx.GetRuleIndex().ToString();
             string value = ctx.GetText();
             properties.Add(tokenId, value);
+            Console.WriteLine("Token ID: " + tokenId);
+            Console.WriteLine("Value: " + value);
         }
 
         public override void ExitExpression(ExpressionContext ctx)
@@ -451,16 +453,12 @@ namespace LangC_Capstone.Listeners
 
         public override void VisitTerminal(ITerminalNode node)
         {
-            string tokenId = ctx.GetRuleIndex().ToString();
-            string value = ctx.GetText();
-            properties.Add(tokenId, value);
+            
         }
 
         public override void VisitErrorNode(IErrorNode node)
         {
-            string tokenId = ctx.GetRuleIndex().ToString();
-            string value = ctx.GetText();
-            properties.Add(tokenId, value);
+            
         }
     }
 }
