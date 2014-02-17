@@ -16,7 +16,8 @@ namespace LangC_Capstone
 
             using (StreamReader sr = new StreamReader(path))
             {
-                AntlrFileStream input = new AntlrFileStream("SampleAL.txt");
+
+                AntlrInputStream input = new AntlrInputStream("SampleAL.txt");
                 AL_Lexer lexer = new AL_Lexer(input);
                 CommonTokenStream tokens = new CommonTokenStream(lexer);
                 AL_Parser parser = new AL_Parser(tokens);
