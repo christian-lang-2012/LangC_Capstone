@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ALGrammarg4.g4.lexer.cs">
-      <DependentUpon>ALGrammarg4.g4</DependentUpon>
-    </Compile>
-    <Compile Include="ALGrammarg4.g4.parser.cs">
-      <DependentUpon>ALGrammarg4.g4</DependentUpon>
-    </Compile>
     <Compile Include="AL_Lexer.cs" />
     <Compile Include="Contexts\BlockContext.cs" />
     <Compile Include="Contexts\BlockStatementContext.cs" />
@@ -87,6 +81,12 @@
     <Compile Include="Contexts\StatementContext.cs" />
     <Compile Include="Contexts\SwitchBlockStatementContext.cs" />
     <Compile Include="Contexts\SwitchLabelContext.cs" />
+    <Compile Include="Grammars\AL_Grammar.g4.lexer.cs">
+      <DependentUpon>AL_Grammar.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Grammars\AL_Grammar.g4.parser.cs">
+      <DependentUpon>AL_Grammar.g4</DependentUpon>
+    </Compile>
     <Compile Include="Listeners\BaseListener.cs" />
     <Compile Include="Listeners\GrammarListener.cs" />
     <Compile Include="Tokenizer.cs" />
@@ -96,10 +96,9 @@
     <Compile Include="Visitor\GrammarVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Antlr4 Include="ALGrammar.g4">
+    <Antlr4 Include="Grammars\AL_Grammar.g4">
       <Generator>MSBuild:Compile</Generator>
-      <CustomToolNamespace>LangC_Capstone</CustomToolNamespace>
-      <ForceAtn>True</ForceAtn>
+      <CustomToolNamespace>LangC_Capstone.Grammars</CustomToolNamespace>
     </Antlr4>
     <None Include="Tokens\AL_CombinedGrammar.tokens" />
     <None Include="Tokens\AL_CombinedGrammarLexer.tokens" />

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LangC_Capstone.Grammars;
 
 namespace LangC_Capstone
 {
@@ -16,7 +17,6 @@ namespace LangC_Capstone
 
             using (StreamReader sr = new StreamReader(path))
             {
-
                 AntlrInputStream input = new AntlrInputStream("SampleAL.txt");
                 AL_Lexer lexer = new AL_Lexer(input);
                 CommonTokenStream tokens = new CommonTokenStream(lexer);
