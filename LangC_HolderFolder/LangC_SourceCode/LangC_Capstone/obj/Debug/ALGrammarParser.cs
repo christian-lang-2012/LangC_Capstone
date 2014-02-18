@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\Grammars\AL_Grammar.g4 by ANTLR 4.1-SNAPSHOT
+// Generated from C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\Grammars\ALGrammar.g4 by ANTLR 4.1-SNAPSHOT
 namespace LangC_Capstone.Grammars {
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;
@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using DFA = Antlr4.Runtime.Dfa.DFA;
 
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.1-SNAPSHOT")]
-public partial class AL_GrammarParser : Parser {
+public partial class ALGrammarParser : Parser {
 	public const int
 		T__15=1, T__14=2, T__13=3, T__12=4, T__11=5, T__10=6, T__9=7, T__8=8, 
 		T__7=9, T__6=10, T__5=11, T__4=12, T__3=13, T__2=14, T__1=15, T__0=16, 
@@ -73,7 +73,7 @@ public partial class AL_GrammarParser : Parser {
 		"literal", "type", "primitiveType"
 	};
 
-	public override string GrammarFileName { get { return "AL_Grammar.g4"; } }
+	public override string GrammarFileName { get { return "ALGrammar.g4"; } }
 
 	public override string[] TokenNames { get { return tokenNames; } }
 
@@ -82,7 +82,7 @@ public partial class AL_GrammarParser : Parser {
 
 		protected const int EOF = Eof;
 
-	public AL_GrammarParser(ITokenStream input)
+	public ALGrammarParser(ITokenStream input)
 		: base(input)
 	{
 		_interp = new ParserATNSimulator(this,_ATN);
@@ -91,15 +91,15 @@ public partial class AL_GrammarParser : Parser {
 		public ProgramDeclarationContext programDeclaration() {
 			return GetRuleContext<ProgramDeclarationContext>(0);
 		}
-		public ITerminalNode ProgramHeader() { return GetToken(AL_GrammarParser.ProgramHeader, 0); }
+		public ITerminalNode ProgramHeader() { return GetToken(ALGrammarParser.ProgramHeader, 0); }
 		public MethodDeclarationContext methodDeclaration(int i) {
 			return GetRuleContext<MethodDeclarationContext>(i);
 		}
 		public VariableDeclarationContext variableDeclaration(int i) {
 			return GetRuleContext<VariableDeclarationContext>(i);
 		}
-		public ITerminalNode MethodHeader() { return GetToken(AL_GrammarParser.MethodHeader, 0); }
-		public ITerminalNode VariableHeader() { return GetToken(AL_GrammarParser.VariableHeader, 0); }
+		public ITerminalNode MethodHeader() { return GetToken(ALGrammarParser.MethodHeader, 0); }
+		public ITerminalNode VariableHeader() { return GetToken(ALGrammarParser.VariableHeader, 0); }
 		public IReadOnlyList<MethodDeclarationContext> methodDeclaration() {
 			return GetRuleContexts<MethodDeclarationContext>();
 		}
@@ -115,15 +115,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_program; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterProgram(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitProgram(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitProgram(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -211,27 +211,27 @@ public partial class AL_GrammarParser : Parser {
 
 	public partial class ProgramDeclarationContext : ParserRuleContext {
 		public ITerminalNode QUOTE(int i) {
-			return GetToken(AL_GrammarParser.QUOTE, i);
+			return GetToken(ALGrammarParser.QUOTE, i);
 		}
-		public IReadOnlyList<ITerminalNode> QUOTE() { return GetTokens(AL_GrammarParser.QUOTE); }
-		public ITerminalNode Identifier() { return GetToken(AL_GrammarParser.Identifier, 0); }
-		public ITerminalNode PROGRAM() { return GetToken(AL_GrammarParser.PROGRAM, 0); }
-		public ITerminalNode THIS() { return GetToken(AL_GrammarParser.THIS, 0); }
+		public IReadOnlyList<ITerminalNode> QUOTE() { return GetTokens(ALGrammarParser.QUOTE); }
+		public ITerminalNode Identifier() { return GetToken(ALGrammarParser.Identifier, 0); }
+		public ITerminalNode PROGRAM() { return GetToken(ALGrammarParser.PROGRAM, 0); }
+		public ITerminalNode THIS() { return GetToken(ALGrammarParser.THIS, 0); }
 		public ProgramDeclarationContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int GetRuleIndex() { return RULE_programDeclaration; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterProgramDeclaration(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitProgramDeclaration(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitProgramDeclaration(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -275,15 +275,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_mainProgram; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterMainProgram(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitMainProgram(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitMainProgram(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -329,11 +329,11 @@ public partial class AL_GrammarParser : Parser {
 		public MethodBodyContext methodBody() {
 			return GetRuleContext<MethodBodyContext>(0);
 		}
-		public ITerminalNode FUNCTION() { return GetToken(AL_GrammarParser.FUNCTION, 0); }
+		public ITerminalNode FUNCTION() { return GetToken(ALGrammarParser.FUNCTION, 0); }
 		public FormalParametersContext formalParameters() {
 			return GetRuleContext<FormalParametersContext>(0);
 		}
-		public ITerminalNode Identifier() { return GetToken(AL_GrammarParser.Identifier, 0); }
+		public ITerminalNode Identifier() { return GetToken(ALGrammarParser.Identifier, 0); }
 		public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -343,15 +343,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_methodDeclaration; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterMethodDeclaration(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitMethodDeclaration(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitMethodDeclaration(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -427,15 +427,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_methodBody; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterMethodBody(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitMethodBody(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitMethodBody(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -470,23 +470,23 @@ public partial class AL_GrammarParser : Parser {
 		public BlockStatementContext blockStatement(int i) {
 			return GetRuleContext<BlockStatementContext>(i);
 		}
-		public ITerminalNode BEGIN() { return GetToken(AL_GrammarParser.BEGIN, 0); }
-		public ITerminalNode END() { return GetToken(AL_GrammarParser.END, 0); }
+		public ITerminalNode BEGIN() { return GetToken(ALGrammarParser.BEGIN, 0); }
+		public ITerminalNode END() { return GetToken(ALGrammarParser.END, 0); }
 		public BlockContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int GetRuleIndex() { return RULE_block; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterBlock(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitBlock(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBlock(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -541,15 +541,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_blockStatement; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterBlockStatement(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitBlockStatement(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitBlockStatement(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -618,7 +618,7 @@ public partial class AL_GrammarParser : Parser {
 		public IReadOnlyList<StatementContext> statement() {
 			return GetRuleContexts<StatementContext>();
 		}
-		public ITerminalNode VariableIdentifier() { return GetToken(AL_GrammarParser.VariableIdentifier, 0); }
+		public ITerminalNode VariableIdentifier() { return GetToken(ALGrammarParser.VariableIdentifier, 0); }
 		public SwitchLabelContext switchLabel(int i) {
 			return GetRuleContext<SwitchLabelContext>(i);
 		}
@@ -655,15 +655,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_statement; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterStatement(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitStatement(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -879,15 +879,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_switchBlockStatementGroup; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterSwitchBlockStatementGroup(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitSwitchBlockStatementGroup(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitSwitchBlockStatementGroup(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -950,15 +950,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_switchLabel; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterSwitchLabel(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitSwitchLabel(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitSwitchLabel(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1020,15 +1020,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_forControl; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterForControl(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitForControl(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitForControl(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1129,15 +1129,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_forInit; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterForInit(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitForInit(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitForInit(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1191,7 +1191,7 @@ public partial class AL_GrammarParser : Parser {
 	}
 
 	public partial class EnhancedForControlContext : ParserRuleContext {
-		public ITerminalNode VariableIdentifier() { return GetToken(AL_GrammarParser.VariableIdentifier, 0); }
+		public ITerminalNode VariableIdentifier() { return GetToken(ALGrammarParser.VariableIdentifier, 0); }
 		public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -1204,15 +1204,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_enhancedForControl; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterEnhancedForControl(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitEnhancedForControl(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitEnhancedForControl(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1252,15 +1252,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_forUpdate; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterForUpdate(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitForUpdate(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitForUpdate(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1297,15 +1297,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_parExpression; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterParExpression(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitParExpression(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParExpression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1347,15 +1347,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_expressionList; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterExpressionList(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitExpressionList(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpressionList(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1407,15 +1407,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_statementExpression; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterStatementExpression(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitStatementExpression(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitStatementExpression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1452,15 +1452,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_constantExpression; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterConstantExpression(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitConstantExpression(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitConstantExpression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1497,15 +1497,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_formalParameters; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterFormalParameters(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitFormalParameters(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFormalParameters(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1555,15 +1555,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_formalParameterList; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterFormalParameterList(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitFormalParameterList(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFormalParameterList(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1606,7 +1606,7 @@ public partial class AL_GrammarParser : Parser {
 	}
 
 	public partial class FormalParameterContext : ParserRuleContext {
-		public ITerminalNode VariableIdentifier() { return GetToken(AL_GrammarParser.VariableIdentifier, 0); }
+		public ITerminalNode VariableIdentifier() { return GetToken(ALGrammarParser.VariableIdentifier, 0); }
 		public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -1616,15 +1616,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_formalParameter; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterFormalParameter(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitFormalParameter(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFormalParameter(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1665,15 +1665,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_variableDeclarators; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterVariableDeclarators(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitVariableDeclarators(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitVariableDeclarators(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1719,7 +1719,7 @@ public partial class AL_GrammarParser : Parser {
 		public VariableDeclarationIDContext variableDeclarationID() {
 			return GetRuleContext<VariableDeclarationIDContext>(0);
 		}
-		public ITerminalNode LET() { return GetToken(AL_GrammarParser.LET, 0); }
+		public ITerminalNode LET() { return GetToken(ALGrammarParser.LET, 0); }
 		public VariableInitializationContext variableInitialization() {
 			return GetRuleContext<VariableInitializationContext>(0);
 		}
@@ -1732,15 +1732,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_variableDeclaration; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterVariableDeclaration(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitVariableDeclaration(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitVariableDeclaration(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1781,22 +1781,22 @@ public partial class AL_GrammarParser : Parser {
 	}
 
 	public partial class VariableDeclarationIDContext : ParserRuleContext {
-		public ITerminalNode VariableIdentifier() { return GetToken(AL_GrammarParser.VariableIdentifier, 0); }
+		public ITerminalNode VariableIdentifier() { return GetToken(ALGrammarParser.VariableIdentifier, 0); }
 		public VariableDeclarationIDContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int GetRuleIndex() { return RULE_variableDeclarationID; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterVariableDeclarationID(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitVariableDeclarationID(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitVariableDeclarationID(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1833,15 +1833,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_variableInitialization; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterVariableInitialization(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitVariableInitialization(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitVariableInitialization(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -1872,14 +1872,14 @@ public partial class AL_GrammarParser : Parser {
 		public ExpressionContext expression(int i) {
 			return GetRuleContext<ExpressionContext>(i);
 		}
-		public ITerminalNode VariableIdentifier() { return GetToken(AL_GrammarParser.VariableIdentifier, 0); }
+		public ITerminalNode VariableIdentifier() { return GetToken(ALGrammarParser.VariableIdentifier, 0); }
 		public PrimaryContext primary() {
 			return GetRuleContext<PrimaryContext>(0);
 		}
 		public ExpressionListContext expressionList() {
 			return GetRuleContext<ExpressionListContext>(0);
 		}
-		public ITerminalNode Identifier() { return GetToken(AL_GrammarParser.Identifier, 0); }
+		public ITerminalNode Identifier() { return GetToken(ALGrammarParser.Identifier, 0); }
 		public TypeContext type() {
 			return GetRuleContext<TypeContext>(0);
 		}
@@ -1892,15 +1892,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_expression; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterExpression(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitExpression(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2294,7 +2294,7 @@ public partial class AL_GrammarParser : Parser {
 	}
 
 	public partial class PrimaryContext : ParserRuleContext {
-		public ITerminalNode Identifier() { return GetToken(AL_GrammarParser.Identifier, 0); }
+		public ITerminalNode Identifier() { return GetToken(ALGrammarParser.Identifier, 0); }
 		public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
@@ -2307,15 +2307,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_primary; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterPrimary(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitPrimary(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrimary(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2369,27 +2369,27 @@ public partial class AL_GrammarParser : Parser {
 	}
 
 	public partial class LiteralContext : ParserRuleContext {
-		public ITerminalNode NullLiteral() { return GetToken(AL_GrammarParser.NullLiteral, 0); }
-		public ITerminalNode CharacterLiteral() { return GetToken(AL_GrammarParser.CharacterLiteral, 0); }
-		public ITerminalNode IntegerLiteral() { return GetToken(AL_GrammarParser.IntegerLiteral, 0); }
-		public ITerminalNode StringLiteral() { return GetToken(AL_GrammarParser.StringLiteral, 0); }
-		public ITerminalNode FloatingPointLiteral() { return GetToken(AL_GrammarParser.FloatingPointLiteral, 0); }
-		public ITerminalNode BooleanLiteral() { return GetToken(AL_GrammarParser.BooleanLiteral, 0); }
+		public ITerminalNode NullLiteral() { return GetToken(ALGrammarParser.NullLiteral, 0); }
+		public ITerminalNode CharacterLiteral() { return GetToken(ALGrammarParser.CharacterLiteral, 0); }
+		public ITerminalNode IntegerLiteral() { return GetToken(ALGrammarParser.IntegerLiteral, 0); }
+		public ITerminalNode StringLiteral() { return GetToken(ALGrammarParser.StringLiteral, 0); }
+		public ITerminalNode FloatingPointLiteral() { return GetToken(ALGrammarParser.FloatingPointLiteral, 0); }
+		public ITerminalNode BooleanLiteral() { return GetToken(ALGrammarParser.BooleanLiteral, 0); }
 		public LiteralContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int GetRuleIndex() { return RULE_literal; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterLiteral(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitLiteral(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLiteral(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2432,15 +2432,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_type; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterType(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitType(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitType(this);
 			else return visitor.VisitChildren(this);
 		}
@@ -2489,15 +2489,15 @@ public partial class AL_GrammarParser : Parser {
 		}
 		public override int GetRuleIndex() { return RULE_primitiveType; }
 		public override void EnterRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.EnterPrimitiveType(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
-			IAL_GrammarListener typedListener = listener as IAL_GrammarListener;
+			IALGrammarListener typedListener = listener as IALGrammarListener;
 			if (typedListener != null) typedListener.ExitPrimitiveType(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IAL_GrammarVisitor<TResult> typedVisitor = visitor as IAL_GrammarVisitor<TResult>;
+			IALGrammarVisitor<TResult> typedVisitor = visitor as IALGrammarVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitPrimitiveType(this);
 			else return visitor.VisitChildren(this);
 		}

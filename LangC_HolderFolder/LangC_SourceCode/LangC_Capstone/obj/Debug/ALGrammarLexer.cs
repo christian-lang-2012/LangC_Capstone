@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\Grammars\AL_Grammar.g4 by ANTLR 4.1-SNAPSHOT
+// Generated from C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\Grammars\ALGrammar.g4 by ANTLR 4.1-SNAPSHOT
 namespace LangC_Capstone.Grammars {
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;
@@ -16,7 +16,7 @@ using Antlr4.Runtime.Misc;
 using DFA = Antlr4.Runtime.Dfa.DFA;
 
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.1-SNAPSHOT")]
-public partial class AL_GrammarLexer : Lexer {
+public partial class ALGrammarLexer : Lexer {
 	public const int
 		T__15=1, T__14=2, T__13=3, T__12=4, T__11=5, T__10=6, T__9=7, T__8=8, 
 		T__7=9, T__6=10, T__5=11, T__4=12, T__3=13, T__2=14, T__1=15, T__0=16, 
@@ -86,13 +86,13 @@ public partial class AL_GrammarLexer : Lexer {
 		protected const int HIDDEN = Hidden;
 
 
-	public AL_GrammarLexer(ICharStream input)
+	public ALGrammarLexer(ICharStream input)
 		: base(input)
 	{
 		_interp = new LexerATNSimulator(this,_ATN);
 	}
 
-	public override string GrammarFileName { get { return "AL_Grammar.g4"; } }
+	public override string GrammarFileName { get { return "ALGrammar.g4"; } }
 
 	public override string[] TokenNames { get { return tokenNames; } }
 

@@ -1,6 +1,6 @@
 ﻿namespace LangC_Capstone.Grammars
 {
-    partial class AL_GrammarLexer
+    partial class ALGrammarLexer
     {
     }
 }

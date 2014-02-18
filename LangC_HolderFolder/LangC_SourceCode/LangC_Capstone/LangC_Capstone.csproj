@@ -81,11 +81,11 @@
     <Compile Include="Contexts\StatementContext.cs" />
     <Compile Include="Contexts\SwitchBlockStatementContext.cs" />
     <Compile Include="Contexts\SwitchLabelContext.cs" />
-    <Compile Include="Grammars\AL_Grammar.g4.lexer.cs">
-      <DependentUpon>AL_Grammar.g4</DependentUpon>
+    <Compile Include="Grammars\ALGrammar.g4.lexer.cs">
+      <DependentUpon>ALGrammar.g4</DependentUpon>
     </Compile>
-    <Compile Include="Grammars\AL_Grammar.g4.parser.cs">
-      <DependentUpon>AL_Grammar.g4</DependentUpon>
+    <Compile Include="Grammars\ALGrammar.g4.parser.cs">
+      <DependentUpon>ALGrammar.g4</DependentUpon>
     </Compile>
     <Compile Include="Listeners\BaseListener.cs" />
     <Compile Include="Listeners\GrammarListener.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="Visitor\GrammarVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Antlr4 Include="Grammars\AL_Grammar.g4">
+    <Antlr4 Include="Grammars\ALGrammar.g4">
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>LangC_Capstone.Grammars</CustomToolNamespace>
     </Antlr4>
@@ -105,6 +105,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

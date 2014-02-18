@@ -1,4 +1,4 @@
-grammar AL_Grammar;
+grammar ALGrammar;
 
 @parser::members
 {
@@ -601,3 +601,4 @@ COMMENT
 LINE_COMMENT
     : '//' ~[\r\n]* -> skip
     ;
+
