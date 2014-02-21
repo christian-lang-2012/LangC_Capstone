@@ -1,6 +1,0 @@
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarLexer.cs
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarParser.cs
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarListener.cs
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarBaseListener.cs
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarVisitor.cs
-C:\Users\Christian\LangC_Capstone\LangC_HolderFolder\LangC_SourceCode\LangC_Capstone\obj\Debug\ALGrammarBaseVisitor.cs
