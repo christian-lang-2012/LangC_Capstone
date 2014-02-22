@@ -1,0 +1,215 @@
+package main;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+
+public interface GrammarVisitorextends ParseTreeVisitor<T> {
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpression(@NotNull AL_CombinedGrammarParser.ExpressionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#variableInitialization}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableInitialization(@NotNull AL_CombinedGrammarParser.VariableInitializationContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#formalParameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameter(@NotNull AL_CombinedGrammarParser.FormalParameterContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#expressionList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpressionList(@NotNull AL_CombinedGrammarParser.ExpressionListContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#statementExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementExpression(@NotNull AL_CombinedGrammarParser.StatementExpressionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock(@NotNull AL_CombinedGrammarParser.BlockContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#blockStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockStatement(@NotNull AL_CombinedGrammarParser.BlockStatementContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(@NotNull AL_CombinedGrammarParser.TypeContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#variableDeclarationID}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarationID(@NotNull AL_CombinedGrammarParser.VariableDeclarationIDContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#mainProgram}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMainProgram(@NotNull AL_CombinedGrammarParser.MainProgramContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#forUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForUpdate(@NotNull AL_CombinedGrammarParser.ForUpdateContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#variableDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclaration(@NotNull AL_CombinedGrammarParser.VariableDeclarationContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#enhancedForControl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnhancedForControl(@NotNull AL_CombinedGrammarParser.EnhancedForControlContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#primary}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrimary(@NotNull AL_CombinedGrammarParser.PrimaryContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#formalParameterList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameterList(@NotNull AL_CombinedGrammarParser.FormalParameterListContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodDeclaration(@NotNull AL_CombinedGrammarParser.MethodDeclarationContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#programDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgramDeclaration(@NotNull AL_CombinedGrammarParser.ProgramDeclarationContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#parExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParExpression(@NotNull AL_CombinedGrammarParser.ParExpressionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#switchLabel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSwitchLabel(@NotNull AL_CombinedGrammarParser.SwitchLabelContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarators(@NotNull AL_CombinedGrammarParser.VariableDeclaratorsContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement(@NotNull AL_CombinedGrammarParser.StatementContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#methodBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodBody(@NotNull AL_CombinedGrammarParser.MethodBodyContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#formalParameters}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameters(@NotNull AL_CombinedGrammarParser.FormalParametersContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#primitiveType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrimitiveType(@NotNull AL_CombinedGrammarParser.PrimitiveTypeContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#program}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgram(@NotNull AL_CombinedGrammarParser.ProgramContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#constantExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstantExpression(@NotNull AL_CombinedGrammarParser.ConstantExpressionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#forControl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForControl(@NotNull AL_CombinedGrammarParser.ForControlContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#forInit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForInit(@NotNull AL_CombinedGrammarParser.ForInitContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteral(@NotNull AL_CombinedGrammarParser.LiteralContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AL_CombinedGrammarParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSwitchBlockStatementGroup(@NotNull AL_CombinedGrammarParser.SwitchBlockStatementGroupContext ctx);
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;main.Parser&apos; to &apos;AL_Parser&apos;&#x0D;&#x0A;- Original project: &apos;LangC_Capstone&apos;&#x0D;&#x0A;- Original element: &apos;main.Parser&apos;&#x0D;&#x0A;- Renamed element: &apos;main.AL_Parser&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Parser&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;main{Parser.java[Parser" matchStrategy="1" name="AL_Parser" qualified="false" references="true" similarDeclarations="false" stamp="1393032442980" textual="false" version="1.0"/>
+</session>
