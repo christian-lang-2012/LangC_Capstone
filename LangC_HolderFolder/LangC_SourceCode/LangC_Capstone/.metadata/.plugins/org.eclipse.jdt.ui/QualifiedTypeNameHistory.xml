@@ -4,4 +4,9 @@
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTreeListener"/>
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.misc.NotNull"/>
 <fullyQualifiedTypeName name="main.GrammarListener"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.antlr.runtime.CharStream"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.ANTLRFileStream"/>
+<fullyQualifiedTypeName name="main.AL_Lexer"/>
+<fullyQualifiedTypeName name="org.antlr.runtime.CommonTokenStream"/>
 </qualifiedTypeNameHistroy>
