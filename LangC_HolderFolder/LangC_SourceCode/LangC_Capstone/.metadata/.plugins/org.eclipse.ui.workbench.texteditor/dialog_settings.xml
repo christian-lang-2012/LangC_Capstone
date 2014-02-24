@@ -2,28 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="370" key="DIALOG_WIDTH"/>
-		<item value="101" key="DIALOG_Y_ORIGIN"/>
+		<item value="87" key="DIALOG_Y_ORIGIN"/>
+		<item value="56" key="DIALOG_X_ORIGIN"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="333" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="AL_Parser" key="selection"/>
+		<item value="GrammarVisitor" key="selection"/>
 		<list key="findhistory">
+			<item value="ALGrammarVisitor"/>
+			<item value="ALGrammarListener"/>
+			<item value="ALGrammarParser"/>
+			<item value="AL_GrammarParser"/>
 			<item value="AL_CombinedGrammarParser"/>
 			<item value="AL_CombinedGrammarVisitor"/>
 			<item value="AL_CombinedGrammarListener"/>
 			<item value="package main;"/>
 		</list>
 		<list key="replacehistory">
-			<item value="AL_Parser"/>
 			<item value="GrammarVisitor"/>
 			<item value="GrammarListener"/>
+			<item value="AL_Parser"/>
 			<item value="Parser"/>
 		</list>
 	</section>

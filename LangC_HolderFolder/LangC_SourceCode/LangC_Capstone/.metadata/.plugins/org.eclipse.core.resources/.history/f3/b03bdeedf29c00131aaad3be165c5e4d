@@ -1,0 +1,24 @@
+:alproject:
+
+this program "AL_Example"
+
+:variables:
+let int #x = 3;
+let string #y = "The first week of class";
+let int #z = 8;
+let int #number constantly = 42;
+let #decimal = 5.2;
+
+:methods:
+function int addition(int #number1, int #number2)
+begin
+	return #number!
+end;
+
+:start program:
+writeLine(#x);
+writeLine(#y);
+
+let #abe = addition
+
+:end program:

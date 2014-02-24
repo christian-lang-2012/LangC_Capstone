@@ -6,7 +6,14 @@
 <fullyQualifiedTypeName name="main.GrammarListener"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.antlr.runtime.CharStream"/>
-<fullyQualifiedTypeName name="org.antlr.v4.runtime.ANTLRFileStream"/>
-<fullyQualifiedTypeName name="main.AL_Lexer"/>
+<fullyQualifiedTypeName name="org.antlr.runtime.TokenStream"/>
 <fullyQualifiedTypeName name="org.antlr.runtime.CommonTokenStream"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.ANTLRFileStream"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.UnbufferedCharStream"/>
+<fullyQualifiedTypeName name="main.AL_Lexer"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.CommonTokenFactory"/>
+<fullyQualifiedTypeName name="main.AL_Parser"/>
 </qualifiedTypeNameHistroy>
