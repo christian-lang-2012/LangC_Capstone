@@ -16,8 +16,7 @@ public class Driver {
 			
 			AL_Lexer lexer = new AL_Lexer(fileStream);
 			
-			CommonTokenStream tokens = new CommonTokenStream(lexer);
-			
+						
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
