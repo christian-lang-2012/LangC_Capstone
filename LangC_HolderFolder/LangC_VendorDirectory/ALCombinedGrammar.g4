@@ -1,21 +1,18 @@
-grammar ALGrammar;
+grammar ALCombinedGrammar;
+
 
 program 
       : 
-          ProgramHeader?
-          programDeclaration
-          
-          VariableHeader?
-          variableDeclaration*
-          
-          MethodHeader? 
-          methodDeclaration*
-        
-          mainProgram?        
+          ProgramHeader programDeclaration? 
+          VariableHeader variableDeclaration* 
+          MethodHeader methodDeclaration* 
+          mainProgram
+          EOF
       ;
-  
-  ProgramHeader 
-      :   ':alproject:'
+
+  ProgramHeader
+      :
+          ':alproject:'
       ;
   
   programDeclaration 
@@ -503,7 +500,7 @@ program
   
   fragment
   ZeroToThree
-      :   [0 3]
+      :   [0-3]
       ;
   
   NullLiteral
@@ -557,30 +554,33 @@ program
   
   
   //Defining identifiers and letters and digits
-  Identifier
-      : AL_Letter AL_LetterOrDigit*
-      ;
-  
-  VariableIdentifier
+VariableIdentifier
       :
           '#' Identifier
       ;
   
+Identifier
+      : AL_Letter AL_LetterOrDigit*
+      ;
+  
   AL_Letter
-      : [a zA z$_]
-      | ~[\u0000 \u00FF\uD800 \uDBFF]
-      |  [\uD800 \uDBFF] [\uDC00 \uDFFF]
+      : [a-zA-z$_]
+      | ~[\u0000\u00FF\uD800\uDBFF]
+      |  [\uD800\uDBFF][\uDC00\uDFFF]
       ;
   
   AL_LetterOrDigit
-      : [a ZA Z0 9$_]
+      : [a-zA-Z0-9$_]
       | ~[\u0000 \u00FF\uD800 \uDBFF]
       | [\uD800 \uDBFF] [\uDC00 \uDFFF]
       ;
   
   //Whitespace and comments
   WS
-      : [ \t\r\n\u000C]+ -> skip
+      : 
+          ( '\t'
+          |'\r\n'
+          |'\u000C')+ -> skip
       ;
   
   COMMENT
@@ -588,5 +588,7 @@ program
       ;
   
   LINE_COMMENT
-      : '//' ~[\r\n]* -> skip
-      ;
+    :   ( '//' ~[\r\n]* '\r'? '\n'
+        | '/*' .*? '*/'
+        ) -> skip
+    ;
