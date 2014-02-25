@@ -7,8 +7,6 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.UnbufferedCharStream;
 import org.antlr.v4.runtime.UnbufferedTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,11 +26,8 @@ public class Driver {
 			lexer.setTokenFactory(new CommonTokenFactory(true));
 			TokenStream tokens = new UnbufferedTokenStream<CommonToken>(lexer);
 			AL_Parser parser = new AL_Parser(tokens);
-			parser.setBuildParseTree(true);
-			ParseTree tree = parser.program();
-			
-			ParseTreeWalker walker = new ParseTreeWalker();
-			walker.walk(new BaseListener(), tree);
+			parser.setBuildParseTree(false);
+			System.out.println(parser.program());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

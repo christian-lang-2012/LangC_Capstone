@@ -9,7 +9,7 @@ public class BaseListener implements GrammarListener {
 
 	@Override
 	public void enterExpression(@NotNull AL_Parser.ExpressionContext ctx) {
-		ctx.getTokens(0);
+		System.out.println(ctx.getText());
 	}
 
 	@Override

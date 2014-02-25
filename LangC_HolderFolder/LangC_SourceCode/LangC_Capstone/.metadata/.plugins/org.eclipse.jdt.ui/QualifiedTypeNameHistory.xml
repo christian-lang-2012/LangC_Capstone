@@ -16,4 +16,6 @@
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.CommonTokenFactory"/>
 <fullyQualifiedTypeName name="main.AL_Parser"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTree"/>
+<fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTreeWalker"/>
 </qualifiedTypeNameHistroy>

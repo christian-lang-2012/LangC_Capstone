@@ -1,20 +1,18 @@
 package main;
 
-import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.RuleContext;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNSimulator;
-import org.antlr.v4.runtime.atn.LexerATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.misc.*;
 
 public class AL_Lexer extends Lexer {
 
 	protected static final DFA[] _decisionToDFA;
-	
 	protected static final PredictionContextCache _sharedContextCache = new PredictionContextCache();
-	
 	public static final int T__15 = 1, T__14 = 2, T__13 = 3, T__12 = 4,
 			T__11 = 5, T__10 = 6, T__9 = 7, T__8 = 8, T__7 = 9, T__6 = 10,
 			T__5 = 11, T__4 = 12, T__3 = 13, T__2 = 14, T__1 = 15, T__0 = 16,
@@ -38,7 +36,6 @@ public class AL_Lexer extends Lexer {
 			URSHIFT_ASSIGN = 94, Identifier = 95, VariableIdentifier = 96,
 			AL_Letter = 97, AL_LetterOrDigit = 98, WS = 99, COMMENT = 100,
 			LINE_COMMENT = 101;
-	
 	public static String[] modeNames = { "DEFAULT_MODE" };
 
 	public static final String[] tokenNames = { "<INVALID>", "'double'", "'}'",
@@ -59,7 +56,6 @@ public class AL_Lexer extends Lexer {
 			"'^='", "'%='", "'<<='", "'>>='", "'>>>='", "Identifier",
 			"VariableIdentifier", "AL_Letter", "AL_LetterOrDigit", "WS",
 			"COMMENT", "LINE_COMMENT" };
-	
 	public static final String[] ruleNames = { "T__15", "T__14", "T__13",
 			"T__12", "T__11", "T__10", "T__9", "T__8", "T__7", "T__6", "T__5",
 			"T__4", "T__3", "T__2", "T__1", "T__0", "ProgramHeader",
