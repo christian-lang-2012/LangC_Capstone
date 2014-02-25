@@ -3,9 +3,9 @@ grammar ALCombinedGrammar;
 
 program 
       : 
-          programHeader programDeclaration? 
-          variableHeader variableDeclaration* 
-          methodHeader methodDeclaration* 
+          programHeader? programDeclaration 
+          variableHeader? variableDeclaration* 
+          methodHeader? methodDeclaration* 
           mainProgram
           EOF
       ;
@@ -28,7 +28,7 @@ program
       :   METHODHEADER
       ;
   
-  METHODHEADER: ':methods:';
+  METHODHEADER: ':' 'methods' ':';
   
   mainProgram
       :
@@ -37,8 +37,8 @@ program
           ENDPROGRAM
       ;
   
-  STARTPROGRAM: ':start' 'program:';
-  ENDPROGRAM: ':end''program:';
+  STARTPROGRAM: ':'' start' 'program' ':';
+  ENDPROGRAM: ':' 'end' 'program' ':';
   
   methodDeclaration
       :
@@ -71,11 +71,11 @@ program
       |   'do' statement 'while' parExpression ';'
       |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
       |   'return' expression? ';'
-      |   'break' VariableIdentifier? ';'
-      |   'continue' VariableIdentifier? ';'
+      |   'break' variableIdentifier? ';'
+      |   'continue' variableIdentifier? ';'
       |   ';'
       |   statementExpression ';'
-      |   VariableIdentifier ':' statement
+      |   variableIdentifier ':' statement
       ;
   
   //For Controls && Switch Statement Controls
@@ -101,7 +101,7 @@ program
       ;
   
   enhancedForControl
-      :   type VariableIdentifier ':' expression
+      :   type variableIdentifier ':' expression
       ;
   
   forUpdate
@@ -137,7 +137,7 @@ program
       ;
   
   formalParameter
-      :   type VariableIdentifier
+      :   type variableIdentifier
       ;
   
   
@@ -152,7 +152,7 @@ program
       ;
   
   variableDeclarationID
-      : VariableIdentifier
+      : variableIdentifier
       ;
   
   variableInitialization
@@ -161,7 +161,7 @@ program
   
   expression
       :   primary
-      |   expression '.' (VariableIdentifier | Identifier)
+      |   expression '.' (variableIdentifier | Identifier)
       |   expression '[' expression ']'
       |   expression '(' expressionList? ')'
       |   '(' type ')' expression
@@ -196,7 +196,6 @@ program
           expression
       ;
   
-  ANDAND: '&&';
   
   primary
       :   '(' expression ')'
@@ -228,18 +227,27 @@ program
       |   'double'
       ;
   
-  BOOLEAN: 'boolean';
-  CHAR : 'char';
-  BYTE : 'byte';
-  SHORT: 'short';
-  INT : 'int';
-  LONG : 'long';
-  FLOAT: 'float';
-  DOUBLE: 'double';
-  RETURN: 'return';
-  LEFTCURLY: '{';
-  RIGHTCURLY: '}';
-  VARIABLEHEADER    : ':variables:';
+  variableIdentifier
+      :
+          '#' Identifier
+      ;
+  
+  
+  // Lexer portion
+  
+  BOOLEAN         : 'boolean';
+  CHAR            : 'char';
+  BYTE            : 'byte';
+  SHORT           : 'short';
+  INT             : 'int';
+  LONG            : 'long';
+  FLOAT           : 'float';
+  DOUBLE          : 'double';
+  RETURN          : 'return';
+  LEFTCURLY       : '{';
+  RIGHTCURLY      : '}';
+  VARIABLEHEADER  : ':'' variables' ':';
+  VARIABLESYMBOL  : '#';
   
   //KeyWords
   AND             : 'and';
@@ -272,7 +280,7 @@ program
   UNIMPLEMENTED   : 'unimplemented';
   VOID            : 'void';
   WHILE           : 'while';
-  
+  ANDAND: '&&';
   
   //Literals
   IntegerLiteral
@@ -574,13 +582,9 @@ program
   LSHIFT_ASSIGN   : '<<=';
   RSHIFT_ASSIGN   : '>>=';
   URSHIFT_ASSIGN  : '>>>=';
-  ALPROJECT       : ':alproject:';
+  ALPROJECT       : ':' 'alproject' ':';
   
   //Defining identifiers and letters and digits
-VariableIdentifier
-      :
-          '#' Identifier
-      ;
   
 Identifier
       : AL_Letter AL_LetterOrDigit*
