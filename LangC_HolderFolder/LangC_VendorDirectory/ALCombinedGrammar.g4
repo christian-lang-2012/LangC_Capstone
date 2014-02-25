@@ -3,41 +3,46 @@ grammar ALCombinedGrammar;
 
 program 
       : 
-          ProgramHeader programDeclaration? 
-          VariableHeader variableDeclaration* 
-          MethodHeader methodDeclaration* 
+          programHeader programDeclaration? 
+          variableHeader variableDeclaration* 
+          methodHeader methodDeclaration* 
           mainProgram
           EOF
       ;
 
-  ProgramHeader
+  programHeader
       :
-          ':alproject:'
+          ALPROJECT
       ;
   
   programDeclaration 
-      :   THIS PROGRAM  QUOTE Identifier QUOTE
+      :   'this' 'program'  '"' Identifier '"'
       ;
   
   
-  VariableHeader
-      :   ':variables:'
+  variableHeader
+      :   VARIABLEHEADER
       ;
   
-  MethodHeader
-      :   ':methods:'
+  methodHeader
+      :   METHODHEADER
       ;
+  
+  METHODHEADER: ':methods:';
   
   mainProgram
       :
-          ':start program:'
+          STARTPROGRAM
           blockStatement*
-          ':end program:'
+          ENDPROGRAM
       ;
+  
+  STARTPROGRAM: ':start' 'program:';
+  ENDPROGRAM: ':end''program:';
   
   methodDeclaration
       :
-          FUNCTION (type|'void') Identifier formalParameters
+          FUNCTION (type|VOID) Identifier formalParameters
           (methodBody | ';')
       ;
   
@@ -48,9 +53,9 @@ program
   
   block
       :   
-          BEGIN 
+          'begin' 
               blockStatement* 
-          END
+          'end'
       ;
   
   blockStatement
@@ -82,6 +87,8 @@ program
       :   'case' constantExpression ':'
       |   'default' ':'
       ;
+  
+  DEFAULT: 'default';
   
   forControl
       :   enhancedForControl
@@ -141,7 +148,7 @@ program
       ;
   
   variableDeclaration
-      : LET type variableDeclarationID  ('=' variableInitialization)? ';'
+      : 'let' type variableDeclarationID  ('=' variableInitialization)? ';'
       ;
   
   variableDeclarationID
@@ -188,7 +195,9 @@ program
           )
           expression
       ;
-   
+  
+  ANDAND: '&&';
+  
   primary
       :   '(' expression ')'
       |   literal
@@ -219,8 +228,21 @@ program
       |   'double'
       ;
   
+  BOOLEAN: 'boolean';
+  CHAR : 'char';
+  BYTE : 'byte';
+  SHORT: 'short';
+  INT : 'int';
+  LONG : 'long';
+  FLOAT: 'float';
+  DOUBLE: 'double';
+  RETURN: 'return';
+  LEFTCURLY: '{';
+  RIGHTCURLY: '}';
+  VARIABLEHEADER    : ':variables:';
+  
   //KeyWords
-  AND             :'and';
+  AND             : 'and';
   ARRAY           : 'array';
   AS              : 'as';
   BEGIN           : 'begin';
@@ -248,6 +270,7 @@ program
   THIS            : 'this';
   TRY             : 'try';
   UNIMPLEMENTED   : 'unimplemented';
+  VOID            : 'void';
   WHILE           : 'while';
   
   
@@ -551,7 +574,7 @@ program
   LSHIFT_ASSIGN   : '<<=';
   RSHIFT_ASSIGN   : '>>=';
   URSHIFT_ASSIGN  : '>>>=';
-  
+  ALPROJECT       : ':alproject:';
   
   //Defining identifiers and letters and digits
 VariableIdentifier
