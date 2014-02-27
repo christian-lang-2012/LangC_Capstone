@@ -1,165 +1,48 @@
 grammar ALCombinedGrammar;
 
+//Parser Rules
+program
+    :
+        programHeader
+        programDeclaration 
+        variableHeader
+        variableDeclaration*
+    ;
 
-program 
-      : 
-          programHeader? programDeclaration 
-          variableHeader? variableDeclaration* 
-          methodHeader? methodDeclaration* 
-          mainProgram
-          EOF
-      ;
+programHeader
+    :
+        ALPROJECT
+    ;
 
-  programHeader
-      :
-          ALPROJECT
-      ;
-  
-  programDeclaration 
-      :   'this' 'program'  '"' Identifier '"'
-      ;
-  
-  
+
   variableHeader
       :   VARIABLEHEADER
       ;
-  
-  methodHeader
-      :   METHODHEADER
-      ;
-  
-  METHODHEADER: ':' 'methods' ':';
-  
-  mainProgram
-      :
-          STARTPROGRAM
-          blockStatement*
-          ENDPROGRAM
-      ;
-  
-  STARTPROGRAM: ':'' start' 'program' ':';
-  ENDPROGRAM: ':' 'end' 'program' ':';
-  
-  methodDeclaration
-      :
-          FUNCTION (type|VOID) Identifier formalParameters
-          (methodBody | ';')
-      ;
-  
-  methodBody
-      : 
-          block ';'
-      ;
-  
-  block
-      :   
-          'begin' 
-              blockStatement* 
-          'end'
-      ;
-  
-  blockStatement
-      :   variableDeclaration ';'
-      |   statement
-      ;
-  
-  statement
-      :   block
-      |   'if' parExpression statement ('else' statement)?
-      |   'for' '(' forControl ')' statement
-      |   'while' parExpression statement
-      |   'do' statement 'while' parExpression ';'
-      |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
-      |   'return' expression? ';'
-      |   'break' variableIdentifier? ';'
-      |   'continue' variableIdentifier? ';'
-      |   ';'
-      |   statementExpression ';'
-      |   variableIdentifier ':' statement
-      ;
-  
-  //For Controls && Switch Statement Controls
-  switchBlockStatementGroup
-      :   switchLabel+ blockStatement+
-      ;
-  
-  switchLabel
-      :   'case' constantExpression ':'
-      |   'default' ':'
-      ;
-  
-  DEFAULT: 'default';
-  
-  forControl
-      :   enhancedForControl
-      |   forInit? ';' expression? ';' forUpdate?
-      ;
-  
-  forInit
-      :   variableDeclaration
-      |   expressionList
-      ;
-  
-  enhancedForControl
-      :   type variableIdentifier ':' expression
-      ;
-  
-  forUpdate
-      :   expressionList
-      ;
-  
-  // EXPRESSIONS
-  
-  parExpression
-      :   '(' expression ')'
-      ;
-  
-  expressionList
-      :   expression (',' expression)*
-      ;
-  
-  statementExpression
-      :   expression
-      ;
-  
-  constantExpression
-      :   expression
-      ;
-  
-  //Formal parameter stuff
-  
-  formalParameters
-      :   '(' formalParameterList? ')'
-      ;
-  
-  formalParameterList
-      :   formalParameter (',' formalParameter)*
-      ;
-  
-  formalParameter
-      :   type variableIdentifier
-      ;
-  
-  
-  //Variable
-  variableDeclarators
-      :
-          variableDeclaration (',' variableDeclaration)*
-      ;
-  
+
+programDeclaration
+    :
+        'this' 'program' '"' Identifier '"'
+    ;
+
+
   variableDeclaration
       : 'let' type variableDeclarationID  ('=' variableInitialization)? ';'
       ;
   
-  variableDeclarationID
+   variableDeclarationID
       : variableIdentifier
       ;
-  
-  variableInitialization
+   
+    variableInitialization
       : expression
       ;
-  
-  expression
+
+      variableIdentifier
+      :
+          '#' Identifier
+      ;
+    
+    expression
       :   primary
       |   expression '.' (variableIdentifier | Identifier)
       |   expression '[' expression ']'
@@ -195,15 +78,18 @@ program
           )
           expression
       ;
-  
-  
-  primary
+    
+    expressionList
+      :   expression (',' expression)*
+      ;
+    
+    primary
       :   '(' expression ')'
       |   literal
       |   Identifier
       ;
-  
-  literal
+    
+     literal
       :   IntegerLiteral
       |   FloatingPointLiteral
       |   CharacterLiteral
@@ -211,12 +97,12 @@ program
       |   BooleanLiteral
       |   NullLiteral
       ;
-  
-  type
+     
+     type
       :   primitiveType ('[' ']')*
       ;
-  
-  primitiveType
+     
+       primitiveType
       :   'boolean'
       |   'char'
       |   'byte'
@@ -226,62 +112,75 @@ program
       |   'float'
       |   'double'
       ;
+       
+ 
+    
+//Lexer Rules
+       
+ALPROJECT: ':' 'alproject' ':';
+BOOLEAN : 'boolean';
+BYTE : 'byte';
+CHAR : 'char';
+DOBULE : 'double';
+FLOAT: 'float';
+INT : 'int';
+LET: 'let';
+LONG: 'long';
+PROGRAM: 'program';
+SEMICOLON: ';';
+SHORT : 'short';
+THIS : 'this';
+VARIABLEHEADER : ':' 'variables' ':';
+
+  //Separators
+  LPAREN          : '(';
+  RPAREN          : ')';
+  LBRACK          : '[';
+  RBRACK          : ']';
+  SEMI            : ';';
+  COMMA           : ',';
+  DOT             : '.';
   
-  variableIdentifier
-      :
-          '#' Identifier
-      ;
-  
-  
-  // Lexer portion
-  
-  BOOLEAN         : 'boolean';
-  CHAR            : 'char';
-  BYTE            : 'byte';
-  SHORT           : 'short';
-  INT             : 'int';
-  LONG            : 'long';
-  FLOAT           : 'float';
-  DOUBLE          : 'double';
-  RETURN          : 'return';
-  LEFTCURLY       : '{';
-  RIGHTCURLY      : '}';
-  VARIABLEHEADER  : ':'' variables' ':';
-  VARIABLESYMBOL  : '#';
-  
-  //KeyWords
-  AND             : 'and';
-  ARRAY           : 'array';
-  AS              : 'as';
-  BEGIN           : 'begin';
-  BREAK           : 'break';
-  CASE            : 'case';
-  CATCH           : 'catch';
-  CONSTANTLY      : 'constantly';
-  CONTINUE        : 'continue';
-  DO              : 'do';
-  ELSE            : 'else';
-  END             : 'end';
-  EXIT            : 'exit';
-  FILE            : 'file';
-  FINALLY         : 'finally';
-  FOR             : 'for';
-  FUNCTION        : 'function';
-  IF              : 'if';
-  IN              : 'in';
-  IS              : 'is';
-  LET             : 'let';
+
+  //Operators
+  ASSIGN          : '=';
+  GT              : '>';
+  LT              : '<';
+  BANG            : '!';
+  TILDE           : '~';
+  QUESTION        : '?';
+  COLON           : ':';
+  EQUAL           : '==';
+  LE              : '<=';
+  GE              : '>=';
+  NOTEQUAL        : '!=';
+  INC             : '++';
+  DEC             : '  ';
+  ADD             : '+';
+  SUB             : ' ';
+  MUL             : '*';
+  DIV             : '/';
+  BITAND          : '&';
+  BITOR           : '|';
+  CARET           : '^';
+  MOD             : '%';
+  QUOTE           : '"';
+  HASHTAG         : '#';
   OR              : '||';
-  PROGRAM         : 'program';
-  SET             : 'set';
-  SWITCH          : 'switch';
-  THIS            : 'this';
-  TRY             : 'try';
-  UNIMPLEMENTED   : 'unimplemented';
-  VOID            : 'void';
-  WHILE           : 'while';
-  ANDAND: '&&';
+  AND             : '&&';
   
+  ADD_ASSIGN      : '+=';
+  SUB_ASSIGN      : ' =';
+  MUL_ASSIGN      : '*=';
+  DIV_ASSIGN      : '/=';
+  AND_ASSIGN      : '&=';
+  OR_ASSIGN       : '|=';
+  XOR_ASSIGN      : '^=';
+  MOD_ASSIGN      : '%=';
+  LSHIFT_ASSIGN   : '<<=';
+  RSHIFT_ASSIGN   : '>>=';
+  URSHIFT_ASSIGN  : '>>>=';
+
   //Literals
   IntegerLiteral
       :   DecimalIntegerLiteral
@@ -538,82 +437,18 @@ program
       :   'null'
       ;
   
-  //Separators
-  LPAREN          : '(';
-  RPAREN          : ')';
-  LBRACK          : '[';
-  RBRACK          : ']';
-  SEMI            : ';';
-  COMMA           : ',';
-  DOT             : '.';
-  
-  //Operators
-  ASSIGN          : '=';
-  GT              : '>';
-  LT              : '<';
-  BANG            : '!';
-  TILDE           : '~';
-  QUESTION        : '?';
-  COLON           : ':';
-  EQUAL           : '==';
-  LE              : '<=';
-  GE              : '>=';
-  NOTEQUAL        : '!=';
-  INC             : '++';
-  DEC             : '  ';
-  ADD             : '+';
-  SUB             : ' ';
-  MUL             : '*';
-  DIV             : '/';
-  BITAND          : '&';
-  BITOR           : '|';
-  CARET           : '^';
-  MOD             : '%';
-  QUOTE          : '"';
-  
-  ADD_ASSIGN      : '+=';
-  SUB_ASSIGN      : ' =';
-  MUL_ASSIGN      : '*=';
-  DIV_ASSIGN      : '/=';
-  AND_ASSIGN      : '&=';
-  OR_ASSIGN       : '|=';
-  XOR_ASSIGN      : '^=';
-  MOD_ASSIGN      : '%=';
-  LSHIFT_ASSIGN   : '<<=';
-  RSHIFT_ASSIGN   : '>>=';
-  URSHIFT_ASSIGN  : '>>>=';
-  ALPROJECT       : ':' 'alproject' ':';
-  
-  //Defining identifiers and letters and digits
-  
 Identifier
-      : AL_Letter AL_LetterOrDigit*
-      ;
-  
-  AL_Letter
-      : [a-zA-z$_]
-      | ~[\u0000\u00FF\uD800\uDBFF]
-      |  [\uD800\uDBFF][\uDC00\uDFFF]
-      ;
-  
-  AL_LetterOrDigit
-      : [a-zA-Z0-9$_]
-      | ~[\u0000 \u00FF\uD800 \uDBFF]
-      | [\uD800 \uDBFF] [\uDC00 \uDFFF]
-      ;
-  
-  //Whitespace and comments
-  WS
+    :
+        Letter LetterOrDigit*
+    ;
+
+Letter
+    : [a-zA-Z$_];
+
+LetterOrDigit
+    : [a-zA-Z0-9$_];
+
+ WS
       : 
           [ \t\r\n\u000C]+ -> skip
       ;
-  
-  COMMENT
-      : '/*' .*? '*/' -> skip
-      ;
-  
-  LINE_COMMENT
-    :   ( '//' ~[\r\n]* '\r'? '\n'
-        | '/*' .*? '*/'
-        ) -> skip
-    ;
