@@ -605,9 +605,7 @@ Identifier
   //Whitespace and comments
   WS
       : 
-          ( '\t'
-          |'\r\n'
-          |'\u000C')+ -> skip
+          [ \t\r\n\u000C]+ -> skip
       ;
   
   COMMENT

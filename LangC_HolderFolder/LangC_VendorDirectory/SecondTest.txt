@@ -1,5 +1,4 @@
 :alproject:
-
 this program "AL_Example"
 
 :variables:
