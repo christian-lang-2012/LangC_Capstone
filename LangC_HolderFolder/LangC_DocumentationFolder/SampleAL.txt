@@ -1,7 +1,5 @@
 :alproject:
 
-this program "AL_Example"
-
 :variables:
 let int #x = 3;
 let string #y = "The first week of class";

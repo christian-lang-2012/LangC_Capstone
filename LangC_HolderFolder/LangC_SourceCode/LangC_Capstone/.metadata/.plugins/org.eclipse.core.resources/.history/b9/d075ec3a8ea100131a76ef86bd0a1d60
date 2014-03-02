@@ -21,7 +21,6 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class AL_Parser extends Parser {
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache = new PredictionContextCache();
-	
 	public static final int T__15 = 1, T__14 = 2, T__13 = 3, T__12 = 4,
 			T__11 = 5, T__10 = 6, T__9 = 7, T__8 = 8, T__7 = 9, T__6 = 10,
 			T__5 = 11, T__4 = 12, T__3 = 13, T__2 = 14, T__1 = 15, T__0 = 16,
@@ -45,7 +44,6 @@ public class AL_Parser extends Parser {
 			URSHIFT_ASSIGN = 94, Identifier = 95, VariableIdentifier = 96,
 			AL_Letter = 97, AL_LetterOrDigit = 98, WS = 99, COMMENT = 100,
 			LINE_COMMENT = 101;
-	
 	public static final String[] tokenNames = { "<INVALID>", "'double'", "'}'",
 			"'boolean'", "'float'", "'char'", "'long'", "'short'", "'default'",
 			"'int'", "'void'", "'{'", "':end program:'", "'byte'", "'return'",
@@ -64,7 +62,6 @@ public class AL_Parser extends Parser {
 			"'^='", "'%='", "'<<='", "'>>='", "'>>>='", "Identifier",
 			"VariableIdentifier", "AL_Letter", "AL_LetterOrDigit", "WS",
 			"COMMENT", "LINE_COMMENT" };
-	
 	public static final int RULE_program = 0, RULE_programDeclaration = 1,
 			RULE_mainProgram = 2, RULE_methodDeclaration = 3,
 			RULE_methodBody = 4, RULE_block = 5, RULE_blockStatement = 6,
@@ -79,7 +76,6 @@ public class AL_Parser extends Parser {
 			RULE_variableInitialization = 24, RULE_expression = 25,
 			RULE_primary = 26, RULE_literal = 27, RULE_type = 28,
 			RULE_primitiveType = 29;
-	
 	public static final String[] ruleNames = { "program", "programDeclaration",
 			"mainProgram", "methodDeclaration", "methodBody", "block",
 			"blockStatement", "statement", "switchBlockStatementGroup",

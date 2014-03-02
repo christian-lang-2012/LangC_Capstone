@@ -4,9 +4,9 @@ grammar ALCombinedGrammar;
 program
     :
         programHeader
-        programDeclaration 
         variableHeader
         variableDeclaration*
+        methodHeader
     ;
 
 programHeader
@@ -14,21 +14,23 @@ programHeader
         ALPROJECT
     ;
 
-
   variableHeader
       :   VARIABLEHEADER
       ;
 
-programDeclaration
-    :
-        'this' 'program' '"' Identifier '"'
-    ;
-
+  methodHeader
+      :
+          METHODHEADER
+      ;
 
   variableDeclaration
-      : 'let' type variableDeclarationID  ('=' variableInitialization)? ';'
+      : 'let' type variableDeclarationID constantlyDeclaration? ('=' variableInitialization)? ';'
       ;
   
+  constantlyDeclaration
+      :
+          'constantly'
+      ;
    variableDeclarationID
       : variableIdentifier
       ;
@@ -48,11 +50,11 @@ programDeclaration
       |   expression '[' expression ']'
       |   expression '(' expressionList? ')'
       |   '(' type ')' expression
-      |   expression ('++' | '  ')
-      |   ('+'|' '|'++'|'  ') expression
+      |   expression ('++' | '--')
+      |   ('+'|'-'|'++'|'--') expression
       |   ('~'|'!') expression
       |   expression ('*'|'/'|'%') expression
-      |   expression ('+'|' ') expression
+      |   expression ('+'|'-') expression
       |   expression ('<' '<' | '>' '>' '>' | '>' '>') expression
       |   expression ('<=' | '>=' | '>' | '<') expression
       |   expression ('==' | '!=') expression
@@ -86,7 +88,6 @@ programDeclaration
     primary
       :   '(' expression ')'
       |   literal
-      |   Identifier
       ;
     
      literal
@@ -104,6 +105,7 @@ programDeclaration
      
        primitiveType
       :   'boolean'
+      |   'string'
       |   'char'
       |   'byte'
       |   'short'
@@ -121,14 +123,16 @@ ALPROJECT: ':' 'alproject' ':';
 BOOLEAN : 'boolean';
 BYTE : 'byte';
 CHAR : 'char';
-DOBULE : 'double';
+CONSTANTLY: 'constantly';
+DOUBLE : 'double';
 FLOAT: 'float';
 INT : 'int';
 LET: 'let';
 LONG: 'long';
+METHODHEADER: ':''methods'':';
 PROGRAM: 'program';
-SEMICOLON: ';';
 SHORT : 'short';
+STRING : 'string';
 THIS : 'this';
 VARIABLEHEADER : ':' 'variables' ':';
 
@@ -155,9 +159,9 @@ VARIABLEHEADER : ':' 'variables' ':';
   GE              : '>=';
   NOTEQUAL        : '!=';
   INC             : '++';
-  DEC             : '  ';
+  DEC             : '--';
   ADD             : '+';
-  SUB             : ' ';
+  SUB             : '-';
   MUL             : '*';
   DIV             : '/';
   BITAND          : '&';

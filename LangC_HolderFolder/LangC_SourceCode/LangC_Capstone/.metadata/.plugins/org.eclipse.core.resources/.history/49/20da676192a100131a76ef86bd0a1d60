@@ -64,7 +64,6 @@ public class AL_Parser extends Parser {
 			"'^='", "'%='", "'<<='", "'>>='", "'>>>='", "Identifier",
 			"VariableIdentifier", "AL_Letter", "AL_LetterOrDigit", "WS",
 			"COMMENT", "LINE_COMMENT" };
-	
 	public static final int RULE_program = 0, RULE_programDeclaration = 1,
 			RULE_mainProgram = 2, RULE_methodDeclaration = 3,
 			RULE_methodBody = 4, RULE_block = 5, RULE_blockStatement = 6,
@@ -79,7 +78,6 @@ public class AL_Parser extends Parser {
 			RULE_variableInitialization = 24, RULE_expression = 25,
 			RULE_primary = 26, RULE_literal = 27, RULE_type = 28,
 			RULE_primitiveType = 29;
-	
 	public static final String[] ruleNames = { "program", "programDeclaration",
 			"mainProgram", "methodDeclaration", "methodBody", "block",
 			"blockStatement", "statement", "switchBlockStatementGroup",
