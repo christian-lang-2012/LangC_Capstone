@@ -1,12 +1,14 @@
 package main;
 
-import javax.swing.JFrame;
+import java.io.File;
+
+import javax.swing.JFileChooser;
 
 
 public class Driver{
 	
 	public static void main(String[] args) {
-		JFrame f = new MyFrame();
+		MyFrame f = new MyFrame();
 		f.setVisible(true);
 	}
 

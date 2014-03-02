@@ -5,7 +5,7 @@ program
     :
         programHeader
         variableHeader
-        variableDeclaration*
+        variableDeclarators*
         methodHeader
     ;
 
@@ -23,21 +23,30 @@ programHeader
           METHODHEADER
       ;
 
-  variableDeclaration
-      : 'let' type variableDeclarationID constantlyDeclaration? ('=' variableInitialization)? ';'
-      ;
-  
-  constantlyDeclaration
+ constantlyDeclaration
       :
           'constantly'
       ;
-   variableDeclarationID
-      : variableIdentifier
-      ;
-   
-    variableInitialization
-      : expression
-      ;
+ variableDeclarators
+    : 'let' primitiveType variableDeclarator  (',' variableDeclarator)*
+    ;
+ 
+ variableDeclarator
+    :   variableDeclaratorId constantlyDeclaration? ('=' variableInitializer)?
+    ;
+ 
+ variableDeclaratorId
+    :   variableIdentifier ('[' ']')*
+    ;
+
+ variableInitializer
+    :   arrayInitializer
+    |   expression
+    ;
+ 
+ arrayInitializer
+    :   '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
+    ;
 
       variableIdentifier
       :
