@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTreeListener"/>
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.misc.NotNull"/>
 <fullyQualifiedTypeName name="main.GrammarListener"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.antlr.runtime.CharStream"/>
 <fullyQualifiedTypeName name="org.antlr.runtime.TokenStream"/>
 <fullyQualifiedTypeName name="org.antlr.runtime.CommonTokenStream"/>
@@ -18,4 +17,12 @@
 <fullyQualifiedTypeName name="main.AL_Parser"/>
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTree"/>
 <fullyQualifiedTypeName name="org.antlr.v4.runtime.tree.ParseTreeWalker"/>
+<fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.awt.FileDialog"/>
 </qualifiedTypeNameHistroy>
