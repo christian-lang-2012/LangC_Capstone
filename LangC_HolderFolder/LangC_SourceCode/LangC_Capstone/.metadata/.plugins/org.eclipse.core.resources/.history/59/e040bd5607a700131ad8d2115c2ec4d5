@@ -1,6 +1,6 @@
 package main;
 
-import java.awt.Font;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -25,14 +25,13 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 public class MyFrame extends JFrame {
 
 	JLabel label1 = new JLabel("Choose file to compile:");
-	JLabel mainLabel = new JLabel("The Apprentice Compiler");
-	Font mainFont = new Font("Times New Roman", 1, 36);
+	JLabel mainLabel = new JLabel("Apprentice Compiler");
 	JButton fileChooseButton = new JButton();
 	JLabel chooserLabel = new JLabel();
 	
 	public MyFrame(){
 		setTitle("File Chooser");
-		setSize(400,400);
+		setSize(500,500);
 		setLocation(0,0);
 		
 		fileChooseButton.addActionListener(new ActionListener(){
@@ -48,8 +47,7 @@ public class MyFrame extends JFrame {
 			}
 		});
 		
-		mainLabel.setFont(mainFont);
-		mainLabel.setSize(400, 150);
+		
 		label1.setSize(200, 15);
 		label1.setVisible(true);
 		label1.setLocation(0, 200);
@@ -62,7 +60,6 @@ public class MyFrame extends JFrame {
 		fileChooseButton.setText("COMPILE!");
 		chooserLabel.add(fileChooseButton);
 		
-		add(mainLabel);
 		add(label1);
 		add(chooserLabel);
 		

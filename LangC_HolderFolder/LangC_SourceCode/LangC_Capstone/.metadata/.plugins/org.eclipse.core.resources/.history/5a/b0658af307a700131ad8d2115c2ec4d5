@@ -10,14 +10,14 @@ public class BaseListener implements GrammarListener {
 	@Override
 	public void enterVariableDeclarator(
 			@NotNull AL_Parser.VariableDeclaratorContext ctx) {
-		System.out.println("Start token: "+ctx.getStart().toString());
+		System.out.println("Start token: "+ctx.getStart());
 		System.out.println("End token: "+ctx.getStop());
 	}
 
 	@Override
 	public void exitVariableDeclarator(
 			@NotNull AL_Parser.VariableDeclaratorContext ctx) {
-		System.out.println("Start token: "+ctx.getStart().toString());
+		System.out.println("Start token: "+ctx.getStart());
 		System.out.println("End token: "+ctx.getStop());
 	}
 

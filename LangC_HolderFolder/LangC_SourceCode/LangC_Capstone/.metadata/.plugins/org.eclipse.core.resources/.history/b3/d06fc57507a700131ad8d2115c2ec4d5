@@ -25,7 +25,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 public class MyFrame extends JFrame {
 
 	JLabel label1 = new JLabel("Choose file to compile:");
-	JLabel mainLabel = new JLabel("The Apprentice Compiler");
+	JLabel mainLabel = new JLabel("Apprentice Compiler");
 	Font mainFont = new Font("Times New Roman", 1, 36);
 	JButton fileChooseButton = new JButton();
 	JLabel chooserLabel = new JLabel();
