@@ -9,6 +9,14 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
+	@Override public T visitVariableDeclarator(@NotNull AL_Parser.VariableDeclaratorContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
 	@Override public T visitExpression(@NotNull AL_Parser.ExpressionContext ctx) { return visitChildren(ctx); }
 
 	/**
@@ -17,7 +25,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitVariableInitialization(@NotNull AL_Parser.VariableInitializationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableDeclaratorId(@NotNull AL_Parser.VariableDeclaratorIdContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -26,6 +34,14 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitFormalParameter(@NotNull AL_Parser.FormalParameterContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitMethodCall(@NotNull AL_Parser.MethodCallContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -42,6 +58,22 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitStatementExpression(@NotNull AL_Parser.StatementExpressionContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitVariableHeader(@NotNull AL_Parser.VariableHeaderContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitVariableInitializer(@NotNull AL_Parser.VariableInitializerContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -73,7 +105,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitVariableDeclarationID(@NotNull AL_Parser.VariableDeclarationIDContext ctx) { return visitChildren(ctx); }
+	@Override public T visitForUpdate(@NotNull AL_Parser.ForUpdateContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -89,15 +121,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitForUpdate(@NotNull AL_Parser.ForUpdateContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
-	@Override public T visitVariableDeclaration(@NotNull AL_Parser.VariableDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLocalVariableDeclarationStatement(@NotNull AL_Parser.LocalVariableDeclarationStatementContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -129,7 +153,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitMethodDeclaration(@NotNull AL_Parser.MethodDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConstantlyDeclaration(@NotNull AL_Parser.ConstantlyDeclarationContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -137,7 +161,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitProgramDeclaration(@NotNull AL_Parser.ProgramDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMethodDeclaration(@NotNull AL_Parser.MethodDeclarationContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -161,7 +185,23 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
+	@Override public T visitVariableIdentifier(@NotNull AL_Parser.VariableIdentifierContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
 	@Override public T visitVariableDeclarators(@NotNull AL_Parser.VariableDeclaratorsContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitProgramHeader(@NotNull AL_Parser.ProgramHeaderContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -177,7 +217,31 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
+	@Override public T visitMethodHeader(@NotNull AL_Parser.MethodHeaderContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitArguments(@NotNull AL_Parser.ArgumentsContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
 	@Override public T visitMethodBody(@NotNull AL_Parser.MethodBodyContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitArrayInitializer(@NotNull AL_Parser.ArrayInitializerContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -193,7 +257,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConstantExpression(@NotNull AL_Parser.ConstantExpressionContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -209,7 +273,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitConstantExpression(@NotNull AL_Parser.ConstantExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -225,6 +289,14 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
+	@Override public T visitLastFormalParameter(@NotNull AL_Parser.LastFormalParameterContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
 	@Override public T visitForInit(@NotNull AL_Parser.ForInitContext ctx) { return visitChildren(ctx); }
 
 	/**
@@ -233,7 +305,7 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitLiteral(@NotNull AL_Parser.LiteralContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLocalVariableDeclaration(@NotNull AL_Parser.LocalVariableDeclarationContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -242,4 +314,12 @@ public class BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Gramm
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitSwitchBlockStatementGroup(@NotNull AL_Parser.SwitchBlockStatementGroupContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitLiteral(@NotNull AL_Parser.LiteralContext ctx) { return visitChildren(ctx); }
 }

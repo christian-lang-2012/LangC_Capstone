@@ -13,10 +13,7 @@ begin
 	return #number!
 end;
 
-:start program:
-writeLine(#x);
-writeLine(#y);
-
-let #abe = addition
+:begin program:
+let int #abe = addition(#x, #z);
 
 :end program:

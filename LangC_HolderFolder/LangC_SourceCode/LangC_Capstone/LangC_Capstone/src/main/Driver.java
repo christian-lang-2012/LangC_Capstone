@@ -9,7 +9,6 @@ public class Driver{
 		JFrame f = new MyFrame();
 		f.setVisible(true);
 		
-		System.out.println("Test stuff, make sure to fix the lexer");
 	}
 
 }

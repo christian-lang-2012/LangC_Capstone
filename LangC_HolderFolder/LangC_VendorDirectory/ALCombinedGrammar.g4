@@ -7,6 +7,8 @@ program
         variableHeader
         variableDeclarators*
         methodHeader
+        methodDeclaration*
+        mainProgram
     ;
 
 programHeader
@@ -22,13 +24,20 @@ programHeader
       :
           METHODHEADER
       ;
+  
+ mainProgram
+     :
+         ':begin program:'
+         blockStatement*
+         ':end program:'
+     ;
 
  constantlyDeclaration
       :
           'constantly'
       ;
  variableDeclarators
-    : 'let' primitiveType variableDeclarator  (',' variableDeclarator)*
+    : 'let' primitiveType variableDeclarator  (',' variableDeclarator)* ';'
     ;
  
  variableDeclarator
@@ -54,41 +63,42 @@ programHeader
       ;
     
     expression
-      :   primary
-      |   expression '.' (variableIdentifier | Identifier)
-      |   expression '[' expression ']'
-      |   expression '(' expressionList? ')'
-      |   '(' type ')' expression
-      |   expression ('++' | '--')
-      |   ('+'|'-'|'++'|'--') expression
-      |   ('~'|'!') expression
-      |   expression ('*'|'/'|'%') expression
-      |   expression ('+'|'-') expression
-      |   expression ('<' '<' | '>' '>' '>' | '>' '>') expression
-      |   expression ('<=' | '>=' | '>' | '<') expression
-      |   expression ('==' | '!=') expression
-      |   expression '&' expression
-      |   expression '^' expression
-      |   expression '|' expression
-      |   expression '&&' expression
-      |   expression '||' expression
-      |   expression '?' expression ':' expression
-      |   expression
-          (   '='<assoc=right>
-          |   '+='<assoc=right>
-          |   ' ='<assoc=right>
-          |   '*='<assoc=right>
-          |   '/='<assoc=right>
-          |   '&='<assoc=right>
-          |   '|='<assoc=right>
-          |   '^='<assoc=right>
-          |   '>>='<assoc=right>
-          |   '>>>='<assoc=right>
-          |   '<<='<assoc=right>
-          |   '%='<assoc=right>
-          )
-          expression
-      ;
+    :   primary
+    |   expression '.' Identifier
+    |   expression '.' 'this'
+    |   expression '[' expression ']'
+    |   expression '(' expressionList? ')'
+    |   '(' type ')' expression
+    |   expression ('++' | '--')
+    |   ('+'|'-'|'++'|'--') expression
+    |   ('~'|'!') expression
+    |   expression ('*'|'/'|'%') expression
+    |   expression ('+'|'-') expression
+    |   expression ('<' '<' | '>' '>' '>' | '>' '>') expression
+    |   expression ('<=' | '>=' | '>' | '<') expression
+    |   expression ('==' | '!=') expression
+    |   expression '&' expression
+    |   expression '^' expression
+    |   expression '|' expression
+    |   expression '&&' expression
+    |   expression '||' expression
+    |   expression '?' expression ':' expression
+    |   expression
+        (   '='<assoc=right>
+        |   '+='<assoc=right>
+        |   '-='<assoc=right>
+        |   '*='<assoc=right>
+        |   '/='<assoc=right>
+        |   '&='<assoc=right>
+        |   '|='<assoc=right>
+        |   '^='<assoc=right>
+        |   '>>='<assoc=right>
+        |   '>>>='<assoc=right>
+        |   '<<='<assoc=right>
+        |   '%='<assoc=right>
+        )
+        expression
+    ;
     
     expressionList
       :   expression (',' expression)*
@@ -97,7 +107,18 @@ programHeader
     primary
       :   '(' expression ')'
       |   literal
+      |   variableIdentifier
+      |   methodCall
       ;
+
+    methodCall
+        :
+            Identifier arguments
+        ;
+    
+    arguments
+    :   '(' expressionList? ')'
+    ;
     
      literal
       :   IntegerLiteral
@@ -124,35 +145,151 @@ programHeader
       |   'double'
       ;
        
+methodDeclaration
+    :   'function' (type|'void') Identifier formalParameters ('[' ']')*
+        (methodBody | ';')
+    ;
+
+methodBody
+    :   block
+    ;
+
+block
+    :   'begin' blockStatement* 'end'
+    ;
+
+blockStatement
+    :   localVariableDeclarationStatement
+    |   statement
+    ;
+
+localVariableDeclarationStatement
+    :    localVariableDeclaration
+    ;
+
+localVariableDeclaration
+    :   variableDeclarators
+    ;
  
+formalParameters
+    :   '(' formalParameterList? ')'
+    ;
+      
+formalParameterList
+    :   formalParameter (',' formalParameter)* (',' lastFormalParameter)?
+    |   lastFormalParameter
+    ;
+      
+formalParameter
+    :  type variableDeclaratorId
+    ;
+
+lastFormalParameter
+    :   type '...' variableDeclaratorId
+    ;
+
+statement
+    :   block
+    |   'if' parExpression statement ('else' statement)?
+    |   'for' '(' forControl ')' statement
+    |   'while' parExpression statement
+    |   'do' statement 'while' parExpression ';'
+    |   'switch' parExpression '{' switchBlockStatementGroup* switchLabel* '}'
+    |   'return' expression? ';'
+    |   'break' variableIdentifier? ';'
+    |   'continue' variableIdentifier? ';'
+    |   ';'
+    |   statementExpression ';'
+    |   variableIdentifier ':' statement
+    ;
+
+parExpression
+    :   '(' expression ')'
+    ;
+
+forControl
+    :   enhancedForControl
+    |   forInit? ';' expression? ';' forUpdate?
+    ;
+
+forInit
+    :   localVariableDeclaration
+    |   expressionList
+    ;
+
+enhancedForControl
+    :   type variableIdentifier ':' expression
+    ;
+
+forUpdate
+    :   expressionList
+    ;
+
+switchBlockStatementGroup
+    :   switchLabel+ blockStatement+
+    ;
+
+switchLabel
+    :   'case' constantExpression ':'
+    |   'default' ':'
+    ;
+
+constantExpression
+    :   expression
+    ;
+
+statementExpression
+    :   expression
+    ;
+
     
 //Lexer Rules
        
-ALPROJECT: ':' 'alproject' ':';
-BOOLEAN : 'boolean';
-BYTE : 'byte';
-CHAR : 'char';
-CONSTANTLY: 'constantly';
-DOUBLE : 'double';
-FLOAT: 'float';
-INT : 'int';
-LET: 'let';
-LONG: 'long';
-METHODHEADER: ':''methods'':';
-PROGRAM: 'program';
-SHORT : 'short';
-STRING : 'string';
-THIS : 'this';
-VARIABLEHEADER : ':' 'variables' ':';
+ALPROJECT           : ':' 'alproject' ':';
+BEGIN               : 'begin';
+BEGINPROGRAM        : ':begin program:';
+BOOLEAN             : 'boolean';
+BREAK               : 'break';
+BYTE                : 'byte';
+CASE                : 'case';
+CHAR                : 'char';
+CONSTANTLY          : 'constantly';
+CONTINUE            : 'continue';
+DEFAULT             : 'default';
+DO                  : 'do';
+DOUBLE              : 'double';
+ELSE                : 'else';
+END                 : 'end';
+ENDPROGRAM          : ':end program:';
+FLOAT               : 'float';
+FOR                 : 'for';
+FUNCTION            : 'function';
+IF                  : 'if';
+INT                 : 'int';
+LET                 : 'let';
+LONG                : 'long';
+METHODHEADER        : ':''methods'':';
+PROGRAM             : 'program';
+RETURN              : 'return';
+SHORT               : 'short';
+STRING              : 'string';
+SWITCH              : 'switch';
+THIS                : 'this';
+VARIABLEHEADER      : ':' 'variables' ':';
+VOID                : 'void';
+WHILE               : 'while';
 
   //Separators
   LPAREN          : '(';
   RPAREN          : ')';
+  LCURLY          : '{';
+  RCURLY          : '}';
   LBRACK          : '[';
   RBRACK          : ']';
   SEMI            : ';';
   COMMA           : ',';
   DOT             : '.';
+  ELLIPSES        : '...';
   
 
   //Operators
@@ -183,7 +320,7 @@ VARIABLEHEADER : ':' 'variables' ':';
   AND             : '&&';
   
   ADD_ASSIGN      : '+=';
-  SUB_ASSIGN      : ' =';
+  SUB_ASSIGN      : '-=';
   MUL_ASSIGN      : '*=';
   DIV_ASSIGN      : '/=';
   AND_ASSIGN      : '&=';
@@ -246,7 +383,7 @@ VARIABLEHEADER : ':' 'variables' ':';
   
   fragment
   NonZeroDigit
-      :   [1 9]
+      :   [1-9]
       ;
   
   fragment
@@ -272,7 +409,7 @@ VARIABLEHEADER : ':' 'variables' ':';
   
   fragment
   HexDigit
-      :   [0 9a fA F]
+      :   [0-9a-fA-F]
       ;
   
   fragment
@@ -293,7 +430,7 @@ VARIABLEHEADER : ':' 'variables' ':';
   
   fragment
   OctalDigit
-      :   [0 7]
+      :   [0-7]
       ;
   
   fragment
@@ -355,7 +492,7 @@ VARIABLEHEADER : ':' 'variables' ':';
   
   fragment
   Sign
-      :   [+ ]
+      :   [+-]
       ;
   
   fragment

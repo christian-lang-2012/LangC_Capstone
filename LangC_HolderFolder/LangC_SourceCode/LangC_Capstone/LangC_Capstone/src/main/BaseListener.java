@@ -8,347 +8,377 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 public class BaseListener implements GrammarListener {
 
 	@Override
+	public void enterVariableDeclarator(
+			@NotNull AL_Parser.VariableDeclaratorContext ctx) {
+	}
+
+	@Override
+	public void exitVariableDeclarator(
+			@NotNull AL_Parser.VariableDeclaratorContext ctx) {
+	}
+
+	@Override
 	public void enterExpression(@NotNull AL_Parser.ExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitExpression(@NotNull AL_Parser.ExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
-	public void enterVariableInitialization(
-			@NotNull AL_Parser.VariableInitializationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void enterVariableDeclaratorId(
+			@NotNull AL_Parser.VariableDeclaratorIdContext ctx) {
 	}
 
 	@Override
-	public void exitVariableInitialization(
-			@NotNull AL_Parser.VariableInitializationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void exitVariableDeclaratorId(
+			@NotNull AL_Parser.VariableDeclaratorIdContext ctx) {
 	}
 
 	@Override
 	public void enterFormalParameter(
 			@NotNull AL_Parser.FormalParameterContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitFormalParameter(
 			@NotNull AL_Parser.FormalParameterContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterMethodCall(@NotNull AL_Parser.MethodCallContext ctx) {
+	}
+
+	@Override
+	public void exitMethodCall(@NotNull AL_Parser.MethodCallContext ctx) {
 	}
 
 	@Override
 	public void enterExpressionList(@NotNull AL_Parser.ExpressionListContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitExpressionList(@NotNull AL_Parser.ExpressionListContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterStatementExpression(
 			@NotNull AL_Parser.StatementExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitStatementExpression(
 			@NotNull AL_Parser.StatementExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterVariableHeader(@NotNull AL_Parser.VariableHeaderContext ctx) {
+	}
+
+	@Override
+	public void exitVariableHeader(@NotNull AL_Parser.VariableHeaderContext ctx) {
+	}
+
+	@Override
+	public void enterVariableInitializer(
+			@NotNull AL_Parser.VariableInitializerContext ctx) {
+	}
+
+	@Override
+	public void exitVariableInitializer(
+			@NotNull AL_Parser.VariableInitializerContext ctx) {
 	}
 
 	@Override
 	public void enterBlock(@NotNull AL_Parser.BlockContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitBlock(@NotNull AL_Parser.BlockContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterBlockStatement(@NotNull AL_Parser.BlockStatementContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitBlockStatement(@NotNull AL_Parser.BlockStatementContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterType(@NotNull AL_Parser.TypeContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitType(@NotNull AL_Parser.TypeContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void enterVariableDeclarationID(
-			@NotNull AL_Parser.VariableDeclarationIDContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void exitVariableDeclarationID(
-			@NotNull AL_Parser.VariableDeclarationIDContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void enterMainProgram(@NotNull AL_Parser.MainProgramContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void exitMainProgram(@NotNull AL_Parser.MainProgramContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterForUpdate(@NotNull AL_Parser.ForUpdateContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitForUpdate(@NotNull AL_Parser.ForUpdateContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
-	public void enterVariableDeclaration(
-			@NotNull AL_Parser.VariableDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void enterMainProgram(@NotNull AL_Parser.MainProgramContext ctx) {
 	}
 
 	@Override
-	public void exitVariableDeclaration(
-			@NotNull AL_Parser.VariableDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void exitMainProgram(@NotNull AL_Parser.MainProgramContext ctx) {
+	}
+
+	@Override
+	public void enterLocalVariableDeclarationStatement(
+			@NotNull AL_Parser.LocalVariableDeclarationStatementContext ctx) {
+	}
+
+	@Override
+	public void exitLocalVariableDeclarationStatement(
+			@NotNull AL_Parser.LocalVariableDeclarationStatementContext ctx) {
 	}
 
 	@Override
 	public void enterEnhancedForControl(
 			@NotNull AL_Parser.EnhancedForControlContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitEnhancedForControl(
 			@NotNull AL_Parser.EnhancedForControlContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterPrimary(@NotNull AL_Parser.PrimaryContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitPrimary(@NotNull AL_Parser.PrimaryContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterFormalParameterList(
 			@NotNull AL_Parser.FormalParameterListContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitFormalParameterList(
 			@NotNull AL_Parser.FormalParameterListContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterConstantlyDeclaration(
+			@NotNull AL_Parser.ConstantlyDeclarationContext ctx) {
+	}
+
+	@Override
+	public void exitConstantlyDeclaration(
+			@NotNull AL_Parser.ConstantlyDeclarationContext ctx) {
 	}
 
 	@Override
 	public void enterMethodDeclaration(
 			@NotNull AL_Parser.MethodDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitMethodDeclaration(
 			@NotNull AL_Parser.MethodDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void enterProgramDeclaration(
-			@NotNull AL_Parser.ProgramDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void exitProgramDeclaration(
-			@NotNull AL_Parser.ProgramDeclarationContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterParExpression(@NotNull AL_Parser.ParExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitParExpression(@NotNull AL_Parser.ParExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterSwitchLabel(@NotNull AL_Parser.SwitchLabelContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitSwitchLabel(@NotNull AL_Parser.SwitchLabelContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterVariableIdentifier(
+			@NotNull AL_Parser.VariableIdentifierContext ctx) {
+	}
+
+	@Override
+	public void exitVariableIdentifier(
+			@NotNull AL_Parser.VariableIdentifierContext ctx) {
 	}
 
 	@Override
 	public void enterVariableDeclarators(
 			@NotNull AL_Parser.VariableDeclaratorsContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitVariableDeclarators(
 			@NotNull AL_Parser.VariableDeclaratorsContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterProgramHeader(@NotNull AL_Parser.ProgramHeaderContext ctx) {
+	}
+
+	@Override
+	public void exitProgramHeader(@NotNull AL_Parser.ProgramHeaderContext ctx) {
 	}
 
 	@Override
 	public void enterStatement(@NotNull AL_Parser.StatementContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitStatement(@NotNull AL_Parser.StatementContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterMethodHeader(@NotNull AL_Parser.MethodHeaderContext ctx) {
+	}
+
+	@Override
+	public void exitMethodHeader(@NotNull AL_Parser.MethodHeaderContext ctx) {
+	}
+
+	@Override
+	public void enterArguments(@NotNull AL_Parser.ArgumentsContext ctx) {
+	}
+
+	@Override
+	public void exitArguments(@NotNull AL_Parser.ArgumentsContext ctx) {
 	}
 
 	@Override
 	public void enterMethodBody(@NotNull AL_Parser.MethodBodyContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitMethodBody(@NotNull AL_Parser.MethodBodyContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterArrayInitializer(
+			@NotNull AL_Parser.ArrayInitializerContext ctx) {
+	}
+
+	@Override
+	public void exitArrayInitializer(
+			@NotNull AL_Parser.ArrayInitializerContext ctx) {
 	}
 
 	@Override
 	public void enterFormalParameters(
 			@NotNull AL_Parser.FormalParametersContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitFormalParameters(
 			@NotNull AL_Parser.FormalParametersContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void enterPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void exitPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void enterProgram(@NotNull AL_Parser.ProgramContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void exitProgram(@NotNull AL_Parser.ProgramContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void enterConstantExpression(
 			@NotNull AL_Parser.ConstantExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitConstantExpression(
 			@NotNull AL_Parser.ConstantExpressionContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterProgram(@NotNull AL_Parser.ProgramContext ctx) {
+	}
+
+	@Override
+	public void exitProgram(@NotNull AL_Parser.ProgramContext ctx) {
+	}
+
+	@Override
+	public void enterPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) {
+	}
+
+	@Override
+	public void exitPrimitiveType(@NotNull AL_Parser.PrimitiveTypeContext ctx) {
 	}
 
 	@Override
 	public void enterForControl(@NotNull AL_Parser.ForControlContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitForControl(@NotNull AL_Parser.ForControlContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterLastFormalParameter(
+			@NotNull AL_Parser.LastFormalParameterContext ctx) {
+	}
+
+	@Override
+	public void exitLastFormalParameter(
+			@NotNull AL_Parser.LastFormalParameterContext ctx) {
 	}
 
 	@Override
 	public void enterForInit(@NotNull AL_Parser.ForInitContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitForInit(@NotNull AL_Parser.ForInitContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
-	public void enterLiteral(@NotNull AL_Parser.LiteralContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void enterLocalVariableDeclaration(
+			@NotNull AL_Parser.LocalVariableDeclarationContext ctx) {
 	}
 
 	@Override
-	public void exitLiteral(@NotNull AL_Parser.LiteralContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	public void exitLocalVariableDeclaration(
+			@NotNull AL_Parser.LocalVariableDeclarationContext ctx) {
 	}
 
 	@Override
 	public void enterSwitchBlockStatementGroup(
 			@NotNull AL_Parser.SwitchBlockStatementGroupContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitSwitchBlockStatementGroup(
 			@NotNull AL_Parser.SwitchBlockStatementGroupContext ctx) {
-		System.out.println("Start"+ctx.getStart());
+	}
+
+	@Override
+	public void enterLiteral(@NotNull AL_Parser.LiteralContext ctx) {
+	}
+
+	@Override
+	public void exitLiteral(@NotNull AL_Parser.LiteralContext ctx) {
 	}
 
 	@Override
 	public void enterEveryRule(@NotNull ParserRuleContext ctx) {
-		System.out.println("Start"+ctx.getStart());
 	}
 
 	@Override
 	public void exitEveryRule(@NotNull ParserRuleContext ctx) {
-		System.out.println("Start"+ctx.getStart());
-	}
-
-	@Override
-	public void visitTerminal(@NotNull TerminalNode node) {
 	}
 
 	@Override
 	public void visitErrorNode(@NotNull ErrorNode node) {
+	}
+
+	@Override
+	public void visitTerminal(TerminalNode arg0) {
+		// 
+		
 	}
 
 }

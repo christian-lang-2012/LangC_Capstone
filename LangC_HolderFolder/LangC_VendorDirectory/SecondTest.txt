@@ -8,3 +8,12 @@ let int #number constantly = 42;
 let double #decimal = 5.2;
 
 :methods:
+function int addition(int #number1, int #number2)
+begin
+	let int #sum = #number1 + #number2;
+	return #sum;
+end
+
+:begin program:
+let int #abe = addition(#x, #z);
+:end program:

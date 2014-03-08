@@ -1,0 +1,446 @@
+package main;
+
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+
+public interface GrammarListener extends ParseTreeListener {
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarator(@NotNull ALCombinedGrammarParser.VariableDeclaratorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarator(@NotNull ALCombinedGrammarParser.VariableDeclaratorContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(@NotNull ALCombinedGrammarParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(@NotNull ALCombinedGrammarParser.ExpressionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclaratorId(@NotNull ALCombinedGrammarParser.VariableDeclaratorIdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclaratorId(@NotNull ALCombinedGrammarParser.VariableDeclaratorIdContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#formalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameter(@NotNull ALCombinedGrammarParser.FormalParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#formalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameter(@NotNull ALCombinedGrammarParser.FormalParameterContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodCall(@NotNull ALCombinedGrammarParser.MethodCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodCall(@NotNull ALCombinedGrammarParser.MethodCallContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#expressionList}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionList(@NotNull ALCombinedGrammarParser.ExpressionListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#expressionList}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionList(@NotNull ALCombinedGrammarParser.ExpressionListContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#statementExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementExpression(@NotNull ALCombinedGrammarParser.StatementExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#statementExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementExpression(@NotNull ALCombinedGrammarParser.StatementExpressionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableHeader}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableHeader(@NotNull ALCombinedGrammarParser.VariableHeaderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableHeader}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableHeader(@NotNull ALCombinedGrammarParser.VariableHeaderContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableInitializer(@NotNull ALCombinedGrammarParser.VariableInitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableInitializer(@NotNull ALCombinedGrammarParser.VariableInitializerContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlock(@NotNull ALCombinedGrammarParser.BlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlock(@NotNull ALCombinedGrammarParser.BlockContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#blockStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlockStatement(@NotNull ALCombinedGrammarParser.BlockStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#blockStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlockStatement(@NotNull ALCombinedGrammarParser.BlockStatementContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterType(@NotNull ALCombinedGrammarParser.TypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitType(@NotNull ALCombinedGrammarParser.TypeContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#forUpdate}.
+	 * @param ctx the parse tree
+	 */
+	void enterForUpdate(@NotNull ALCombinedGrammarParser.ForUpdateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#forUpdate}.
+	 * @param ctx the parse tree
+	 */
+	void exitForUpdate(@NotNull ALCombinedGrammarParser.ForUpdateContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#mainProgram}.
+	 * @param ctx the parse tree
+	 */
+	void enterMainProgram(@NotNull ALCombinedGrammarParser.MainProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#mainProgram}.
+	 * @param ctx the parse tree
+	 */
+	void exitMainProgram(@NotNull ALCombinedGrammarParser.MainProgramContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#localVariableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclarationStatement(@NotNull ALCombinedGrammarParser.LocalVariableDeclarationStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#localVariableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclarationStatement(@NotNull ALCombinedGrammarParser.LocalVariableDeclarationStatementContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#enhancedForControl}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnhancedForControl(@NotNull ALCombinedGrammarParser.EnhancedForControlContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#enhancedForControl}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnhancedForControl(@NotNull ALCombinedGrammarParser.EnhancedForControlContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimary(@NotNull ALCombinedGrammarParser.PrimaryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimary(@NotNull ALCombinedGrammarParser.PrimaryContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#formalParameterList}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterList(@NotNull ALCombinedGrammarParser.FormalParameterListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#formalParameterList}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterList(@NotNull ALCombinedGrammarParser.FormalParameterListContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#constantlyDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantlyDeclaration(@NotNull ALCombinedGrammarParser.ConstantlyDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#constantlyDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantlyDeclaration(@NotNull ALCombinedGrammarParser.ConstantlyDeclarationContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodDeclaration(@NotNull ALCombinedGrammarParser.MethodDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodDeclaration(@NotNull ALCombinedGrammarParser.MethodDeclarationContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#parExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParExpression(@NotNull ALCombinedGrammarParser.ParExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#parExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParExpression(@NotNull ALCombinedGrammarParser.ParExpressionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#switchLabel}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchLabel(@NotNull ALCombinedGrammarParser.SwitchLabelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#switchLabel}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchLabel(@NotNull ALCombinedGrammarParser.SwitchLabelContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableIdentifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableIdentifier(@NotNull ALCombinedGrammarParser.VariableIdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableIdentifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableIdentifier(@NotNull ALCombinedGrammarParser.VariableIdentifierContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarators(@NotNull ALCombinedGrammarParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarators(@NotNull ALCombinedGrammarParser.VariableDeclaratorsContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#programHeader}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgramHeader(@NotNull ALCombinedGrammarParser.ProgramHeaderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#programHeader}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgramHeader(@NotNull ALCombinedGrammarParser.ProgramHeaderContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement(@NotNull ALCombinedGrammarParser.StatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement(@NotNull ALCombinedGrammarParser.StatementContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#methodHeader}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodHeader(@NotNull ALCombinedGrammarParser.MethodHeaderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#methodHeader}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodHeader(@NotNull ALCombinedGrammarParser.MethodHeaderContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(@NotNull ALCombinedGrammarParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(@NotNull ALCombinedGrammarParser.ArgumentsContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodBody(@NotNull ALCombinedGrammarParser.MethodBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodBody(@NotNull ALCombinedGrammarParser.MethodBodyContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#arrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayInitializer(@NotNull ALCombinedGrammarParser.ArrayInitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#arrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayInitializer(@NotNull ALCombinedGrammarParser.ArrayInitializerContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#formalParameters}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameters(@NotNull ALCombinedGrammarParser.FormalParametersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#formalParameters}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameters(@NotNull ALCombinedGrammarParser.FormalParametersContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#constantExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantExpression(@NotNull ALCombinedGrammarParser.ConstantExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#constantExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantExpression(@NotNull ALCombinedGrammarParser.ConstantExpressionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void enterProgram(@NotNull ALCombinedGrammarParser.ProgramContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#program}.
+	 * @param ctx the parse tree
+	 */
+	void exitProgram(@NotNull ALCombinedGrammarParser.ProgramContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#primitiveType}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimitiveType(@NotNull ALCombinedGrammarParser.PrimitiveTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#primitiveType}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimitiveType(@NotNull ALCombinedGrammarParser.PrimitiveTypeContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#forControl}.
+	 * @param ctx the parse tree
+	 */
+	void enterForControl(@NotNull ALCombinedGrammarParser.ForControlContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#forControl}.
+	 * @param ctx the parse tree
+	 */
+	void exitForControl(@NotNull ALCombinedGrammarParser.ForControlContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#lastFormalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterLastFormalParameter(@NotNull ALCombinedGrammarParser.LastFormalParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#lastFormalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitLastFormalParameter(@NotNull ALCombinedGrammarParser.LastFormalParameterContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#forInit}.
+	 * @param ctx the parse tree
+	 */
+	void enterForInit(@NotNull ALCombinedGrammarParser.ForInitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#forInit}.
+	 * @param ctx the parse tree
+	 */
+	void exitForInit(@NotNull ALCombinedGrammarParser.ForInitContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#localVariableDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclaration(@NotNull ALCombinedGrammarParser.LocalVariableDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#localVariableDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclaration(@NotNull ALCombinedGrammarParser.LocalVariableDeclarationContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchBlockStatementGroup(@NotNull ALCombinedGrammarParser.SwitchBlockStatementGroupContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchBlockStatementGroup(@NotNull ALCombinedGrammarParser.SwitchBlockStatementGroupContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link ALCombinedGrammarParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(@NotNull ALCombinedGrammarParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ALCombinedGrammarParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(@NotNull ALCombinedGrammarParser.LiteralContext ctx);
+}

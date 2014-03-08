@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -29,13 +30,13 @@ public class MyFrame extends JFrame {
 	
 	public MyFrame(){
 		setTitle("File Chooser");
-		setSize(300,200);
-		setLocation(10,200);
+		setSize(500,500);
+		setLocation(0,0);
 		
 		fileChooseButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				JFileChooser chooser  = new JFileChooser();
-				int choice = chooser.showOpenDialog(chooserLabel);
+				int choice = chooser.showOpenDialog(MyFrame.this);
 				
 				if (choice != JFileChooser.APPROVE_OPTION)
 					return;
@@ -45,8 +46,19 @@ public class MyFrame extends JFrame {
 			}
 		});
 		
+		
+		label1.setSize(200, 15);
+		label1.setVisible(true);
+		chooserLabel.setSize(150,20);
+		chooserLabel.setVisible(true);
+		
+		fileChooseButton.setSize(100, 20);
+		fileChooseButton.setVisible(true);
+		fileChooseButton.setLocation(155,0);
+		fileChooseButton.setText("COMPILE!");
+		chooserLabel.add(fileChooseButton);
+		
 		add(label1);
-		add(fileChooseButton);
 		add(chooserLabel);
 		
 	}
@@ -64,7 +76,7 @@ public class MyFrame extends JFrame {
 			AL_Parser parser = new AL_Parser(tokens);
 			parser.setBuildParseTree(true);
 			ParseTree tree = parser.program();
-			
+			System.out.println(tree.toString());
 			ParseTreeWalker walker = new ParseTreeWalker();
 			walker.walk(new BaseListener(), tree);
 			
